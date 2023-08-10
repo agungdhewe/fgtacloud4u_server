@@ -1,0 +1,80 @@
+<?php namespace FGTA4\apis;
+
+if (!defined('FGTA4')) {
+	die('Forbiden');
+}
+
+require_once __ROOT_DIR.'/core/sqlutil.php';
+/*{__CDBREQUIRE__}*/
+// /* Enable Debugging */
+// require_once __ROOT_DIR.'/core/debug.php';
+
+use \FGTA4\exceptions\WebException;
+// use \FGTA4\debug;
+/*{__CDBLIBUSE__}*/
+
+
+
+/**
+ * {__MODULEPROG__}
+ *
+ * {__BASENAME__}Base
+ * Kelas dasar untuk keperluan-keperluan api
+ * kelas ini harus di-inherit untuk semua api pada modul {__BASENAME__}
+ *
+ * Agung Nugroho <agung@fgta.net> http://www.fgta.net
+ * Tangerang, 26 Maret 2021
+ *
+ * digenerate dengan FGTA4 generator
+ * tanggal {__GENDATE__}
+ */
+class {__BASENAME__}Base extends WebAPI {
+
+	protected $main_tablename = "{__TABLENAME__}";
+	protected $main_primarykey = "{__PRIMARYID__}";
+	protected $main_field_version = "{__BASETABLEENTITY__}_version";	
+	/*{__FIELDSCOMMIT__}*/
+	/*{__FIELDSAPPROVE__}*/
+
+
+
+	function __construct() {
+
+		// $logfilepath = __LOCALDB_DIR . "/output//*{__BASENAME__}*/.txt";
+		// debug::disable();
+		// debug::start($logfilepath, "w");
+
+		$DB_CONFIG = DB_CONFIG[$GLOBALS['MAINDB']];
+		$DB_CONFIG['param'] = DB_CONFIG_PARAM[$GLOBALS['MAINDBTYPE']];		
+		$this->db = new \PDO(
+					$DB_CONFIG['DSN'], 
+					$DB_CONFIG['user'], 
+					$DB_CONFIG['pass'], 
+					$DB_CONFIG['param']
+		);
+
+		/*{__CDBCONNECT__}*/
+	}
+
+
+	public function get_header_row($id) {
+		try {
+			$sql = "
+				select 
+				A.*
+				from 
+				$this->main_tablename A 
+				where 
+				A.$this->main_primarykey = :id 
+			";
+			$stmt = $this->db->prepare($sql);
+			$stmt->execute([":id" => $id]);
+			$rows = $stmt->fetchall(\PDO::FETCH_ASSOC);
+			if (!count($rows)) { throw new \Exception("Data '$id' tidak ditemukan"); }
+			return (object)$rows[0];
+		} catch (\Exception $ex) {
+			throw $ex;
+		}
+	}
+
+}

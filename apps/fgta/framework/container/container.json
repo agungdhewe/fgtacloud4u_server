@@ -1,0 +1,8 @@
+{
+	"title" : "Container",
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"loadmenu" : { "allowanonymous": false }
+	}
+}

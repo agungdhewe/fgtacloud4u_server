@@ -1,0 +1,32 @@
+.mfcontainer {
+	display: flex;
+	flex-direction: row ;
+	flex-wrap: wrap
+}
+
+
+.mfrow {
+	display: flex;
+	flex-direction: row ;
+	flex-wrap: wrap;
+	margin-top: 10px;
+}
+
+
+.mffield {
+	display: flex;
+	flex-direction: row ;
+	flex-wrap: wrap;
+	margin-top: 10px;	
+}
+
+.mflabel {
+	width: 100px;
+	margin-left: 20px;
+}
+
+.mfcomp {
+	width: 250px;
+	margin-left: 20px;
+	margin-right: 20px;
+}

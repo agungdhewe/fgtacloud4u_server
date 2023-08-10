@@ -1,0 +1,134 @@
+<html>
+<head>
+    <script>
+    function btn_test() {
+        window.test()
+
+    }
+
+    function btn_rerload() {
+        location.reload()
+    }
+
+
+    function btn_removeservice() {
+        var lcapi = window.getLocalAPI()
+        var wincmd = window.LocalRequire('node-windows')
+        wincmd.isAdminUser(function(isAdmin){
+            if (isAdmin) {
+               // menginstall service
+                var fs = window.LocalRequire('fs')
+				var path =  window.LocalRequire('path')
+				var svcscript = path.join(lcapi.rootPath, 'src', 'etap', 'service.js')
+
+				if (!fs.existsSync(svcscript)) {
+					svcscript = path.join(lcapi.rootPath, 'resources', 'app', 'src', 'etap', 'service.js')
+				}
+                console.log('--'+svcscript)
+
+                if (!fs.existsSync(svcscript)) {
+                    alert('File service.js tidak ditemukan! xx')
+                } else {
+                    var svc = new wincmd.Service({
+                        name:'FerrineEtapDataSync',
+                        description: 'Ferrine syncronisasi data sales.',
+                        script: svcscript                     
+                    })
+
+                    // Listen for the "install" event, which indicates the
+                    // process is available as a service.
+                    svc.on('uninstall',function(){
+                        console.log('Uninstall complete.');
+                        console.log('The service exists: ',svc.exists);
+                    });
+                    
+                    svc.uninstall();
+                }
+
+            } else {
+                alert('current user does not have administrative privileges.')
+            }
+        });
+
+
+    }
+
+
+    function btn_installservice() {
+        // var process = window.getProcess()
+        // console.log(process)
+        var lcapi = window.getLocalAPI()
+        console.log(lcapi)
+
+
+        // var nw = window.LocalRequire('node-windows')
+        // console.log(nw)
+
+        var wincmd = window.LocalRequire('node-windows')
+        wincmd.isAdminUser(function(isAdmin){
+            if (isAdmin) {
+               // menginstall service
+                var fs = window.LocalRequire('fs')
+                var path =  window.LocalRequire('path')
+                var svcscript = path.join(lcapi.rootPath, 'src', 'etap', 'service.js')
+				
+				if (!fs.existsSync(svcscript)) {
+					svcscript = path.join(lcapi.rootPath, 'resources', 'app', 'src', 'etap', 'service.js')
+				}
+
+                if (!fs.existsSync(svcscript)) {
+                    alert('File service.js tidak ditemukan!')
+                } else {
+                    var svc = new wincmd.Service({
+                        name:'FerrineEtapDataSync',
+                        description: 'Ferrine syncronisasi data sales.',
+                        script: svcscript,
+                        env:[{
+								name: "ROOTPATH",
+								value: lcapi.rootPath
+							},
+							{
+								name: "RUN_AS_SERVICE",
+								value: true
+							}
+						]                      
+                    })
+
+                    // Listen for the "install" event, which indicates the
+                    // process is available as a service.
+                    svc.on('install',function(){
+                        svc.start();
+                    });
+                    
+                    svc.on('alreadyinstalled',function(){
+                        console.log('This service is already installed.');
+                    });
+
+                    svc.on('start',function(){
+                        console.log(svc.name+' started!\nCek log.');
+                    });                    
+
+                    svc.install();
+                }
+
+
+
+            } else {
+                alert('current user does not have administrative privileges.')
+            }
+        });
+
+
+    }
+    </script>
+</head>
+<body>
+TEST HTML
+<button onclick="btn_rerload()">Reload</button>
+<button onclick="btn_test()">test</button>
+
+<button onclick="btn_installservice()">Install Service</button>
+<button onclick="btn_removeservice()">Remove Service</button>
+
+</body>
+</html>

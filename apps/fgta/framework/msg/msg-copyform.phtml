@@ -1,0 +1,86 @@
+<div id="pnl_editcopyform">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Copy Message To</div>
+		<a id="pnl_editcopyform-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+	<div id="pnl_editcopyform-title" style="margin-top: 0px; margin-bottom: 30px; font-weight: bold; font-size: 1.2em">XXXXXXX</div>
+
+
+	<form id="pnl_editcopyform-form">
+
+		<div class="form_row pnl_editcopyform_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editcopyform-txt_msgcopyto_id" class="easyui-textbox" mapping="msgcopyto_id"  maxlength="14"  style="width: 400px" data-options="multiline:false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_editcopyform_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Copy</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editcopyform-cbo_msgcopy_id" class="easyui-combo" style="width: 400px" mapping="msgcopy_id" display="msgcopy_name" data-options="editable:false, valueField:'id', textField:'text' , required: true, invalidMessage: 'Copy harus diisi'"  validType="requiredcombo['pnl_editcopyform-cbo_msgcopy_id']" >
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_editcopyform_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Copy To Email</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editcopyform-txt_msgcopyto_email" class="easyui-textbox" mapping="msgcopyto_email"  maxlength="60"  style="width: 400px" data-options="multiline:false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_editcopyform_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Copy To Nama</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editcopyform-txt_msgcopyto_nama" class="easyui-textbox" mapping="msgcopyto_nama"  maxlength="60"  style="width: 400px" data-options="multiline:false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_editcopyform_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editcopyform-txt_msg_id" class="easyui-textbox" mapping="msg_id"  maxlength="14"  style="width: 400px" data-options="multiline:false  , disabled: true">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<div style="margin-bottom: 10px">
+				<input id="pnl_editcopyform-autoadd" type="checkbox"><label for="pnl_editcopyform-autoadd">Otomatis tambah baru setelah berhasil disimpan</label>
+			</div>
+			<div>
+				<a id="pnl_editcopyform-btn_save" class="easyui-linkbutton c1" style="width: 100px">Simpan</a>
+			</div>
+		</div>
+	</div>	
+
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<a id="pnl_editcopyform-btn_prev" class="easyui-linkbutton c8" style="width: 50px">Prev</a>
+			<a id="pnl_editcopyform-btn_next" class="easyui-linkbutton c8" style="width: 50px">Next</a>
+		</div>
+
+		<div>
+			<a id="pnl_editcopyform-btn_addnew" class="easyui-linkbutton c8" style="width: 100px">Tambah Baru</a>
+		</div>
+
+		<div>
+			<a id="pnl_editcopyform-btn_delete" class="easyui-linkbutton c5" style="width: 100px">Hapus</a>
+		</div>
+	</div>
+
+
+
+
+</div>	

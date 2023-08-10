@@ -1,0 +1,74 @@
+<div id="pnl_editjurnalpaymnform">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit</div>
+		<a id="pnl_editjurnalpaymnform-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+	<div id="pnl_editjurnalpaymnform-title" style="margin-top: 0px; margin-bottom: 30px; font-weight: bold; font-size: 1.2em">XXXXXXX</div>
+
+
+	<form id="pnl_editjurnalpaymnform-form">
+
+		<div class="form_row">
+			<div class="form_label_col">jurnal_id</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editjurnalpaymnform-txt_jurnal_id" class="easyui-textbox" mapping="jurnal_id" maxlength="13" style="width: 400px" data-options="disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">jurnalpaymn_id</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editjurnalpaymnform-txt_jurnalpaymn_id" class="easyui-textbox" mapping="jurnalpaymn_id" maxlength="13" style="width: 400px" >
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">jurnalpaymn_data</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editjurnalpaymnform-txt_jurnalpaymn_data" class="easyui-textbox" mapping="jurnalpaymn_data" maxlength="255" style="width: 400px" >
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">jurnalpaymn_value</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_editjurnalpaymnform-txt_jurnalpaymn_value" class="easyui-numberbox" mapping="jurnalpaymn_value" style="width: 400px" data-options="precision: 2, decimalSeparator:'.', groupSeparator:','">
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<div style="margin-bottom: 10px">
+				<input id="pnl_editjurnalpaymnform-autoadd" type="checkbox"><label for="pnl_editjurnalpaymnform-autoadd">Otomatis tambah baru setelah berhasil disimpan</label>
+			</div>
+			<div>
+				<a id="pnl_editjurnalpaymnform-btn_save" class="easyui-linkbutton c1" style="width: 100px">Simpan</a>
+			</div>
+		</div>
+	</div>	
+
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<a id="pnl_editjurnalpaymnform-btn_prev" class="easyui-linkbutton c8" style="width: 50px">Prev</a>
+			<a id="pnl_editjurnalpaymnform-btn_next" class="easyui-linkbutton c8" style="width: 50px">Next</a>
+		</div>
+
+		<div>
+			<a id="pnl_editjurnalpaymnform-btn_addnew" class="easyui-linkbutton c8" style="width: 100px">Tambah Baru</a>
+		</div>
+
+		<div>
+			<a id="pnl_editjurnalpaymnform-btn_delete" class="easyui-linkbutton c5" style="width: 100px">Hapus</a>
+		</div>
+	</div>
+
+
+
+
+</div>	

@@ -1,0 +1,94 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    overscroll-behavior: contain;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.container-full {
+	background: rgb(143,143,143);
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+}
+
+.modal-center {
+	transform: translateY(-50%) !important;
+}
+
+.modal-button-container {
+	padding-right: 30px !important;	
+}
+
+.loadingmask {
+	background: rgba(0, 0, 0, 0.5);
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	z-index: 9999;
+}
+
+.loadingmask-hidden {
+	display: none;
+}
+
+#loading-indicator-box {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 200px;
+	height: 75px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fullcontent {
+	position: absolute;
+	margin: 5px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 10px;
+	/* overflow: hidden; */
+}
+
+
+.hidden-element {
+	display: none !important;
+}
+
+
+.fgta_mask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+.fgta_mask_message {
+	padding: 10px;
+	color: #000;
+	background-color: #fff;
+	box-shadow: 0px 0px 100px #000;
+}

@@ -1,0 +1,88 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row">
+			<div class="form_label_col">id</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_id" class="easyui-textbox" mapping="id" maxlength="10" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">nama</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_nama" class="easyui-textbox" mapping="nama" maxlength="90" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">alamat</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_alamat" class="easyui-textbox" mapping="alamat" maxlength="255" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_disabled" class="easyui-checkbox c1" mapping="disabled" data-options="label: 'disabled', labelPosition: 'after', disabled:false, checked: false">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">city</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_city" class="easyui-textbox" mapping="city" maxlength="10" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">tanggal</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-dt_tanggal" class="easyui-datebox" style="width: 400px" mapping="tanggal" data-options="editable:false">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">gender</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-cbo_gender" class="easyui-combobox" style="width: 400px" mapping="gender" display="gender" data-options="editable:false, valueField:'id', textField:'text'">
+			</div>
+		</div>
+
+
+		<div class="form_row">
+			<div class="form_label_col">nilai</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_nilai" class="easyui-numberbox" style="width: 400px" mapping="nilai" data-options="groupSeparator:',', precision:2">
+			</div>
+		</div>
+
+
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol yang lin disini -->
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="width">Hapus</a>
+		</div>
+	</div>
+
+</div>

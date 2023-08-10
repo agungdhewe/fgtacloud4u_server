@@ -1,0 +1,12 @@
+{
+	"title" : "Currency",
+	"allowanonymous" : true,
+	"allowedgroups" : ["super", "administrator"],
+	"apis" : {
+		"save" : { "allowanonymous": false, "allowedgroups" : ["public"] },
+		"delete" : { "allowanonymous": false, "allowedgroups" : ["nano"] },
+		"open" : { "allowanonymous": false, "allowedgroups" : ["public"] },
+		"list" : { "allowanonymous": false, "allowedgroups" : ["public"] }
+	}	
+}
+

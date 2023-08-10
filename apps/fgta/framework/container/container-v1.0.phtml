@@ -1,0 +1,65 @@
+<div id="mainlayout" class="easyui-layout" data-options="fit: true">
+		<script>
+			<?php if ($this->dash_module!=null) {?> 
+			global.setup.dash_module = '<?=$this->dash_module?>';
+			<?php } else { ?>
+			global.setup.dash_module = null;
+			<?php } ?>
+		</script>	
+
+
+		<div class="container-bar" data-options="region:'north'" 
+			style="height: 40px; border: 0px; box-shadow: 10px 10px 5px grey; overflow: hidden;
+			">
+			<div class="row" style="vertical-align: middle; overflow: hidden;">
+				<div class="column left">
+					<a id="btn_menu_back" class="easyui-linkbutton icon-back" iconCls="icon-back" data-options="plain:true"></a>
+					<a id="btn_apps_back" class="easyui-linkbutton icon-back" iconCls="icon-back" data-options="plain:true"></a>
+				</div>
+				<div class="column middle" style="padding: 0px; display: table; margin: auto;height: 37px;">
+					<div id="obj_txt_title" class="hpagetitle container-bar" style="display: table-cell; vertical-align:middle;">
+					</div>
+				</div>
+				<div class="column right" style="overflow: hidden" >
+					<div>
+					<?php if (__MODULE_RELOAD_BUTTON==true) { ?>
+					<a id="btn_reload" class="easyui-linkbutton c8" style="display: none">Reload</a>		
+					<?php } ?>
+					<a id="btn_home" class="easyui-linkbutton c8">Menu</a>
+					<a id="btn_logout" class="easyui-linkbutton c8">Logout</a>
+					<span id="btn_preference"  style="float: right; height: 32px; width: 32px; margin-top: 0px; ">
+						<div class="icon-preference-fg" style="margin-top: 5px"></div>
+					</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-options="region:'center'" style="margin: 0px; padding: 0px">
+			<div id="pnl_menu" class="easyui-panel main-bgmenu" data-options="fit: true, border: false" style="padding: 20px">
+				<!-- <a id="btn_testmenu" class="easyui-linkbutton c4">Test Menu Click</a> -->
+				<div style="margin-bottom: 20px; text-align: center">
+					<input id="obj_search" style="width: 50vw; border: 1px #ddd solid; height: 20px">
+				</div>
+				<div id="pnl_program"  data-options="fit: true">
+				</div>
+			</div>
+			<div style="
+				width: 100%;
+				height: 40px;
+				position: fixed;
+				top: 0px;
+				left: -5px; 
+				-webkit-box-shadow: 0px -8px 11px 8px rgba(0,0,0,0.75);
+				-moz-box-shadow: 0px -8px 11px 8px rgba(0,0,0,0.75);
+				box-shadow: 0px -8px 11px 8px rgba(0,0,0,0.75);
+			"
+			></div>			
+			<iframe id="pnl_iframe" class="easyui-panel" style="display: none; border: 0px" data-options="fit: true" >
+
+			</iframe>
+		</div>
+
+	
+</div>
+

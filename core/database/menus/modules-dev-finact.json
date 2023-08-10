@@ -1,0 +1,99 @@
+{
+	"title" : "Finance Accounting",
+	"disabled" : false,
+	"modules" : [
+
+		{
+			"title" : "Accounting",
+			"backcolor" : "#248e91",
+			"disabled" : false,
+			"modules" : [
+				"finact/acct/jurnal",
+				"finact/acct/billin"
+			]
+		},
+
+
+		{
+			"title" : "Procurement",
+			"backcolor" : "#cb6987",
+			"disabled" : false,
+			"modules" : [
+				"finact/procurement/request",
+				"finact/procurement/order",
+				"finact/procurement/receive"
+			]
+		},
+
+
+		{
+			"title" : "Budget",
+			"backcolor" : "#73779d",
+			"disabled" : false,
+			"modules" : [
+				"finact/budget/projbudget",
+				{"program":"finact/budget/projbudget", "variancename":"commit"},
+				{"program":"finact/budget/projbudget", "variancename":"approve"},				
+				"finact/budget/deptbudget",
+				"finact/budget/corpbudget",
+				{"program":"finact/budget/corpbudget", "variancename":"commits"},
+				{"program":"finact/budget/corpbudget", "variancename":"approve"}
+			]
+		},
+
+		{
+			"title" : "Items",
+			"disabled" : false,
+			"modules" : [
+				"finact/items/ownershiptype",
+				"finact/items/itemmanage",
+				"finact/items/itemmodel",
+				"finact/items/itemspec",
+				"finact/items/itemgroup",
+				"finact/items/itemclass",
+				"finact/items/itemasset",
+
+				"finact/items/inquirytype",
+				"finact/items/inquiry"
+			]		
+		},
+
+		{
+			"title" : "Master Data",
+			"backcolor" : "#d5895b",
+			"disabled" : false,
+			"modules" : [
+				
+				"finact/master/coatype",
+				"finact/master/coamodel",
+				"finact/master/coagroup",
+				"finact/master/coa",
+				"finact/master/projecttype",
+				"finact/master/project",
+				"finact/master/projecttask",
+				"finact/master/jurnalmodel",
+				"finact/master/jurnaltype",
+				"finact/master/periode",
+				"finact/master/accbudgetmodel",
+				"finact/master/accbudgettype",
+				"finact/master/accbudgetgroup",
+				"finact/master/accbudget",
+				"finact/master/bankrekening",
+				"finact/master/taxmodel",
+				"finact/master/taxtype",
+				"finact/master/trxmodel",
+				"finact/master/depremodel"
+			]
+		},
+
+		{
+			"title" : "Report Budget",
+			"backcolor" : "#cb6987",
+			"disabled" : false,
+			"modules" : [
+				"finact/budget/usage"
+			]
+		}
+
+	]
+}

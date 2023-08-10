@@ -1,0 +1,16 @@
+{
+	"signal": "SIGHUP",
+	"restartable": "rs",
+	"ignore": [
+	],
+	"verbose": true,
+	"watch": [
+		"apps/fgta/framework/formdev/formdev.json",
+		"apps/fgta/framework/formdev/microservice/*.js",
+		"core/*.js"
+	],
+	"env": {
+		"NODE_ENV": "development"
+	},	
+	"ext": "js json"
+}

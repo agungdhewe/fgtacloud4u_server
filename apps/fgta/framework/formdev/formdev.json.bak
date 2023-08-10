@@ -1,0 +1,21 @@
+{
+	"title" : "Form Dev",
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"save" : { "allowanonymous": false },
+		"delete" : { "allowanonymous": false },
+		"open" : { "allowanonymous": false },
+		"list" : { "allowanonymous": false },
+		"test" : { "allowanonymous": true }
+	},
+	
+
+	"data" : {
+		"tempupload" : "formdevtemp",
+		"microservice_port" : 8701,
+		"microservice_host" : "http://fgtamicroserv"
+	}
+}
+
+

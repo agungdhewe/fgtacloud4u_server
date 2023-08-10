@@ -1,0 +1,143 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Long Task</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton fgta-button-edit" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_id" class="easyui-textbox" mapping="longtask_id"  maxlength="14" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Name</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_name" class="easyui-textbox" mapping="longtask_name"  maxlength="90" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Start</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_start" class="easyui-textbox" mapping="longtask_start"   style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Expired</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_expired" class="easyui-textbox" mapping="longtask_expired"   style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Progress</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_progress" class="easyui-numberbox" mapping="longtask_progress" style="width: 400px; text-align:right" data-options="precision: 0, decimalSeparator:'.', groupSeparator:','  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Task Descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_taskdescr" class="easyui-textbox" mapping="longtask_taskdescr"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Logfile</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_logfile" class="easyui-textbox" mapping="longtask_logfile"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Last Progress ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_longtask_lastprogressid" class="easyui-textbox" mapping="longtask_lastprogressid"  maxlength="14" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_longtask_isrunning" class="easyui-checkbox c1" mapping="longtask_isrunning" data-options="label: 'Running', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_longtask_isrequestcancel" class="easyui-checkbox c1" mapping="longtask_isrequestcancel" data-options="label: 'Request Cancel', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_longtask_iscanceled" class="easyui-checkbox c1" mapping="longtask_iscanceled" data-options="label: 'Canceled', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_longtask_iscomplete" class="easyui-checkbox c1" mapping="longtask_iscomplete" data-options="label: 'Complete', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_longtask_iserror" class="easyui-checkbox c1" mapping="longtask_iserror" data-options="label: 'Error', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1 fgta-button-save" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; display: flex; justify-content: space-between; padding: 10px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol-tombol xtion disini -->
+			<?php
+			$customheaderxtion = __DIR__.'/fglongtask-edit-customxtion.phtml'; 
+			if (is_file($customheaderxtion)) {
+				include $customheaderxtion;
+			} else { ?>
+			
+			
+			
+			
+			<?php } ?>
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5 fgta-button-delete" style="margin-bottom: 10px; margin-right: 10px">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

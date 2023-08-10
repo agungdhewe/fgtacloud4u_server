@@ -1,0 +1,7 @@
+{
+	"title" : "home",
+	"modules" : [
+		"retail/invrpt/invart",
+		"retail/slrpt/byloc"
+	]
+}

@@ -1,0 +1,118 @@
+:root {
+	--page-width: 210mm;
+	--page-height: 297mm;
+
+	--margin-top: 4mm;
+	--margin-left: 7mm;
+	--margin-right: 7mm;
+	--margin-bottom: 7mm;
+
+	--pageheader-height: 10mm;
+}
+
+@page {
+	size: A4;
+	margin: 0mm;
+}
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	font-size: 10pt;
+	height: 100%;
+}
+
+
+.pagemeasure {
+	width: calc(var(--page-width) - 2px);
+	height: calc(var(--page-height) - 2px);
+	border: 1px solid blue;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+.report-wrapper {
+	position: absolute;
+	margin: 0;
+	padding-left: var(--margin-left);
+	padding-right: var(--margin-right);
+	width: var(--page-width);
+}
+
+
+@media print {
+	.pagemeasure {
+		width: calc(var(--page-width) - 2px);
+		height: calc(var(--page-height) - 2px);
+		border: 1px solid blue;
+	}
+}
+
+
+.fullwidth {
+	width: calc(var(--page-width) - var(--margin-left) - var(--margin-right));
+}
+
+
+
+
+
+.report-page-header:before {
+    content:"@";
+    display:block;
+    line-height:calc(var(--margin-top) + var(--pageheader-height));
+	text-indent:-99999px;
+	
+}
+
+.report-page-footer:after {
+	content:"@";
+    display:block;
+	height: var(--margin-bottom); 
+	text-indent:-99999px;
+}
+
+
+.report-header {
+	padding-top: var(--margin-top);
+	background-color: rgba(121, 121, 33, 0.507);
+}
+
+.report-table  {
+	position: relative;
+	margin-top: calc(-1 * (var(--margin-top) + var(--pageheader-height)));
+}
+
+
+.report-footer-hidden {
+	display: none;
+}
+
+.report-footer {
+	position: relative;
+	margin-top: calc(-1 * var(--margin-bottom) );
+	margin-bottom: var(--margin-bottom);
+	background-color: rgba(143, 143, 2, 0.205);
+}
+
+
+@media print {
+	.report-footer {
+	  break-inside: avoid;
+	}
+  }
+
+
+
+.testbox {
+	position: absolute;
+	/* border: 0px solid red; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 10px;
+}  

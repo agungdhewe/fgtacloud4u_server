@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="12"
+   height="12"
+   viewBox="0 0 3.1749999 3.1750001"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="icon-openedapp-close.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="20px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="45.254834"
+     inkscape:cx="4.0879611"
+     inkscape:cy="5.6126601"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     inkscape:window-x="49"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="-0.91113067,3.0295611"
+       orientation="0,-1"
+       id="guide888" />
+    <sodipodi:guide
+       position="3.9579844,0.1461854"
+       orientation="0,-1"
+       id="guide890" />
+    <sodipodi:guide
+       position="0.16658257,3.7932403"
+       orientation="1,0"
+       id="guide892" />
+    <sodipodi:guide
+       position="3.0277934,3.3446199"
+       orientation="1,0"
+       id="guide894" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1040"
+       style="fill:#aa0000;stroke-width:0.264583"
+       d="M 2.4412794,0.40795664 1.5968225,1.2524136 0.75273107,0.4083221 0.41801771,0.7430354 1.2621092,1.5871269 0.41801776,2.4312183 0.75309647,2.766297 1.5971879,1.9222056 2.4412794,2.7662971 2.7759927,2.4315838 1.9319012,1.5874923 2.7763581,0.74303531 Z" />
+  </g>
+</svg>

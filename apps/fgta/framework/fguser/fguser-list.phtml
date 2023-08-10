@@ -1,0 +1,73 @@
+<div id="pnl_list">
+	<div class="fgta-page-title">Daftar User</div>
+
+	<div id="pnl_list-pnl_head" style="display: flex; align-items: flex-end">
+		<?php
+		$customheadbutton = __DIR__.'/fguser-list-customheadbutton.phtml'; 
+		if (is_file($customheadbutton)) {
+			include $customheadbutton;
+		} else { ?>
+		<div class="list-buttonbaru" style="text-align: right; width: calc(100% - 10px); float: right;  position: absolute">
+			<a href="javascript:void(0)" id="pnl_list-btn_new" class="easyui-linkbutton c8" style="width: 60px">Baru</a>
+		</div>
+		<?php } ?>
+
+		<?php
+		$customsearch = __DIR__.'/fguser-list-customsearch.phtml'; 
+		if (is_file($customsearch)) {
+			include $customsearch;
+		} else { ?>
+		<!-- Simple Query -->
+		<div class="list-search-wrap" style="width: calc(100% - 65px); display: flex;">
+			<div class="list-search-item" style="width: 50px;">Cari</div>
+			<div class="list-search-item">
+				<input id="pnl_list-txt_search" class="easyui-textbox" style="width: 100%">
+			</div>
+			<div class="list-search-item" style="width: 45px">
+				<a href="javascript:void(0)" id="pnl_list-btn_load" class="easyui-linkbutton c8" style="width: 45px">Load</a>
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+
+
+	<div style="margin-top: 10px">
+		<table id="pnl_list-tbl_list" paging="true" cellspacing="0" width="100%" class="deftable">
+			<?php
+			$customview = __DIR__.'/fguser-list-customview.phtml'; 
+			if (is_file($customview)) {
+				include $customview;
+			} else { ?>
+
+			<thead>
+				<tr>
+					<th mapping="user_name">user_name</th>
+					<th mapping="user_fullname">user_fullname</th>
+					<th mapping="group_name">group_name</th>
+					<th mapping="user_disabled" type="checkbox">user_disabled</th>
+
+				</tr>
+				<tr style="background-color: #cccccc; height: 30px">
+					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Username</td>
+					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">User Fullname</td>
+					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Main Group</td>
+					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000; text-align: center">Disabled</td>
+
+				</tr>
+			</thead>
+
+			<?php } ?>
+
+		</table>
+	</div>
+
+
+	<?php
+	$customfootbutton = __DIR__.'/fguser-list-customfootbutton.phtml'; 
+	if (is_file($customfootbutton)) {
+		include $customfootbutton;
+	} 
+	?>	
+
+
+</div>

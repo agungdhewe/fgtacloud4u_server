@@ -1,0 +1,67 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row">
+			<div class="form_label_col">jurnal_id</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_jurnal_id" class="easyui-textbox" mapping="jurnal_id" maxlength="13" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">jurnal_descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_jurnal_descr" class="easyui-textbox" mapping="jurnal_descr" maxlength="90" style="width: 400px">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">jurnal_note</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_jurnal_note" class="easyui-textbox" mapping="jurnal_note" maxlength="255" style="width: 400px">
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+	<div id="pnl_edit-detil" class="form_row" style="margin-top: 30px;">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black;">
+			<div class="fgtable-head" style="height: 25px; padding: 5px 0px 0px 5px">Detil Informations</div>
+			<div class="fgtable-head-drow" style="height: 25px; padding: 5px 0px 0px 5px" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editjurnaldetilgrid')">jurnaldetil</div>
+			<div class="fgtable-head-drow" style="height: 25px; padding: 5px 0px 0px 5px" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editjurnalpaymngrid')">jurnalpaymn</div>
+			<div class="fgtable-head-drow" style="height: 25px; padding: 5px 0px 0px 5px" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editinfo')">info</div>
+			<div class="fgtable-head-drow" style="height: 25px; padding: 5px 0px 0px 5px" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editlog')">log</div>
+
+		</div>		
+	</div>		
+	
+	
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol yang lin disini -->
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="width">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

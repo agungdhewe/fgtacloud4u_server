@@ -1,0 +1,256 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Messaging</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_id" class="easyui-textbox" mapping="msg_id"  maxlength="14" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Module</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_module" class="easyui-textbox" mapping="msg_module"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Batch</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_batch" class="easyui-textbox" mapping="msg_batch"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_descr" class="easyui-textbox" mapping="msg_descr"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Type</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-cbo_msgtype_id" class="easyui-combo" style="width: 400px" mapping="msgtype_id" display="msgtype_name" data-options="editable:false, valueField:'id', textField:'text' , required: true, invalidMessage: 'Type harus diisi'"   validType="requiredcombo['pnl_edit-cbo_msgtype_id']" >
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">To HP</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_hp" class="easyui-textbox" mapping="msg_hp"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">To Email</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_email" class="easyui-textbox" mapping="msg_email"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">To Nama</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_nama" class="easyui-textbox" mapping="msg_nama"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Subject</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_subject" class="easyui-textbox" mapping="msg_subject"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Body</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_body" class="easyui-textbox" mapping="msg_body"  maxlength="2600" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_msg_isactive" class="easyui-checkbox c1" mapping="msg_isactive" data-options="label: 'Active', labelPosition: 'after', checked: false , disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Active Date</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_activedate" class="easyui-textbox" mapping="msg_activedate"   style="width: 400px" data-options="multiline: false , disabled: true ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_msg_isprocess" class="easyui-checkbox c1" mapping="msg_isprocess" data-options="label: 'On Process', labelPosition: 'after', checked: false , disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Process Batch</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_processbatch" class="easyui-textbox" mapping="msg_processbatch"  maxlength="14" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Process Date</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_processdate" class="easyui-textbox" mapping="msg_processdate"   style="width: 400px" data-options="multiline: false , disabled: true ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_msg_issend" class="easyui-checkbox c1" mapping="msg_issend" data-options="label: 'Send', labelPosition: 'after', checked: false , disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">MessageID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_server_messageid" class="easyui-textbox" mapping="server_messageid"  maxlength="160" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_msg_isfail" class="easyui-checkbox c1" mapping="msg_isfail" data-options="label: 'Fail', labelPosition: 'after', checked: false , disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Fail Message</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_failmessage" class="easyui-textbox" mapping="msg_failmessage"  maxlength="2600" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">SendDate</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_senddate" class="easyui-textbox" mapping="msg_senddate"   style="width: 400px" data-options="multiline: false , disabled: true ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_msg_ismarktodel" class="easyui-checkbox c1" mapping="msg_ismarktodel" data-options="label: 'Mark To Delete', labelPosition: 'after', checked: false , disabled: true">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Callback Table</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_cbtable" class="easyui-textbox" mapping="msg_cbtable"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Callback PK</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_cbfieldkey" class="easyui-textbox" mapping="msg_cbfieldkey"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Callback PK Value</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_cbfieldvalue" class="easyui-textbox" mapping="msg_cbfieldvalue"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Callback Status Field</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_msg_cbfieldstatus" class="easyui-textbox" mapping="msg_cbfieldstatus"  maxlength="60" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+
+		<div id="pnl_edit-detil" class="form_row" style="margin-top: 30px">
+			<div class="form_label_col"></div>
+			<div class="form_input_col detilbox" style="border: 0px solid black">
+				<div class="fgtable-head" style="height: 25px; padding: 5px 0px 0px 5px">Detil Informations</div>
+				<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; " onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editattachementgrid')">
+					<div id="pnl_edit-txt_attachement_title" class="detilgrid-text">Attachment</div>
+					<div id="pnl_edit-txt_attachement_value" class="detilgrid-value">&nbsp;</div>
+				</div>
+				<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; " onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editcopygrid')">
+					<div id="pnl_edit-txt_copy_title" class="detilgrid-text">Copy Message To</div>
+					<div id="pnl_edit-txt_copy_value" class="detilgrid-value">&nbsp;</div>
+				</div>
+
+			</div>		
+		</div>		
+		
+		
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; display: flex; justify-content: space-between; padding: 10px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol-tombol xtion disini -->
+			<?php
+			$customheaderxtion = __DIR__.'/msg-edit-customxtion.phtml'; 
+			if (is_file($customheaderxtion)) {
+				include $customheaderxtion;
+			} else { ?>
+			
+			
+			
+			
+			<?php } ?>
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="margin-bottom: 10px; margin-right: 10px">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

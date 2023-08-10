@@ -1,0 +1,225 @@
+{
+
+	"title": "home",
+	"modules": [
+
+		{
+			"title" : "Account",
+			"modules" : [
+				"finact/master/coagroup",
+				"finact/master/coa",
+				"finact/acct/coaformat",
+				"finact/acct/coaformatset",
+				"finact/master/accbudgetgroup",
+				"finact/master/accbudget",
+				"finact/master/accfingroup",
+				"finact/master/accfin",
+				"finact/acct/rptcoa",
+				"finact/budget/rptaccbudget",
+				"finact/fin/rptaccfin",
+				"finact/acct/rptsummary",
+				"finact/acct/rptlabarugi",
+				"finact/acct/rptneraca",
+				"finact/fin/rptcashflow",
+				"finact/acct/rptformatted",
+				"finact/acct/rptagingar",
+				"finact/acct/rptagingap",
+
+				"finact/master/periodemo",
+				"finact/acct/jurnalsaldo",
+				"finact/acct/jurnalsaldoupload"
+		
+			]
+		},
+
+		{
+			"title" : "Reports",
+			"modules" : [
+				"finact/acct/rptcoa",
+				"finact/budget/rptaccbudget",
+				"finact/fin/rptaccfin",
+				"finact/acct/rptsummary",
+				"finact/acct/rptlabarugi",
+				"finact/acct/rptneraca",
+				"finact/fin/rptcashflow",
+				"finact/acct/rptformatted",
+				"finact/acct/rptagingar",
+				"finact/acct/rptagingap"				
+			]
+		},
+		
+
+		{
+			"title" : "Budgeting",
+			"modules" : [
+
+				{
+					"title" : "Budget Setup",
+					"modules" : [
+
+						"finact/master/accbudgetgroup",
+						"finact/master/accbudget",
+						"finact/budget/rptaccbudget",
+						"finact/master/projecttype",
+						"finact/master/project",
+						"finact/master/projectmodel",
+						"finact/master/accbudgetmodel",
+						"finact/budget/deptbudgetacc",
+						"finact/budget/accbudgetformat",
+						"finact/budget/accbudgetformatset"
+					]
+				},
+
+
+
+				{"program": "finact/budget/deptbudget", "variancename":"view"},
+				{"program": "finact/budget/deptbudget", "variancename":"propose"},
+				{"program": "finact/budget/deptbudget", "variancename":"approval"},
+				"finact/budget/deptbudget",
+
+				{"program": "finact/budget/deptbudgetrev", "variancename":"view"},
+				{"program": "finact/budget/deptbudgetrev", "variancename":"propose"},
+				{"program": "finact/budget/deptbudgetrev", "variancename":"approval"},
+				"finact/budget/deptbudgetrev",
+		
+				{"program": "finact/budget/projbudget", "variancename":"view"},
+				{"program": "finact/budget/projbudget", "variancename":"propose"},
+				{"program": "finact/budget/projbudget", "variancename":"approval"},
+				"finact/budget/projbudget",
+
+				{"program": "finact/budget/projbudgetrev", "variancename":"view"},
+				{"program": "finact/budget/projbudgetrev", "variancename":"propose"},
+				{"program": "finact/budget/projbudgetrev", "variancename":"approval"},
+				"finact/budget/projbudgetrev"
+
+
+
+
+
+			]
+		},
+
+		{
+			"title" : "Items",
+			"modules" : [
+				
+				"finact/items/itemmodel",
+				"finact/items/itemclass",
+				"finact/items/item",
+				"finact/items/itemstock",
+				"finact/items/itemasset",
+				"finact/items/itemassetmovemodel",
+				"finact/items/itemassetmovetype",
+				"finact/items/itemassetmove"
+			]
+		},
+
+		{
+			"title" : "Billing",
+			"modules" : [
+				"media/sales/mediaorder",
+				"media/sales/logproof",
+				"media/sales/logproofassign",
+				"media/sales/logproofbilling",
+				"finact/fin/billout"
+			]
+		},
+
+		{
+			"title" : "Collection",
+			"modules" : [
+				"finact/collection/colltarget"
+			]
+		},
+
+		{
+			"title" : "Expenditure",
+			"modules" : [
+
+				"finact/master/trxmodel",
+
+				"finact/procurement/inquirymodel",
+				"finact/procurement/inquirytype",
+				"finact/procurement/inquiry",
+				"finact/procurement/inquiryprocess",
+				"finact/procurement/request",
+				"finact/procurement/orderout",
+				"finact/procurement/recv"
+			]
+		},
+
+		{
+			"title": "Setup",
+			"modules": [
+
+
+				{
+					"title" : "General Setup",
+					"modules" : [
+						"ent/general/bank",
+						"ent/general/country",
+						"ent/general/curr",
+						"ent/general/doctype",
+						"ent/general/gender",
+						"ent/general/religion",
+						"ent/affiliation/contacttype",
+						"ent/affiliation/partnertype",
+						"ent/affiliation/partnerorg",
+						"ent/affiliation/partnercategory",
+						"ent/affiliation/partner",
+						"ent/affiliation/brandtype",
+						"ent/affiliation/brand",
+						{"program":"ent/affiliation/brand", "variancename":"manual-id-input"},
+						"ent/general/interface"
+					]
+				},
+		
+				{
+					"title" : "Location Setup",
+					"modules" : [
+						"ent/location/area",
+						"ent/location/prov",
+						"ent/location/city",
+						"ent/location/zone",
+						"ent/location/land",
+						"ent/location/site",
+						"ent/location/landtype",
+						"ent/location/sitemodel",
+						"ent/location/sitegroup"
+					]
+				},
+		
+				{
+					"title" : "Organisation Setup",
+					"modules" : [
+						"ent/organisation/depttype",
+						"ent/organisation/deptmodel",
+						"ent/organisation/deptgroup",
+						"ent/organisation/authlevel",
+						"ent/organisation/auth",
+						"ent/organisation/dept",
+						"ent/organisation/unitgroup",
+						"ent/organisation/unit",
+						"ent/organisation/docs"
+					]
+				},
+
+				"fgta/framework/fgsetting"
+
+
+			]
+		},
+	
+
+		{
+			"title" : "HR",
+			"modules" : [
+				"hrms/master/empl",
+				"fgta/framework/fguser",
+				"hrms/master/empluser"
+			]
+		}
+		
+	]
+	
+}

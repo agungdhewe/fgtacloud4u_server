@@ -1,0 +1,281 @@
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+
+.icon-button {
+	display: inline-block;
+	width: 32px; height: 32px;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+}
+
+.icon-button:hover {
+	background-color: #fff;
+	filter: brightness(100%);
+}
+
+
+.icon-button:active {
+	background-color: #fff;
+	filter: brightness(60%);
+}
+
+.icon-button:focus {
+	background-color: none;
+	transition: background-color 1s;
+}
+
+
+
+.icon-image {
+	background-position: center;
+	width: 20px; height: 20px; display: inline-block; padding: 0px; margin: 6px;
+	cursor: pointer;
+	opacity: 1;
+}
+
+.icon-menu-close {
+	background:url('../../../../../images/icon-menu-close.svg') ;
+
+}
+
+.icon-menu-open {
+	background:url('../../../../../images/icon-menu-open.svg') ;
+
+}
+
+.icon-back {
+	background: url('../../../../../images/icon-back.svg') no-repeat; 
+}
+
+.icon-menu-pref {
+	background: url('../../../../../images/icon-menu-pref.svg') no-repeat; 
+}
+
+.icon-menu-home {
+	background: url('../../../../../images/icon-menu-home.svg') no-repeat; 
+}
+
+.icon-menu-logout {
+	background: url('../../../../../images/icon-menu-logout.svg') no-repeat; 
+}
+
+.icon-menu-reload {
+	background: url('../../../../../images/icon-menu-reload.svg') no-repeat; 
+}
+
+#txt_appstitle {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	padding-top: 5px;
+}
+
+#txt_menutitle {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	padding-top: 5px;
+}
+
+#obj_search {
+	border: 1px solid #ccc;
+}
+
+#obj_search:focus, input:focus{
+    outline: none;
+}
+
+
+#sidenav-btn_search {
+	border: none;
+	height: 30px;
+	cursor: pointer;
+	background-color: #3F4756;
+	color: #fff;
+}
+
+#sidenav-btn_search:hover {
+	filter: brightness(110%);
+}
+
+#sidenav-btn_search:active {
+	filter: brightness(90%);
+}
+
+
+.container-bar {
+	box-shadow: 0px 2px 5px grey ;
+}
+
+.content-iframe {
+	border: 0;
+	flex-grow: 1;
+}
+
+.hidden-iframe {
+	display: none !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+#pnl_menu {
+	overflow: hidden;
+}
+
+#pnl_menu-list-container {
+	overflow-y: scroll;
+	height: calc(100vh - 150px);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#pnl_menu-list {
+	display: flex;
+	padding: 10px 0px 60px 10px;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+
+.menubutton {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	font-size: .8em;
+	border: 0px;
+	cursor: pointer;
+	padding: 0;
+	background-color: #3F4756;
+	color: #fff;
+}
+
+.menubutton:hover {
+	filter: brightness(110%);
+}
+
+.menubutton:active {
+	filter: brightness(90%);
+}
+
+.menubutton-container {
+	margin: 0;
+	width: 80px;
+	height: 80px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.menubutton-indicator {
+	position: absolute;
+	text-align: right;
+	margin-top: -80px;
+	width: 80px;
+	padding-right: 4px;
+	padding-top: 4px;
+	float: right;
+	line-height: 4px;
+}
+
+.menubutton-indicator-lamp {
+	display: inline-block; 
+	width:6px; height:6px; 
+	border-radius: 3px; 
+	background-color: #fff;
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	40% {
+		opacity: 1;
+	}
+
+	90% {
+		opacity: 0;
+	}
+}
+
+
+
+.menubutton-icon {
+	height: 32px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.menubutton-text {
+	text-align: center;
+}
+
+
+
+
+
+
+
+/* ========================================== */
+
+.column {
+	float: left;
+	padding: 3px;
+	vertical-align: middle;
+	line-height: 1em;
+}
+
+.left {
+	width: 25%;
+	padding-left: 10px;
+}
+
+.right {
+	width: 25%;
+	text-align: right;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+.middle {
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3em;
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	
+}
+  
+
+
+
+
+
+
+
+
+@media screen and (max-width: 450px) {
+	.hpagetitle {
+		font-size: 0.8em;
+	}
+}	

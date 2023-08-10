@@ -1,0 +1,16 @@
+{
+	"signal": "SIGHUP",
+	"restartable": "rs",
+	"ignore": [
+	],
+	"verbose": true,
+	"watch": [
+		"apps/fgta/example/longrun/longrun.json",
+		"apps/fgta/example/longrun/microservice/*.js",
+		"core/*.js"
+	],
+	"env": {
+		"NODE_ENV": "development"
+	},	
+	"ext": "js json"
+}

@@ -1,0 +1,22 @@
+{
+	"title": "home *****",
+	"modules": [
+
+		"retail/master/merchsea",
+		"retail/master/merchitemgro",
+		"retail/master/merchitemctg",
+		"retail/master/merchitem",
+		"retail/master/retailchannel",
+		"fgta/riset/imagecolorpicker",
+
+		"finact/budget/deptbudget",
+		"finact/budget/projbudget",
+		"finact/procurement/inquiry",
+		"finact/procurement/request",
+		"finact/procurement/orderout",
+		"finact/procurement/recv",
+		"finact/fin/billin",
+		"finact/master/accfin",
+		"finact/budget/finbudget"
+	]
+}

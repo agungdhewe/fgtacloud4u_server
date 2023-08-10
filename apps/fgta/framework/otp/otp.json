@@ -1,0 +1,10 @@
+{
+	"title" : "OTP",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {},
+	"get" : {
+		"getimage" : { "allowanonymous": true }
+	}
+}
+

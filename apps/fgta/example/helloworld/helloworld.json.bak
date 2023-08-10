@@ -1,0 +1,8 @@
+{
+	"title" : "helloworld",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}	
+}
+

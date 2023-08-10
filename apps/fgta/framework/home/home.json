@@ -1,0 +1,10 @@
+{
+	"title" : "Home",
+	"variance" : {
+	},
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}	
+}
+

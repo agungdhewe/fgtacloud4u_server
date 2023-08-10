@@ -1,0 +1,12 @@
+# routing module
+/index.php/module/fgta/example/routing
+
+
+#routing module: akses halaman 
+/index.php/module/fgta/example/routing/~page1
+/index.php/module/fgta/example/routing/~page2
+
+
+#routing module: parameter
+/index.php/module/fgta/example/routing/param1/param2/param3
+/index.php/module/fgta/example/routing/~page3/variable1/variable2/variable3

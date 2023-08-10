@@ -1,0 +1,7 @@
+{
+	"title" : "Long Task",
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {}	
+}
+

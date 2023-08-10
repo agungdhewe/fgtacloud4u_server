@@ -1,0 +1,3 @@
+<?php
+
+// detil open api

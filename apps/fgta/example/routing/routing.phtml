@@ -1,0 +1,28 @@
+<!-- latihan 1 : latihan module routing -->
+<div>	
+ini adalah halaman awal untuk latihan routing
+</div>
+
+
+<!-- latihan 3 : parameter halaman -->
+<div>
+	<?php 
+		// menangkap parameter
+		$scriptparam = $this->reqinfo->params->scriptparam;
+		if ($scriptparam!="") {
+			echo "<div>Parameter dikirim: $scriptparam!</div>";
+			$params = explode('/', $scriptparam);
+			echo "<div>";
+			var_dump($params);
+			echo "</div>";
+		}
+	?>
+</div>
+
+
+<div>
+	<!-- variable controller -->	
+	<?php
+		echo "variable dari controller: " . $this->variable;
+	?>
+</div>

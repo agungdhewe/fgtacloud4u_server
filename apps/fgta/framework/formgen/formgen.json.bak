@@ -1,0 +1,12 @@
+{
+	"title" : "test title",
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"save" : { "allowanonymous": false },
+		"delete" : { "allowanonymous": false },
+		"open" : { "allowanonymous": false },
+		"list" : { "allowanonymous": false }
+	}
+}
+

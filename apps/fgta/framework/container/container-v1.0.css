@@ -1,0 +1,82 @@
+.icon-preference-fg {
+	background:url('../../../../../images/icons/icon-preference.png') ;
+	background-size: 20px 20px;
+	width: 20px; height: 20px; display: inline-block; padding: 0px; margin: 0px;
+	cursor: pointer;
+}
+
+
+.column {
+	float: left;
+	padding: 3px;
+	vertical-align: middle;
+	line-height: 1em;
+}
+
+.left {
+	width: 25%;
+	padding-left: 10px;
+}
+
+.right {
+	width: 25%;
+	text-align: right;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+.middle {
+	width: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3em;
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	
+}
+  
+
+.menubutton {
+	font-size: 0.75em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.menubutton:link {
+	font-size: 0.75em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+.icon-back {
+	background: url('../../../../../images/icons/icon-back.png') no-repeat; 
+	background-position: center;
+	opacity: 1;
+}
+
+
+.icon-noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+}
+
+
+@media screen and (max-width: 450px) {
+	.hpagetitle {
+		font-size: 0.8em;
+	}
+}	

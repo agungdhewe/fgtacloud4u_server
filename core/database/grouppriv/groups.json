@@ -1,0 +1,15 @@
+{
+	"description" : "Daftar Seluruh Group yang tersedia",
+	"groups" : [
+		"root",
+		"super",
+		"administrator",
+		"director",
+		"generalmanager",
+		"brandmanager",
+		"merchandiser",
+		"brandadmin",
+		"accountingmanager",
+		"accountingstaff"
+	]
+}

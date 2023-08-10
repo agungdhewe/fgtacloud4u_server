@@ -1,0 +1,12 @@
+<?php require_once dirname(__FILE__).'/editorial-list.phtml' ?>
+<?php require_once dirname(__FILE__).'/editorial-edit.phtml' ?>
+
+
+
+<?php
+$customrecordstatus = __DIR__.'/editorial-customrecordstatus.phtml'; 
+if (is_file($customrecordstatus)) {
+	include $customrecordstatus;
+} else { ?>
+
+<?php } ?>

@@ -1,0 +1,20 @@
+<div id="pnl_list">
+	<div id="pnl_list-pnl_head" style="display: flex; justify-content: space-between; margin-top: 10px ">
+		<div>
+			<span style="display: none">
+			<span>Per Tanggal</span>
+			<input id="pnl_list-dt_report_date" class="easyui-datebox" style="width: 130px" mapping="jurnal_date" data-options="editable:false ">
+			</span>
+			<a href="javascript:void(0)" id="pnl_list-btn_load" class="easyui-linkbutton c8" style="width: 45px">Load</a>
+		</div>
+		
+		<div style="text-align: right">
+		<a href="javascript:void(0)" id="pnl_list-btn_export" class="easyui-linkbutton c8" style="width: 100px">Export</a>
+		<a href="javascript:void(0)" id="pnl_list-btn_print" class="easyui-linkbutton c8" style="width: 45px">Print</a>
+		</div>
+	</div>
+	<div id="rpt_container"  style="margin-top: 10px; border: 1px solid #000">
+		<iframe id="obj_report" style="border: 0px; width:100%; height:100%;">
+		</iframe>
+	</div>
+</div>	

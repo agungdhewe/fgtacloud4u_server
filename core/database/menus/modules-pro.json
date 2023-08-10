@@ -1,0 +1,13 @@
+{
+	"title": "home",
+	"modules": [
+		{
+			"title" : "PDT",
+			"modules": [
+				"retail/pdt/opname",
+				"retail/pdt/opnamerpt1"
+			]
+		}
+
+	]
+}

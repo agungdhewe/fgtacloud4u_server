@@ -1,0 +1,69 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Account</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row">
+			<div class="form_label_col">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_acc_id" class="easyui-textbox" mapping="acc_id" uppercase="true" maxlength="10" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'ID harus diisi' ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">Account</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_acc_name" class="easyui-textbox" mapping="acc_name" uppercase="true" maxlength="60" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Nama Account harus diisi' ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">Descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_acc_descr" class="easyui-textbox" mapping="acc_descr"  maxlength="90" style="width: 400px" data-options="multiline: false  ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_acc_isdisabled" class="easyui-checkbox c1" mapping="acc_isdisabled" data-options="label: 'Disabled', labelPosition: 'after', disabled:false, checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">Group</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-cbo_accgroup_id" class="easyui-combo" style="width: 400px" mapping="accgroup_id" display="accgroup_name" data-options="editable:false, valueField:'id', textField:'text' , required: true, invalidMessage: 'Account Group harus diisi'">
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol yang lin disini -->
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="width">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

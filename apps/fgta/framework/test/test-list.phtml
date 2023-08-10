@@ -1,0 +1,50 @@
+<div id="pnl_list">
+	<div class="fgta-page-title">Daftar</div>
+
+
+	<div id="pnl_list-pnl_head" style="display: flex;">
+		<!-- Simple Query -->
+		<div style="width: calc(100% - 65px); display: flex;">
+			<div style="width: 100px;">Cari</div>
+			<div style="width: 150px">
+				<input id="pnl_list-txt_search" class="easyui-textbox" style="width: 100%">
+			</div>
+			<div>
+				<a href="javascript:void(0)" id="pnl_list-btn_load" class="easyui-linkbutton c8" style="width: 45px">Load</a>
+			</div>
+		</div>
+		<div style="text-align: right; width: 65px; float: right;">
+			<a href="javascript:void(0)" id="pnl_list-btn_new" class="easyui-linkbutton c8" style="width: 60px">Baru</a>
+		</div>
+	</div>
+
+	<div style="margin-top: 10px">
+		<table id="pnl_list-tbl_list" paging="true" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th mapping="id">id</th>
+					<th mapping="nama">nama</th>
+					<th mapping="alamat">alamat</th>
+					<th mapping="disabled">disabled</th>
+					<th mapping="city">city</th>
+					<th mapping="tanggal">tanggal</th>
+					<th mapping="gender">gender</th>
+
+				</tr>
+				<tr style="background-color: #cccccc">
+					<td style="width: 100px; border-bottom: 1px solid #000000">id</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">nama</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">alamat</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">disabled</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">city</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">tanggal</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000">gender</td>
+
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+
+
+</div>

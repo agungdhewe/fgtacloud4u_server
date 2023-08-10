@@ -1,0 +1,50 @@
+{
+	"title": "home *****",
+	"modules": [
+		"fgta/riset/pros02",
+		{
+			"title" : "Administrator",
+			"icon" : "icon-admin-white.png",
+			"backcolor" : "#8ab0c5",
+			"disabled" : false,
+			"file" : "modules-fgta-administrator.json"
+		},
+
+		{
+			"title" : "Enterprise",
+			"icon" : "icon-enterprise-white.png",
+			"backcolor" : "#d7895b",
+			"disabled" : false,
+			"file" : "modules-fgta-ent.json"
+		},
+
+		{
+			"title" : "hrms",
+			"icon" : "icon-hrms-white.png",
+			"backcolor" : "#a25656",
+			"disabled" : false,
+			"file" : "modules-fgta-hrms.json"
+		},
+
+        {
+            "title" : "Fin & Act",
+			"icon" : "icon-finact-white.svg",
+			"backcolor" : "#3f497c",                
+            "disabled" : false,
+            "file" : "modules-fgta-finact.json"
+        },
+        
+        {
+			"title" : "Media",
+			"icon" : "icon-media-white.svg",
+            "disabled" : false,
+            "file" : "modules-fgta-media.json"
+        }
+        
+
+
+
+		
+	]
+}
+

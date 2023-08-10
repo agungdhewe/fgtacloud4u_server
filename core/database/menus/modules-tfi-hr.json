@@ -1,0 +1,14 @@
+{
+	"title": "home",
+	"modules": [
+		"hrms/dashboard/myattdrep",
+		"hrms/master/empl",
+		"hrms/master/edu",
+		"hrms/master/hrgrd",
+		"hrms/master/hrjob",
+		"hrms/master/hrsection",
+		"hrms/master/hrstatus",
+		"hrms/master/marital",
+		{"program":"ent/organisation/dept", "variancename":"view"}
+	]
+}

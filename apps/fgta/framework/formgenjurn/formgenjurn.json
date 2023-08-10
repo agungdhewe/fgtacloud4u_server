@@ -1,0 +1,12 @@
+{
+	"title" : "Gen Master Detil",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"save" : { "allowanonymous": false },
+		"delete" : { "allowanonymous": false },
+		"open" : { "allowanonymous": false },
+		"list" : { "allowanonymous": false }
+	}	
+}
+

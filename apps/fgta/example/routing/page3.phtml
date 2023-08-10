@@ -1,0 +1,17 @@
+<div style="color: orange">
+ini page3 latihan module routing
+</div>
+
+<!-- latihan 3 : parameter halaman -->
+<?php 
+// menangkap parameter
+$scriptparam = $this->reqinfo->params->scriptparam;
+if ($scriptparam!="") {
+	echo "<div>Parameter dikirim: $scriptparam!</div>";
+	$params = explode('/', $scriptparam);
+	echo "<div>";
+	var_dump($params);
+	echo "</div>";
+}
+
+?>

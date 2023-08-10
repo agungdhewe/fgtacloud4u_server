@@ -1,0 +1,10 @@
+{
+	"title" : "API",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"testapi" : { "allowanonymous": true },
+		"limitedapi" : { "allowanonymous": false, "allowedgroups" : ["nanana"] }
+	}	
+}
+

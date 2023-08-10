@@ -1,0 +1,10 @@
+{
+	"title" : "Login",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+		"dologin" : { "allowanonymous": true, "allowedgroups":["agung"]},
+		"testprivajax" : { "allowanonymous": false }
+	}
+}
+

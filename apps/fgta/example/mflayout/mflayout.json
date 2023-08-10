@@ -1,0 +1,8 @@
+{
+	"title" : "MF Layout",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}	
+}
+

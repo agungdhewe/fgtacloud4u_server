@@ -1,0 +1,224 @@
+{
+
+	"title": "home",
+	"modules": [
+
+		{
+			"title" : "Store",
+			"modules" : [
+				"finact/fin/pettycash",
+				"finact/procurement/inquiry"
+			]
+		},
+
+		{
+			"title" : "Administrator",
+			"modules" : [
+				"fgta/framework/fguser",
+				"fgta/framework/fggroup",
+				"hrms/master/empl",
+				"hrms/master/empluser",
+				"fgta/framework/fgsetting"
+			]
+		},
+		
+		{
+			"title": "Setup",
+			"modules": [
+
+
+				{
+					"title" : "General Setup",
+					"modules" : [
+						"ent/general/bank",
+						"ent/general/country",
+						"ent/general/curr",
+						"ent/general/doctype",
+						"ent/general/gender",
+						"ent/general/religion",
+						"ent/affiliation/contacttype",
+						"ent/affiliation/partnertype",
+						"ent/affiliation/partnerorg",
+						"ent/affiliation/partnercategory",
+						"ent/affiliation/partner",
+						"ent/affiliation/brandtype",
+						"ent/affiliation/brand",
+						{"program":"ent/affiliation/brand", "variancename":"manual-id-input"},
+						"ent/general/interface"
+					]
+				},
+		
+				{
+					"title" : "Location Setup",
+					"modules" : [
+						"ent/location/area",
+						"ent/location/prov",
+						"ent/location/city",
+						"ent/location/zone",
+						"ent/location/land",
+						"ent/location/site",
+						"ent/location/landtype",
+						"ent/location/sitemodel",
+						"ent/location/sitegroup"
+					]
+				},
+		
+				{
+					"title" : "Organisation Setup",
+					"modules" : [
+						"ent/organisation/depttype",
+						"ent/organisation/deptmodel",
+						"ent/organisation/deptgroup",
+						"ent/organisation/authlevel",
+						"ent/organisation/auth",
+						"ent/organisation/dept",
+						"ent/organisation/unitgroup",
+						"ent/organisation/unit",
+						"ent/organisation/docs"
+					]
+				}
+
+			]
+		},
+
+
+		
+		
+
+		{
+			"title" : "Accounting",
+			"modules" : [
+
+				{
+					"title" : "COA Setup",
+					"modules" : [
+
+
+						"finact/master/coagroup",
+						"finact/master/coa",
+						"finact/acct/coaformat",
+						"finact/acct/coaformatset",
+						"finact/master/accbudgetgroup",
+						"finact/master/accbudget",
+						"finact/master/accfingroup",
+						"finact/master/accfin",
+
+
+						"finact/master/accpettycash"
+					]
+				},
+
+
+				{
+					"title" : "Report",
+					"modules" : [
+						"finact/acct/rptcoa",
+						"finact/budget/rptaccbudget",
+						"finact/fin/rptaccfin",
+						"finact/acct/rptsummary",
+						"finact/acct/rptlabarugi",
+						"finact/acct/rptneraca",
+						"finact/fin/rptcashflow",
+						"finact/acct/rptformatted",
+						"finact/acct/rptagingar",
+						"finact/acct/rptagingap"
+					]
+				},
+
+
+
+				"finact/master/periodemo",
+				"finact/acct/jurnal",
+
+				"finact/acct/jurnalsaldo",
+				"finact/acct/jurnalsaldoupload",
+
+				"finact/fin/bankbook",
+				"finact/master/bankrekening"
+
+			]
+		},
+
+
+
+		
+
+		{
+			"title" : "Items",
+			"modules" : [
+				"finact/items/itemmanage",
+				"finact/items/itemmodel",
+				"finact/items/itemclass",
+				"finact/items/itemctg",
+
+				"ent/general/unitmeasurement",
+
+
+				"finact/items/itemgroup",
+				"finact/items/itemstock",
+
+				"finact/items/item",
+				"finact/items/itemasset",
+
+
+				"finact/items/itemassetmovemodel",
+				"finact/items/itemassetmovetype",
+				"finact/items/itemassetmove",
+				"finact/items/itemmvmodel",
+				"finact/items/itemmove"
+			]
+		},
+
+
+		{
+			"title" : "Expenditure",
+			"modules" : [
+
+				"finact/master/trxmodel",
+
+				"finact/procurement/inquirymodel",
+				"finact/procurement/inquirytype",
+				"finact/procurement/inquiry",
+				"finact/procurement/inquiryprocess",
+				"finact/procurement/request",
+				"finact/procurement/orderout",
+				"finact/procurement/recv"
+			]
+		},
+
+	
+
+		{
+			"title" : "HR",
+			"modules" : [
+				"hrms/master/empl",
+				"fgta/framework/fguser",
+				"hrms/master/empluser",
+				"hrms/master/hrgrd",
+				"hrms/master/hrjob",
+				"hrms/master/hrsection",
+				"hrms/master/hrstatus",
+				"hrms/master/team"
+			]
+		},
+
+
+		{
+			"title" : "Budgeting",
+			"modules" : [
+				"finact/master/projecttype",
+				"finact/master/projectmodel",
+				"finact/master/project"
+				
+				
+			]
+		}		
+
+
+		
+
+	]
+
+
+	
+}

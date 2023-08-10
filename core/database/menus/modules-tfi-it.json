@@ -1,0 +1,39 @@
+{
+	"title": "home",
+	"modules": [
+
+		"hrms/dashboard/myattdrep",
+		"retail/pos/posterminal",
+
+		{
+			"title" : "Administrator",
+			"modules" : [
+				"fgta/framework/fguser",
+				"fgta/framework/fggroup",
+				"fgta/framework/fgrole",
+				"hrms/master/empl",
+				"hrms/master/empluser"
+			]
+		},
+
+		{
+			"title" : "Voucher",
+			"modules" : [
+				"crm/voucher/voubatch",
+				"crm/voucher/voumailer"		
+			]
+		},
+
+		{
+			"title" : "Promo",
+			"modules" : [
+				"retail/sales/promoabrule",
+				"retail/sales/promoabmodel",
+				"retail/sales/promoab"		
+			]
+		},
+
+		{"program":"ent/affiliation/brand", "variancename":"manual-id-input"},
+		"finact/items/itemclass"
+	]
+}

@@ -1,0 +1,108 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Groups</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_group_id" class="easyui-textbox" mapping="group_id" uppercase="true" maxlength="13" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'ID Group harus diisi' ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Group</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_group_name" class="easyui-textbox" mapping="group_name" uppercase="true" maxlength="30" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Nama Group harus diisi' ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_group_descr" class="easyui-textbox" mapping="group_descr"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_group_disabled" class="easyui-checkbox c1" mapping="group_disabled" data-options="label: 'Disabled', labelPosition: 'after', checked: false ">
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Menu</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_group_menu" class="easyui-textbox" mapping="group_menu"  maxlength="90" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Menu Group harus diisi' ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Main Dashboard</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-cbo_dash_id" class="easyui-combo" style="width: 400px" mapping="dash_id" display="dash_name" data-options="editable:false, valueField:'id', textField:'text' , required: false, prompt: 'NONE'"  >
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+
+		<div id="pnl_edit-detil" class="form_row" style="margin-top: 30px">
+			<div class="form_label_col"></div>
+			<div class="form_input_col detilbox" style="border: 0px solid black">
+				<div class="fgtable-head" style="height: 25px; padding: 5px 0px 0px 5px">Detil Informations</div>
+				<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; " onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editgroupdashgrid')">
+					<div id="pnl_edit-txt_groupdash_title" class="detilgrid-text">Other Dashboards</div>
+					<div id="pnl_edit-txt_groupdash_value" class="detilgrid-value">&nbsp;</div>
+				</div>
+				<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; " onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_editgrouprolegrid')">
+					<div id="pnl_edit-txt_grouprole_title" class="detilgrid-text">Roles</div>
+					<div id="pnl_edit-txt_grouprole_value" class="detilgrid-value">&nbsp;</div>
+				</div>
+
+			</div>		
+		</div>		
+		
+		
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; display: flex; justify-content: space-between; padding: 10px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol-tombol xtion disini -->
+			<?php
+			$customheaderxtion = __DIR__.'/fggroup-edit-customxtion.phtml'; 
+			if (is_file($customheaderxtion)) {
+				include $customheaderxtion;
+			} else { ?>
+			
+			
+			
+			
+			<?php } ?>
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="margin-bottom: 10px; margin-right: 10px">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

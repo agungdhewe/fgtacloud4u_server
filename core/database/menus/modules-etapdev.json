@@ -1,0 +1,22 @@
+{
+	"title": "home",
+	"modules": [
+
+		"etap/client/config",
+		"etap/client/manual",
+
+		"etap/tenant/bussinesstype",
+		"etap/tenant/brand",
+		"etap/tenant/prov",
+		"etap/tenant/city",
+		{
+			"title" : "Autority",
+			"disabled" : false,
+			"modules" : [
+				"fgta/framework/fggroup",
+				"fgta/framework/fguser"			
+			]
+		}
+
+	]
+}

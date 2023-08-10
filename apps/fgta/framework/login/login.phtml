@@ -1,0 +1,10 @@
+<?php
+
+$loginform = dirname(__FILE__).'/login-fgta.phtml';
+$loginform_local = __LOCALCLIENT_DIR. '/login-' .__APPNAME .  '.phtml';
+
+if (is_file($loginform_local)) {
+	$loginform = $loginform_local;
+}
+ 
+require_once $loginform;

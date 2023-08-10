@@ -1,0 +1,31 @@
+{
+	"title" : "Retail",
+	"disabled" : false,
+	"modules" : [
+		{
+			"title" : "Master Data",
+			"icon" : "icon-hrmaster-white.png",
+			"disabled" : false,
+			"modules" : [
+				"hrms/master/edu",
+				"hrms/master/marital",
+				"hrms/master/hrstatus",
+				"hrms/master/hrgrd",
+				"hrms/master/hrsection",
+				"hrms/master/hrjob",
+				"hrms/master/empl",
+				"hrms/master/empluser"
+			]					
+		},
+		{
+			"title" : "Payroll",
+			"modules" : [
+				"hrms/payroll/consol01"
+			]
+		},
+
+		"hrms/hrd/locchangereq"
+
+		
+	]
+}

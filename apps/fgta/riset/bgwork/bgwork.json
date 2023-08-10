@@ -1,0 +1,9 @@
+{
+	"title" : "PHP Bgwork Test",
+	"variance" : {},
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}	
+}
+

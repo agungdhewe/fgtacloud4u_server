@@ -1,0 +1,14 @@
+{
+	"title" : "ROOT",
+	"icon" : "icon-admin-white.png",
+	"disabled" : false,
+	"modules" : [
+		"fgta/framework/fggroup",
+		"fgta/framework/fguser",
+		"fgta/framework/fgpermission",
+		"fgta/framework/fgrole",
+		"hrms/master/empluser"	,
+		"fgta/example/variance"	,
+		{"program":"fgta/example/variance", "variancename":"commit"}	
+	]
+}

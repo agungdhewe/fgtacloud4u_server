@@ -1,0 +1,16 @@
+<?php require_once dirname(__FILE__).'/fggroup-list.phtml' ?>
+<?php require_once dirname(__FILE__).'/fggroup-edit.phtml' ?>
+<?php require_once dirname(__FILE__).'/fggroup-groupdashgrid.phtml' ?>
+<?php require_once dirname(__FILE__).'/fggroup-groupdashform.phtml' ?>
+<?php require_once dirname(__FILE__).'/fggroup-grouprolegrid.phtml' ?>
+<?php require_once dirname(__FILE__).'/fggroup-grouproleform.phtml' ?>
+
+
+
+<?php
+$customrecordstatus = __DIR__.'/fggroup-customrecordstatus.phtml'; 
+if (is_file($customrecordstatus)) {
+	include $customrecordstatus;
+} else { ?>
+
+<?php } ?>

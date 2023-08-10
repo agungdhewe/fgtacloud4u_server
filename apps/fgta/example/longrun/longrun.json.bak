@@ -1,0 +1,15 @@
+{
+	"title" : "Longrun Process",
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	},
+
+	"data" : {
+		"tempupload" : "longruntemp",
+		"microservice_port" : 8701,
+		"microservice_host" : "http://localhost"
+	}
+}
+
+

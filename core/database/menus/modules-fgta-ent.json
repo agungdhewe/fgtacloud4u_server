@@ -1,0 +1,76 @@
+{
+	"title" : "ENT",
+	"disabled" : false,
+	"modules" : [
+		{
+			"title" : "General",
+			"icon" : "icon-general-white.png",
+			"backcolor" : "#d3c77d",
+			"disabled" : false,
+			"modules" : [
+				"ent/general/curr",
+				"ent/general/country",
+				"ent/general/bank",
+				"ent/general/gender",
+				"ent/general/religion",
+				"ent/general/unitmeasurement",
+				"ent/general/week",
+				"ent/general/config",
+				"ent/general/interface"
+			]
+		},
+
+		{
+			"title" : "Affiliation",
+			"icon" : "icon-affiliation-white.png", 
+			"backcolor" : "#737174",
+			"disabled" : false,
+			"modules" : [
+				"ent/affiliation/brandtype",
+				"ent/affiliation/brand",
+				"ent/affiliation/contacttype",
+				"ent/affiliation/partnertype",
+				"ent/affiliation/partnerorg",
+				"ent/affiliation/partner"						
+			]
+		},
+
+		{
+			"title" : "Organisation",
+			"icon" : "icon-organiszation-white.png",
+			"backcolor" : "#7d81b1",
+			"disabled" : false,
+			"modules" : [
+				"ent/organisation/authlevel",
+				"ent/organisation/auth",
+				"ent/organisation/unitgroup",
+				"ent/organisation/unit",
+				"ent/organisation/depttype",
+				"ent/organisation/deptmodel",
+				"ent/organisation/deptgroup",
+				"ent/organisation/dept",
+				"ent/organisation/docs"
+			]
+		},
+
+		{
+			"title" : "Location",
+			"icon" : "icon-location-white.png",
+			"backcolor" : "#af5962",
+			"disabled":false,
+			"modules" : [
+				"ent/location/area",
+				"ent/location/prov",
+				"ent/location/city",
+				"ent/location/zone",
+				"ent/location/landtype",
+				"ent/location/land",
+				"ent/location/sitegroup",
+				"ent/location/sitemodel",
+				"ent/location/site"
+			]
+		}
+
+		
+	]
+}

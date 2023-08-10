@@ -1,0 +1,9 @@
+{
+	"title" : "Reporting Sample",
+	"variance" : {},
+	"allowanonymous" : true,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}	
+}
+

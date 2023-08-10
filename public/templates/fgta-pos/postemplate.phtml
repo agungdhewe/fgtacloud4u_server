@@ -1,0 +1,299 @@
+<?php namespace FGTA4\module; 
+if (!defined('FGTA4')) {
+	die('Forbiden');
+}
+
+use \FGTA4\setting;
+
+?><!DOCTYPE html>
+<html>
+	<head>
+		<title><?=$this->title?></title>
+		<base href="<?=$this->getBaseAddress()?>">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="manifest" href="manifest.json">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=0">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+		<meta name="description" content="FGTA WebBase POS Module">
+		<meta name="modulefullname" content="<?=$this->reqinfo->modulefullname?>" />
+		<meta name="variancename" content="<?=$this->reqinfo->variancename?>" />
+
+		<?php
+			$url_param = '';
+			if (is_array($_GET)) {
+				$qsstring = array();
+				foreach ($_GET as $vname => $vdata) {
+					if ($vname=='variancename') {
+						continue;
+					}
+					$qsstring[] = "$vname=$vdata";
+				}
+				$url_param = implode('&', $qsstring);
+			}
+		?>
+
+		<meta name="url_requestparam" content="<?=$this->reqinfo->params->scriptparam?>" />
+		<meta name="basetitle" content="<?=setting::$BaseTitle?>" />
+		<meta name="author" content="Agung Nugroho DW" />
+		<meta name="createdate" content="<?=$this->createdate?>" />
+
+		<!-- <link rel="preload" as="image" href="templates/<?=setting::$TemplateUse?>/asset/loading.gif" /> -->
+		<script>
+		window.Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+		window.urlparams=JSON.parse(window.Base64.decode(`<?=base64_encode(json_encode($this->urlparams))?>`));
+		window.container_is_mandatory = <?=property_exists($this->configuration->data, 'container_is_mandatory')?($this->configuration->data->container_is_mandatory?'true':'false'):'false'?>;	
+		window.isInIframe = window.self !== window.top;
+		</script>
+
+		<?php 
+		if (property_exists($this, 'auth')) {
+		$user_jsondata = $this->auth->session_get_user_jsondata();
+		if ($user_jsondata!='') {
+		?>
+		
+		<script>
+		window.userdata=JSON.parse(Base64.decode(`<?=base64_encode($user_jsondata)?>`));
+		</script>
+		<?php }} ?>
+
+
+		<style>
+		
+		@media all and (display-mode: standalone) {
+		    /* Here goes the CSS rules that will only apply if app is running standalone */
+		}
+
+		.clearfix {
+			overflow: auto;
+		}
+
+		</style>
+
+		<script>
+			window.$pos = {};
+			window.global = {
+				modulefullname: "<?=$this->reqinfo->modulefullname?>",
+				now: (date, add_days_from_now) => {
+
+					var today = new Date(); 
+					if (date!=null) {
+						today = new Date(date);
+					}
+
+
+					if (add_days_from_now!=null) {
+						today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+						today.setDate(today.getDate() + add_days_from_now)
+					}
+
+					var dd = today.getDate(); 
+					var mm = today.getMonth() + 1; 
+					var yyyy = today.getFullYear(); 
+					if (dd < 10) { 
+						dd = '0' + dd; 
+					} 
+					if (mm < 10) { 
+						mm = '0' + mm; 
+					} 
+					var today = dd + '/' + mm + '/' + yyyy;
+					return today
+				},
+				template: '<?=setting::$TemplateUse?>',
+				iconloading: 'data:image/gif;base64,R0lGODlhIAAgAPABAP///wAAACH5BAkHAAEAIf8LTkVUU0NBUEUyLjADAQAAACH/C0ltYWdlTWFnaWNrDWdhbW1hPTAuNDU0NTUALAAAAAAgACAAAAItjI+py+0Po5y02osz2Bxk1HWfEXJjUG5n6o3smsLhSdf2jef6zvf+DwwKh5YCACH5BAkHAAEAIf8LSW1hZ2VNYWdpY2sNZ2FtbWE9MC40NTQ1NQAsAAAAACAAIAAAAi2Mj6nL7Q+jnLTai7MDvHNteB4YiB1pfmAKoKlrwiJJ1/aN5/rO9/4PDAqHiwIAIfkECQcAAQAh/wtJbWFnZU1hZ2ljaw1nYW1tYT0wLjQ1NDU1ACwAAAAAIAAgAAACK4yPqcvtD6OctNqLs968+w+G4kiWAYCmAKeqbIu+sNzS7gbHeG72/g8MQgoAIfkECQcAAQAh/wtJbWFnZU1hZ2ljaw1nYW1tYT0wLjQ1NDU1ACwAAAAAIAAgAAACK4yPqcvtD6OctNqLs968+w+G4khuwIkCXZpyLOq+qinHr83ibcn3/g/8FAAAOw==',
+				useotp: true,
+				setup: {
+					<?php if (property_exists($this, 'setup')) { 
+							if (is_object($this->setup)) {
+								foreach ($this->setup as $key=>$value) { ?>
+					<?=$key?>: <?= is_bool($value) ? $value ? 'true' : 'false' :  (is_numeric($value) ? $value : ((is_array($value) || is_object($value))?json_encode($value):"'" . $value . "'")) ?>,
+					<?php }}} ?>					
+				}
+			}
+
+			window.format_number = (value) => {
+				var val = parseFloat(value);
+				if (!isNaN(val)) {
+					return val.toLocaleString('en-US');	
+				} else {
+					return value;
+				}			
+			}
+
+			window.to_sql_date = (ststr) => {
+				var date = $.fn.datebox.defaults.parser(ststr);
+				var y = date.getFullYear();
+				var m = date.getMonth() + 1;
+				var d = date.getDate();
+				return y + '-' + (m < 10 ? '0' + m : m) + '-' +  (d < 10 ? '0' + d : d);		 
+			}
+
+			window.from_sql_date = (sqlDate) => {
+				var sqlDateArr1 = sqlDate.split("-");
+				var sYear = sqlDateArr1[0];
+				var sMonth = (Number(sqlDateArr1[1]) - 1).toString();
+				var sDay = sqlDateArr1[2];
+				return new Date(sYear,sMonth,sDay);	 
+			}
+
+			window.uniqid = () => {
+				var dateString = Date.now().toString(36);
+ 				var randomness = Math.random().toString(36).substr(2);
+				return dateString + randomness;
+			}
+
+			window.isRunningStandalone = () => {
+    			return (window.matchMedia('(display-mode: standalone)').matches);
+			}
+
+			window.parseLicenseData = (str) => {
+				try {
+					var jsonlicense = window.Base64.decode(str);
+					var licensedata;
+					try {
+						licensedata = JSON.parse(jsonlicense);
+					} catch (err) {
+						throw err;
+					}
+					// window.localStorage.setItem('licensevalue', licensevalue);
+					return licensedata;
+				} catch (err) {
+					throw err;
+				}
+			}
+
+
+
+		</script>
+
+		<script src="jslibs/cookie.js"></script>
+
+
+		<link rel="stylesheet" type="text/css" href="index.php/public/templates/<?=setting::$TemplateUse?>/asset/materialicon.css" />
+		<link rel="stylesheet" type="text/css" href="index.php/public/templates/<?=setting::$TemplateUse?>/asset/postemplate.css" />
+		<link rel="stylesheet" type="text/css" href="index.php/public/templates/<?=setting::$TemplateUse?>/asset/poscomponent.css" />
+		<link rel="stylesheet" type="text/css" href="index.php/public/jslibs/materialize-1.2.2/css/materialize.min.css" />
+
+
+	</head>	
+	
+	
+	
+	
+	
+	<body>
+		<?php require_once $this->reqinfo->module_path_phtml ?>
+		<div id="modal-container"></div>
+		<div id="loading-mask" class="loadingmask loadingmask-hidden">
+			<div id="loading-indicator-box">
+				<div>Please Wait ...</div>
+			</div>	
+		</div>
+	</body>
+
+
+	<script>
+		if (!window.isInIframe) {
+			var lm = document.getElementById('loading-mask');
+			lm.classList.remove('loadingmask-hidden');
+		}
+	</script>
+
+
+
+	<script src="jslibs/materialize-1.2.2/js/materialize.min.js"></script>
+		
+	<?php if (property_exists($this, 'preloadscripts')) { ?>
+<!-- Preaload Scripts -->
+	<?php if (is_array($this->preloadscripts)) { 
+			foreach ($this->preloadscripts as $script) {	
+	?><script src="<?=$script?>"></script>			
+	<?php }}} ?>		
+
+
+	<?php if (property_exists($this, 'preloadstyles')) { ?>
+<!-- Preaload Styles -->
+	<?php if (is_array($this->preloadstyles)) { 
+			foreach ($this->preloadstyles as $style) {	
+	?><link rel="stylesheet" type="text/css" href="<?=$style?>">			
+	<?php }}} ?>	
+
+	<?php if (is_file($this->reqinfo->module_path_css)) { ?>		
+	<!-- CSS Module <?php //echo($this->reqinfo->modulecsspath) ?> -->	
+	<link rel="stylesheet" type="text/css" href="<?=$this->reqinfo->module_url_css?>" />
+	<?php } ?>
+
+
+	<!-- Script Module <?php //echo($this->reqinfo->modulejspath) ?> -->	
+	<?php if (is_file($this->reqinfo->module_path_mjs)) { ?>
+
+	<script type="module">
+		import * as poscomponent from '/index.php/public/templates/<?=setting::$TemplateUse?>/asset/poscomponent.mjs';
+		import * as fgtaapi from '/index.php/public/jslibs/fgta/fgta-api.mjs'
+		import * as fgtamodulebaseclass from '/index.php/public/jslibs/fgta/fgta-module.mjs'
+		import * as fgtamodule from '<?=$this->reqinfo->module_url_mjs?>';
+
+		var fgtamodulebase = Object.assign({}, fgtamodulebaseclass);
+		
+		window.$pos.component = poscomponent;
+		window.$pos.api = fgtaapi;
+		window.$pos.module  = Object.assign(fgtamodulebase, fgtamodule);
+
+
+	</script>
+	<?php } ?>
+
+	<script>
+		
+		// tidak bisa back
+		history.pushState(null, null, window.location.pathname);
+		window.addEventListener('popstate', function(ev) {
+			history.pushState(null, null, window.location.pathname);
+		}, false);
+
+
+		window.addEventListener('load', async ()=>{
+			history.pushState(null, document.title, location.href);
+
+			var loadingmask = document.getElementById('loading-mask');
+			if (loadingmask!=null) {
+				loadingmask.classList.add('loadingmask-hidden');
+			}
+
+			var processpage = true;
+			if (!window.isInIframe && window.container_is_mandatory) {
+				document.body.innerHTML = 'direct access is not allowed';
+				processpage = false;
+			}
+
+			if (processpage) {
+				try {
+					var variancename = document.querySelector('meta[name="variancename"]').content
+					await window.$pos.module.init({
+						variancename: variancename,
+						parameter:  JSON.parse(Base64.decode(`<?=base64_encode(json_encode($this->getParameter()))?>`))
+					});
+
+					await window.$pos.module.ready();
+				} catch (err) {
+					console.error(err)
+				}
+			}
+		});
+
+		if (window.isRunningStandalone()) {
+			console.log('running in standalone');
+		}
+
+		var els = document.getElementsByTagName('body');
+		var body = els[0];
+		body.addEventListener('fullscreenchange', (evt)=>{
+			if (document.fullscreenElement!=null) {
+				navigator.keyboard.lock();
+			} else {
+				navigator.keyboard.unlock();
+			}
+		});
+	</script>
+
+</html>	

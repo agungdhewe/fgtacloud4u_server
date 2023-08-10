@@ -1,0 +1,35 @@
+{
+	"title": "home",
+	"modules": [
+		{
+			"title" : "Simple Example",
+			"disabled" : false,
+			"modules" : [
+				"fgta/example/helloworld",
+				"fgta/example/hellophp",
+				"fgta/example/hellojs",
+				"fgta/example/component",
+				"fgta/example/helloapi",
+				"fgta/example/mflayout"
+			]
+		},
+
+		{
+			"title" : "Generator Example",
+			"disabled" : false,
+			"modules" : [
+				"fgta/example/xaccgroup",
+				"fgta/example/xacc",
+				"fgta/example/xjurn"
+			]
+		},
+		
+		{
+			"title" : "Microservice",
+			"disabled" : false,
+			"modules" : [
+				"fgta/example/longrun"
+			]
+		}
+	]
+}

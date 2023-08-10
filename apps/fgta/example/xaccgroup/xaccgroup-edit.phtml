@@ -1,0 +1,62 @@
+<div id="pnl_edit">
+	<div class="fgta-page-title" style="display: flex; align-items: center ">
+		<div>Edit Account Group</div>
+		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
+	</div>
+
+
+	<form id="pnl_edit-form">
+
+		<div class="form_row">
+			<div class="form_label_col">ID</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_accgroup_id" class="easyui-textbox" mapping="accgroup_id" uppercase="true" maxlength="10" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'ID harus diisi' ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">Group</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_accgroup_name" class="easyui-textbox" mapping="accgroup_name" uppercase="true" maxlength="60" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Nama Account Group harus diisi' ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col">Descr</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_accgroup_descr" class="easyui-textbox" mapping="accgroup_descr"  maxlength="90" style="width: 400px" data-options="multiline: false  ">
+			</div>
+		</div>
+
+		<div class="form_row">
+			<div class="form_label_col"></div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-chk_accgroup_isdisabled" class="easyui-checkbox c1" mapping="accgroup_isdisabled" data-options="label: 'Disabled', labelPosition: 'after', disabled:false, checked: false ">
+			</div>
+		</div>
+
+	</form>
+
+
+	<div class="form_row" style="margin-top: 30px">
+		<div class="form_label_col"></div>
+		<div class="form_input_col" style="border: 0px solid black">
+			<a id="pnl_edit-btn_save" class="easyui-linkbutton c1" style="width">Simpan</a>
+		</div>
+	</div>	
+
+
+
+
+
+	<div style="margin-top: 30px; margin-left:-5px; margin-right: -5px; background-color: #cccccc; height: 40px; display: flex; justify-content: space-between; padding: 5px 2px 2px 2px ">
+		<div>
+			<!-- letakkan tombol yang lin disini -->
+		</div>
+		<div>
+			<a id="pnl_edit-btn_delete" class="easyui-linkbutton c5" style="width">Hapus</a>
+		</div>
+	</div>
+
+</div>
+

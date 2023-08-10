@@ -1,0 +1,26 @@
+
+
+
+.cell-row-even {
+	background-color: #eee;
+}
+
+.cell-row-odd {
+	background-color: #fff;
+}
+
+
+
+
+
+.col-no {
+	width: 20mm;
+	text-align: right;
+}
+
+
+/*
+.col-descr {
+
+}
+*/

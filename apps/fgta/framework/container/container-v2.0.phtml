@@ -1,0 +1,58 @@
+<script>
+	<?php if ($this->dash_module!=null) {?> 
+	global.setup.dash_module = '<?=$this->dash_module?>';
+	<?php } else { ?>
+	global.setup.dash_module = null;
+	<?php } ?>
+
+</script>	
+
+
+<div id="pnl_contents" style="position: absolute; top:0; bottom:0; left:0; right:0; display:flex; flex-direction:column">
+	<div class="container-bar" style="display:flex; justify-content:space-between; height: 42px; padding-top: 5px; padding-bottom: 5px">
+		<div style="width:72px; padding-left: 3px">
+			<a id="btn_apps_back" class="icon-button"><div class="icon-image icon-back"></div></a>
+		</div>	
+		<div id="txt_appstitle" style="text-align: center"></div>
+		<div style="width:72px; text-align: right; padding-right: 3px">
+			<a id="btn_menu_open" class="icon-button"><div class="icon-image icon-menu-open"></div></a>
+		</div>
+	</div>
+</div>
+
+
+<div id="pnl_containerloading" class="loadwaitmask"><div class="loadwaitimg"></div></div>
+
+<div id="pnl_menu" class="fgta-sidenav-panel" style="width:100%">
+	<div style="height: 35px; display: flex; justify-content: space-between; margin: 3px 8px 3px 8px" >
+		<div>
+			<a id="btn_menu_back" class="icon-button"><div class="icon-image icon-back"></div></a>
+		</div>
+		<div id="txt_menutitle"></div>		
+		<div style="text-align: right">	
+			<a id="btn_menu_close" class="icon-button"><div class="icon-image icon-menu-close"></div></a>
+		</div>	
+	</div>
+	<div style="margin: 3px 8px 3px 8px; text-align: center">
+		<input id="obj_search" type="text" style="height: 30px; width: 250px;">
+		<button id="sidenav-btn_search">Search</button>
+	</div>
+	<div class="noselect" style="flex-grow: 1; display: flex;justify-content: space-between;flex-direction: column;">
+		<div id="pnl_menu-list-container">
+			<div id="pnl_menu-list">
+			<button id="btn_test">test open module</button>	
+			</div>
+		</div>
+	<div >
+	<div style="height: 50px; text-align:center">
+		<div style="display: inline-block; border-top: 1px solid #aaa; padding-top: 6px">
+			<button id="btn_menuhome" class="icon-button" style="margin-left: 15px; margin-right: 8px"><div class="icon-image icon-menu-open"></div></button>
+			<button id="btn_appshome" class="icon-button" style="margin-left: 8px; margin-right: 8px"><div class="icon-image icon-menu-home"></div></button>
+			<button id="btn_preference" class="icon-button" style="margin-left: 8px; margin-right: 8px"><div class="icon-image icon-menu-pref"></div></button>
+			<button id="btn_menureload" class="icon-button" style="margin-left: 8px; margin-right: 8px"><div class="icon-image icon-menu-reload"></div></button>
+			<button id="btn_logout" class="icon-button" style="margin-left: 8px; margin-right: 15px"><div class="icon-image icon-menu-logout"></div></button>
+		</div>
+	</div>
+</div>
+
+

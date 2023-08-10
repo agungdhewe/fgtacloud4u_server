@@ -1,0 +1,216 @@
+{
+	"title": "Finance Accounting",
+	"disabled": false,
+	"modules": [
+
+		{
+			"title": "Master Data",
+			"backcolor" : "#248e91",
+			"icon" : "icon-masterdata.svg",
+			"disabled": false,
+			"modules": [
+				"finact/master/coareport",
+				"finact/master/coatype",
+				"finact/master/coamodel",
+				"finact/master/coagroup",
+				"finact/master/coa",
+				"finact/master/projecttype",
+				"finact/master/project",
+				"finact/master/projecttask",
+				"finact/master/jurnalmodel",
+				"finact/master/jurnaltype",
+				"finact/master/jurnalsource",
+				"finact/master/periode",
+				"finact/master/accbudgetmodel",
+				"finact/master/accbudgettype",
+				"finact/master/accbudgetgroup",
+				"finact/master/accbudget",
+				"finact/master/bankrekening",
+				"finact/master/taxmodel",
+				"finact/master/taxtype",
+				"finact/master/trxmodel",
+				"finact/master/depremodel",
+				"finact/master/paymtype",
+				"finact/master/billtype",
+				"finact/master/accfin",
+				"finact/master/salesordertype"
+			]
+		},
+		{
+			"title": "Items",
+			"backcolor" : "#cb6987",
+			"icon" : "icon-items.svg",
+			"disabled": false,
+			"modules": [
+				"finact/items/ownershiptype",
+				"finact/items/itemmanage",
+				"finact/items/itemmodel",
+				"finact/items/itemspec",
+				"finact/items/itemgroup",
+				"finact/items/itemclass",
+
+
+
+				"finact/items/itemasset",
+				"finact/items/itemstock",
+				"finact/items/inquiryselect",
+				"finact/items/inquirymodel",
+				"finact/items/inquirytype",
+				"finact/items/inquiry",
+				"finact/items/inquiryprocess",
+
+				"finact/items/inquiryrecv",
+				{
+					"program": "finact/items/inquiry",
+					"variancename": "commit"
+				},
+				{
+					"program": "finact/items/inquiry",
+					"variancename": "approve"
+				}
+			]
+		},
+
+		{
+			"title": "Budget",
+			"backcolor" : "#d5895b",
+			"icon" : "icon-budget.svg",
+			"disabled": false,
+			"modules": [
+				"finact/budget/corpbudget",
+				"finact/budget/deptbudget",
+				"finact/budget/projbudget"
+			]
+		},
+
+
+		{
+			"title": "Procurement",
+			"backcolor" : "#73779d",
+			"icon" : "icon-procurement.svg",
+			"disabled": false,
+			"modules": [
+				{
+					"program": "finact/procurement/request",
+					"variancename": "purchase"
+				},
+				{
+					"program": "finact/procurement/request",
+					"variancename": "rental"
+				},
+				{
+					"program": "finact/procurement/request",
+					"variancename": "service"
+				},
+				{
+					"program": "finact/procurement/request",
+					"variancename": "talent"
+				},
+
+
+
+				{
+					"program": "finact/procurement/request",
+					"variancename": "commit"
+				},
+				{
+					"program": "finact/procurement/request",
+					"variancename": "approve"
+				},
+				"finact/procurement/contract",
+				"finact/procurement/order",
+				{
+					"program": "finact/procurement/order",
+					"variancename": "commit"
+				},
+				{
+					"program": "finact/procurement/order",
+					"variancename": "approve"
+				},
+
+
+
+				"finact/procurement/receive"
+			]
+		},
+
+		{
+			"title": "Accounting",
+			"backcolor" : "#cb6987",
+			"icon" : "icon-accounting.svg",
+			"disabled": false,
+			"modules": [
+				"finact/acct/jurnal",
+				"finact/acct/jurnalsaldo",
+				"finact/acct/payable",
+				"finact/acct/receivable",
+				"finact/acct/rpttrialbal",
+				"finact/acct/rptneraca",
+				"finact/acct/rptlabarugi",
+				"finact/acct/rptagingar",
+				"finact/acct/rptagingap"
+
+			]
+		},
+		{
+			"title": "Finance",
+			"icon" : "icon-finance-white.svg",
+			"backcolor": "#7db89c",
+			"disabled": false,
+			"modules": [
+				"finact/fin/bankbook",
+				"finact/fin/banklink",
+				"finact/fin/paym",
+				"finact/fin/paymschedule",
+				"finact/fin/settl",
+				"finact/fin/recvschedule",
+				"finact/fin/ofrecv",
+
+				"finact/fin/billin",
+				{
+					"program": "finact/fin/billin",
+					"variancename": "advance"
+				},
+				{
+					"program": "finact/fin/billin",
+					"variancename": "reimburse"
+				},
+				{
+					"program": "finact/fin/billin",
+					"variancename": "approve"
+				},				
+				{
+					"program": "finact/fin/billin",
+					"variancename": "uncommit"
+				},
+
+
+				"finact/fin/billout"
+				
+				
+			]
+		},
+		{
+			"title": "Sales",
+			"icon" : "icon-sales-white.svg",
+			"backcolor" : "#82263f",
+			"disabled": false,
+			"modules": [
+				"finact/sales/salesorder"
+			]			
+		},
+		{
+			"title": "Collection",
+			"icon" : "icon-collection-white.svg",
+			"backcolor" : "#6a6a68",
+			"disabled": false,
+			"modules": [
+				"finact/collection/collector",
+				"finact/collection/colltarget",
+				{"program":"finact/fin/billout", "variancename": "view"},
+				"finact/collection/temprecv",
+				"finact/collection/cashdiscount"
+			]			
+		}
+	]
+}

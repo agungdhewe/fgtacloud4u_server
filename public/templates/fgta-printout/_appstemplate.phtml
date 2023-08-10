@@ -1,0 +1,347 @@
+<?php namespace FGTA4\module; 
+if (!defined('FGTA4')) {
+	die('Forbiden');
+}
+?><!DOCTYPE HTML>
+<html>
+	<!-- public/templates/fgta-printout/appstemplate.phtml //-->
+	<head>
+		<title><?=$this->title?></title>
+		<!-- <base href="<?=__BASEADDRESS?>"> -->
+		<?php
+			$HTTP_PROTO = $_SERVER['REQUEST_SCHEME'];
+			if (array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER)) {
+				$HTTP_PROTO = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+			}
+		?>
+		<base href="<?php echo $HTTP_PROTO . '://'.$_SERVER['HTTP_HOST'].str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']); ?> ">
+	
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<meta name="modulefullname" content="<?=$this->reqinfo->modulefullname?>" />
+		<meta name="variancename" content="<?=$this->reqinfo->variancename?>" />
+		<meta name="basetitle" content="<?=$this->configuration->basetitle?>" />
+
+		<?php 
+		$fmt = array_key_exists('template', $_GET) ? $_GET['template'] : "";
+		switch ($fmt) {
+			case "format-01-a3-landscape" :
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"templates/fgta-printout/asset/format-01-a3-landscape.css\" />";
+				break;
+			case "format-01-a4-landscape" :
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"templates/fgta-printout/asset/format-01-a4-landscape.css\" />";
+				break;
+			case "format-01-a5-landscape" :
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"templates/fgta-printout/asset/format-01-a5-landscape.css\" />";
+				break;
+			default:
+				echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"templates/fgta-printout/asset/format-01-a4.css\" />";
+				break;
+		}
+		?>
+		 
+		<!-- <link rel="stylesheet" type="text/css" href="templates/fgta-printout/asset/format-01-a4.css" /> -->
+
+		<?php if (property_exists($this, 'preloadsstyles')) { ?>
+		<?php if (is_array($this->preloadsstyles)) { 
+				foreach ($this->preloadsstyles as $style) {	
+		?><link rel="stylesheet" type="text/css" href="<?=$style?>" />		
+		<?php }}} ?>
+
+		<?php if (is_file($this->reqinfo->modulecsspath)) { ?>		
+<!-- CSS Module <?php //echo($this->reqinfo->modulecsspath) ?> -->	
+		<link rel="stylesheet" type="text/css" href="<?=$this->reqinfo->modulecssurl?>" />
+		<?php } ?>
+
+
+		
+
+		<?php 
+		$user_jsondata = $this->auth->session_get_user_jsondata();
+		if ($user_jsondata!='') {
+		?>
+		<script>
+		let Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+		window.userdata=JSON.parse(Base64.decode(`<?=base64_encode($user_jsondata)?>`));
+		</script>
+		<?php } ?>
+
+
+		<script>
+			window.global = {
+				modulefullname: "<?=$this->reqinfo->modulefullname?>",
+				now: () => {
+					var today = new Date(); 
+					var dd = today.getDate(); 
+					var mm = today.getMonth() + 1; 
+					var yyyy = today.getFullYear(); 
+					if (dd < 10) { 
+						dd = '0' + dd; 
+					} 
+					if (mm < 10) { 
+						mm = '0' + mm; 
+					} 
+					var today = dd + '/' + mm + '/' + yyyy;
+					return today
+				},
+				useotp: true
+			}
+
+			window.isMobileOrTablet = () => {
+				var check = false;
+				(function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+				return check;
+			};
+
+			window.format_number = (value) => {
+				var val = parseFloat(value);
+				if (!isNaN(val)) {
+					return val.toLocaleString('en-US');	
+				} else {
+					return value;
+				}			
+			}
+
+			function adjustPage(param) {
+				// console.log(param);
+
+				param = Object.assign({
+					adjust_height_report: 3,
+					adjust_height_page: -2,
+					adjust_pcount: 0
+				}, param==null?{}:param);
+
+				var pageheight_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--page-height'));
+				var margintop_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--margin-top'));
+				var marginbottom_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--margin-bottom'));
+				var pageheaderheight_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pageheader-height'));
+				var top_gap_mm = margintop_mm; //+ pageheaderheight_mm;
+				var bottom_gab_mm = marginbottom_mm;
+
+
+				// var pointer = document.getElementById('pointer');
+				var pagemeasure = document.getElementById('pagemeasure');
+				var wrapperfooter = document.getElementById('wrapperfooter');
+
+				var pageheight_px = pagemeasure.offsetHeight
+				var mmpx =  pageheight_mm / pageheight_px;
+
+
+				var cheight_px = wrapperfooter.offsetTop + wrapperfooter.offsetHeight;
+				var cheight_mm = Math.floor(mmpx * cheight_px);
+				
+
+				var pcount = getPageCount(cheight_mm, pageheight_mm, top_gap_mm, bottom_gab_mm) + param.adjust_pcount;
+				var reporttotalpage = document.getElementById('reporttotalpage');
+				reporttotalpage.innerHTML = pcount;
+
+
+				var top = 0
+				var height = 0;
+				pageheight_px = pageheight_px + param.adjust_height_report ;
+				for (var i=1; i<=pcount; i++) {
+					var ph = document.createElement('div');
+					var pagenumber = document.createElement('div');
+					pagenumber.classList.add('pagenumber');
+					pagenumber.classList.add('fullwidth');
+					if (i>1) {
+						pagenumber.appendChild(document.createTextNode(`Page ${i} of ${pcount}`));
+					}
+
+
+					var adjusted_page_height = pageheight_px + param.adjust_height_page;
+
+					// top = (i*pageheight_px) - pageheight_px;
+					// height = pageheight_px + param.adjust_height_page;
+					top = (i*adjusted_page_height) - adjusted_page_height;
+					height = adjusted_page_height;
+
+
+					// console.log(height);
+
+					ph.appendChild(pagenumber)
+					ph.classList.add('paging');
+					// ph.style.top = `${(i*pageheight_px) - pageheight_px}px`;
+					// ph.style.height = `${pageheight_px-2}px`
+					ph.style.top = `${top}px`;
+					ph.style.height = `${height}px`;
+
+					// if (i%2==0) {
+					// 	ph.style.backgroundColor = '#dd9999';
+					// } else {
+					// 	ph.style.backgroundColor = '#dd9999';
+					// }
+					
+					
+					document.body.appendChild(ph);
+				}
+				// document.body.style.height = `${top + height}px`;
+				document.body.style.justifyContent = "space-between";
+
+			}
+
+
+
+			function getPageHeightAjustmentPx() {
+				console.log('browser detec');
+				if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+					// Opera
+					return 0;
+				} else if(navigator.userAgent.indexOf("Edg") != -1 ) {
+					// Edge
+					return 0; 
+				} else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+					// Chrome
+					return -1;
+				} else if(navigator.userAgent.indexOf("Safari") != -1) {
+					// Safari
+					return 0;
+				} else if(navigator.userAgent.indexOf("Firefox") != -1 ) {
+					// Firefox
+					return -0.25;
+				} else {
+					return 0;
+				}
+			}
+
+
+
+			function apply_page_info() {
+				var pageheight_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--page-height'));
+				var margintop_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--margin-top'));
+				var marginbottom_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--margin-bottom'));
+				var pageheaderheight_mm = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--pageheader-height'));
+				var top_gap_mm = margintop_mm + pageheaderheight_mm;
+				var bottom_gab_mm = marginbottom_mm;
+
+				var pagemeasure = document.getElementById('pagemeasure');
+				var wrapperfooter = document.getElementById('wrapperfooter');
+
+				var pageheight_px = pagemeasure.offsetHeight
+				var mmpx =  pageheight_mm / pageheight_px;
+
+
+				var cheight_px = wrapperfooter.offsetTop + wrapperfooter.offsetHeight;
+				var cheight_mm = Math.ceil(mmpx * cheight_px);
+				
+
+				var pcount = window.getPageCount(cheight_mm, pageheight_mm, top_gap_mm, bottom_gab_mm); // getPageCount dari template
+				var reporttotalpage = document.getElementById('reporttotalpage');
+				reporttotalpage.innerHTML = pcount;
+
+
+				var adjust_height_page = getPageHeightAjustmentPx();
+				var top = 0
+				for (var i=1; i<=pcount; i++) {
+					var ph = document.createElement('div');
+					var pagenumber = document.createElement('div');
+					pagenumber.classList.add('pagenumber');
+					pagenumber.classList.add('fullwidth');
+					if (i>1) {
+						pagenumber.appendChild(document.createTextNode(`Page ${i} of ${pcount}`));
+					}
+
+					top = ((i-1) * (pageheight_px + adjust_height_page));
+
+					ph.appendChild(pagenumber)
+					ph.classList.add('paging');
+					ph.style.top = `${top}px`;
+					ph.style.height = `100mm`;
+
+					document.body.appendChild(ph);
+				}
+				document.body.style.justifyContent = "space-between";
+				$('#pagemeasure').hide();
+
+			}
+
+
+			function getPageCount(height_mm, pageheight_mm, top_gap_mm, bottom_gab_mm) {
+				if (height_mm <= pageheight_mm) {
+					return 1;
+				} else {
+					var cwidth_mm = (height_mm - pageheight_mm) + top_gap_mm + bottom_gab_mm + 14;  //14
+					return 1 + getPageCount(cwidth_mm, pageheight_mm, top_gap_mm, bottom_gab_mm);
+				}
+			}
+
+
+		</script>
+
+
+		<script src="jslibs/cookie.js"></script>
+		<script src="jslibs/jquery.min.js"></script>
+
+
+		<?php if (property_exists($this, 'preloadscripts')) { ?>
+<!-- Preaload Scripts -->
+		<?php if (is_array($this->preloadscripts)) { 
+				foreach ($this->preloadscripts as $script) {	
+		?><script src="<?=$script?>"></script>			
+		<?php }}} ?>
+		
+				
+	</head>
+	<body>
+		<?php
+		$view = $this->reqinfo->moduleviewpath;
+		if (array_key_exists('view', $_GET)) {
+			$userview = dirname($this->reqinfo->moduleviewpath).'/'.$_GET['view'].'.phtml';
+			if (is_file($userview)) {
+				$view = $userview;
+			} 
+		}
+		require_once $view; 
+		?>
+	</body>
+
+
+
+	<!-- Script Module <?php //echo($this->reqinfo->modulejspath) ?> -->	
+	<?php if (is_file($this->reqinfo->modulejspath)) { ?>
+	<script type="module">
+		import * as uibaseclass from './index.php/jslibs/uibase4.js'
+		import * as uiprintoutclass from './index.php/jslibs/uiprintout.js'
+		import * as uiclass from '<?=$this->reqinfo->modulejsurl?>';
+
+		let uibase = Object.assign({}, uibaseclass);
+		let uiprintout = Object.assign(uibase, uiprintoutclass);
+		window.$ui = Object.assign(uiprintout, uiclass);
+
+	</script>
+	<?php } ?>
+
+	<script>
+		 
+		global.window_fn_print = null;
+		function OnPrintCommand(fn_print) {
+			console.log('prepare print command');
+			global.window_fn_print = fn_print; 
+		}
+
+		window.preparemodule = async (fn_callback) => {
+			if (window.$ui!==undefined) {
+				var variancename = document.querySelector('meta[name="variancename"]').content
+				if (typeof window.$ui.init == 'function') {
+						await window.$ui.init({
+						variancename: variancename
+					});
+				}
+			}
+			
+			if (typeof fn_callback  === 'function') {
+				fn_callback();
+			}
+		}
+
+		<?php $iframe = array_key_exists('iframe', $_GET) ? $_GET['iframe'] : "0" ?> 
+		$(document).ready(function(){
+			<?php if ($iframe!=="1") { ?>
+			window.preparemodule(() => {});
+			<?php } ?>
+		});
+
+	</script>
+
+</html>	

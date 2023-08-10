@@ -1,0 +1,8 @@
+{
+	"title" : "Preference",
+	"allowanonymous" : false,
+	"allowedgroups" : ["public"],
+	"apis" : {
+	}
+}
+

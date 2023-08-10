@@ -1,0 +1,92 @@
+#tbl_home-openap {
+	width: 100%;
+	/* font-size: 12px; */
+	line-height: 12px;
+}
+
+.home-openap-fave-td {
+	width: 18px;
+	padding: 5px;
+	margin: 0px;
+}
+
+.home-openap-fave-lnk {
+	cursor: pointer;
+}
+
+
+.home-openap-title-td {
+	padding: 0 3px 0 3px;
+	margin: 0px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.home-openap-title-lnk {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.home-openap-title-lnk:hover {
+	text-decoration: underline;
+}
+
+
+
+.home-openap-close-td {
+	width: 18px;
+	padding: 5px;
+	margin: 0px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.home-openap-close-lnk {
+	cursor: pointer;
+}
+
+
+
+
+
+.favebutton-container {
+	margin: 0;
+	width: 80px;
+	height: 80px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.favebutton {
+	width: 80px;
+	height: 80px;
+	font-size: .8em;
+	border: 0px;
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+}
+
+.favebutton:hover {
+	filter: brightness(110%);
+}
+
+.favebutton:active {
+	filter: brightness(90%);
+}
+
+.favebutton-icon {
+	display: inline-flex;
+	justify-content: center;
+    align-items: center;
+	width: 55px;
+	height: 55px;
+	border-radius: 27px; 
+	background-color: #3F4756;
+}
+
+.favebutton-text {
+	height: 20px;
+	line-height: 10px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	color: black;
+}

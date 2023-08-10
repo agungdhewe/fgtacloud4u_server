@@ -1,0 +1,12 @@
+<?php require_once dirname(__FILE__).'/fgsetting-list.phtml' ?>
+<?php require_once dirname(__FILE__).'/fgsetting-edit.phtml' ?>
+
+
+
+<?php
+$customrecordstatus = __DIR__.'/fgsetting-customrecordstatus.phtml'; 
+if (is_file($customrecordstatus)) {
+	include $customrecordstatus;
+} else { ?>
+
+<?php } ?>

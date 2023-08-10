@@ -1,0 +1,42 @@
+{
+	"title" : "ROOT",
+	"icon" : "icon-admin-white.png",
+	"disabled" : false,
+	"modules" : [
+		{
+			"title" : "Administrator",
+			"modules": [
+				"fgta/framework/fggroup",
+				"fgta/framework/fguser",
+				"retail/webcommerce/webcluster",
+				"retail/webcommerce/webmenuhead",
+				"retail/webcommerce/webmenufoot",
+				"retail/webcommerce/webpreftype",
+				"retail/webcommerce/webaction",			
+				"retail/webcommerce/webmenuvisibility",
+				"retail/webcommerce/webgender",
+				"retail/webcommerce/webproptype",
+				"retail/webcommerce/webbrand",
+				"retail/webcommerce/webcity",
+				"retail/webcommerce/webeditorialtype",
+				"retail/webcommerce/webseagroup",
+				"retail/webcommerce/websea"	,
+				"retail/webcommerce/webmerchformat"					
+			]
+		},
+
+		{
+			"title" : "User Data",
+			"modules": [
+				"retail/webcommerce/webfeedback"
+			]			
+		},
+
+
+		"retail/webcommerce/website",
+		"retail/webcommerce/webmerchitemgro",
+		"retail/webcommerce/webmerchitemcat",
+		"retail/webcommerce/webmerch",
+		"retail/webcommerce/webeditorial"
+	]
+}

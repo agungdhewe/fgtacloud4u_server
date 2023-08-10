@@ -1,0 +1,62 @@
+<div id="pnl_list">
+	<div class="fgta-page-title">Daftar Role</div>
+
+
+	<div id="pnl_list-pnl_head" style="display: flex;">
+		<!-- Simple Query -->
+		<div style="width: calc(100% - 65px); display: flex;">
+			<div style="width: 100px;">Cari</div>
+			<div style="width: 150px">
+				<input id="pnl_list-txt_search" class="easyui-textbox" style="width: 100%">
+			</div>
+			<div>
+				<a href="javascript:void(0)" id="pnl_list-btn_load" class="easyui-linkbutton c8" style="width: 45px">Load</a>
+				<a href="javascript:void(0)" id="pnl_list-btn_filter" class="easyui-linkbutton c8" style="width: 45px">Filter</a>
+
+			</div>
+		</div>
+		<div style="text-align: right; width: 65px; float: right;">
+			<a href="javascript:void(0)" id="pnl_list-btn_new" class="easyui-linkbutton c8" style="width: 60px">Baru</a>
+		</div>
+	</div>
+
+	<div id="pnl_list-filter"></div>
+
+	<div style="margin-top: 10px">
+		<table id="pnl_list-tbl_list" paging="true" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th type="check">chk</th>
+					<th mapping="id">ID</th>
+					<th mapping="nama">nm</th>
+					<th mapping="nama">Nama</th>
+					<th mapping="alamat">Al</th>
+				</tr>
+				<tr style="background-color: #cccccc">
+					<td style="width: 30px; border-bottom: 1px solid #000000" rowspan="2"></td>
+					<td style="width: 100px; border-bottom: 1px solid #000000" rowspan="2">ID</td>
+					<td style="width: 100px; border-bottom: 1px solid #000000" rowspan="2">nm</td>
+					<td style="border-bottom: 1px solid #999999; text-align: center" colspan="2">Gabs</td>
+				</tr>
+				<tr style="background-color: #cccccc;">
+					<td style="width: 200px; border-bottom: 1px solid #000000">Nama</th>
+					<td style="width: 50px; border-bottom: 1px solid #000000">Al</th>
+				</tr>
+
+
+			</thead>
+		</table>
+	</div>
+
+
+	<div>
+		<div style="display:flex">
+			<a href="javascript:void(0)" id="pnl_list-btn_test" class="easyui-linkbutton c8" style="width: 45px">Test</a>
+			<div id="pnl_list-progress" class="easyui-progressbar" style="width:200px;"></div>
+		</div>
+		<textarea id='textarea_progress'  style="width: 600px; height: 300px" readonly>
+		</textarea>
+
+	</div>
+	
+</div>

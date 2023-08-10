@@ -1,0 +1,12 @@
+apps/*
+!apps/fgta
+node_modules
+rootdir
+public_*
+public/jslibs
+core/vendor
+update
+fgtacloud4u_SyncSettings.ffs_gui
+.sync.ffs_db
+sync.ffs_lock
+sync.ffs_db

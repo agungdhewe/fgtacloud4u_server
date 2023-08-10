@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../server_clients"
+		}
+	],
+	"settings": {
+		"files.watcherExclude": {
+			"/public_*": true,
+			"/apps/content": true,
+			
+		},
+		"files.exclude": {
+			".sync.ffs_db": true,
+			"**/node_modules": true,
+			"public_*": true
+		},
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": false
+		
+	},
+}
