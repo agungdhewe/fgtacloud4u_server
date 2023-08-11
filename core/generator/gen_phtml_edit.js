@@ -121,7 +121,7 @@ module.exports = async (fsd, genconfig) => {
 
 
 					formcomp_script += `
-		<?=$this->Section('${label}', ${val_cancollapse}, ${val_collapse}, '${additionalclass}')?>
+		<?=$this->SectionBegin('${label}', ${val_cancollapse}, ${val_collapse}, '${additionalclass}')?>
 		<div class="fgta_section_collapsible ${csscboxlassname}" ${style_collapse}>
 					`;
 				}
@@ -269,8 +269,10 @@ module.exports = async (fsd, genconfig) => {
 			/* SECTION END --------------------------------------------------- */
 			if (section!=null) {
 				if (section.position=='end') {
+					var label = section.label;
 					formcomp_script += `
-		</div>
+		</div>			
+		<?=$this->SectionEnd('${label}')?>
 					`;
 				}
 			}

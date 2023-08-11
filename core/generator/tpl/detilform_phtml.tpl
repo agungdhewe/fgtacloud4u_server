@@ -1,9 +1,9 @@
 <div id="<!--__PANELNAME__-->">
 	<div class="fgta-page-title" style="display: flex; align-items: center ">
-		<div>Edit <!--__PAGETITLE__--></div>
+		<div id="<!--__PANELNAME__-->-caption">{{STATE_BEG}}<!--__PAGETITLE__-->{{STATE_END}}</div>
 		<a id="<!--__PANELNAME__-->-btn_edit" href="javascript:void(0)" class="easyui-linkbutton fgta-button-edit" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
 	</div>
-	<div id="<!--__PANELNAME__-->-title" style="margin-top: 0px; margin-bottom: 30px; font-weight: bold; font-size: 1.2em">XXXXXXX</div>
+	<div id="<!--__PANELNAME__-->-title" class="fgta-page-subtitle">XXXXXXX</div>
 
 
 	<form id="<!--__PANELNAME__-->-form">

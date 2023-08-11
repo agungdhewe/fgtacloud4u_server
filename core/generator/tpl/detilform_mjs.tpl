@@ -5,7 +5,7 @@ var this_page_options;
 
 const reload_header_modified = true;
 
-
+const txt_caption = $('#<!--__PANELNAME__-->-caption')
 const txt_title = $('#<!--__PANELNAME__-->-title')
 const btn_edit = $('#<!--__PANELNAME__-->-btn_edit')
 const btn_save = $('#<!--__PANELNAME__-->-btn_save')
@@ -31,7 +31,8 @@ export async function init(opt) {
 	this_page_id = opt.id
 	this_page_options = opt;
 
-	
+	txt_caption.template = txt_caption.html();
+
 	form = new global.fgta4form(pnl_form, {
 		primary: obj.<--__FORMCOMPID__-->,
 		autoid: true,
@@ -144,8 +145,19 @@ export function getForm() {
 
 export function open(data, rowid, hdata) {
 	// console.log(header_data)
-	txt_title.html(hdata.<--__HEADERVIEWKEY__-->)
 	header_data = hdata
+
+	var caption = txt_caption.template;
+	caption = caption.replace('{{STATE_BEG}}', '');
+	caption = caption.replace('{{STATE_END}}', ' View');
+	txt_caption.html(caption);
+
+	txt_title.html(header_data.<--__HEADERVIEWKEY__-->)
+	if (typeof hnd!=='undefined') { 
+		if (typeof hnd.setupTitle === 'function') {
+			hnd.setupTitle(txt_title, header_data, 'open');
+		}
+	}
 
 	var pOpt = form.getDefaultPrompt(false)
 	var fn_dataopening = async (options) => {
@@ -182,17 +194,6 @@ export function open(data, rowid, hdata) {
 
 
 
-		/* tambahkan event atau behaviour saat form dibuka
-		   apabila ada rutin mengubah form dan tidak mau dijalankan pada saat opening,
-		   cek dengan form.isEventSuspended()
-		*/ 
-		/*--__FORMOPENEDHANDLER__--*/
-
-
-		form.commit()
-		form.SuspendEvent(false);
-
-
 		// Editable
 		if (form.AllowEditRecord!=true) {
 			btn_edit.hide();
@@ -227,7 +228,21 @@ export function open(data, rowid, hdata) {
 			btn_next.linkbutton('enable')
 		} else {
 			btn_next.linkbutton('disable')
-		}		
+		}	
+
+
+		/* tambahkan event atau behaviour saat form dibuka
+		   apabila ada rutin mengubah form dan tidak mau dijalankan pada saat opening,
+		   cek dengan form.isEventSuspended()
+		*/ 
+		/*--__FORMOPENEDHANDLER__--*/
+
+
+		form.commit()
+		form.SuspendEvent(false);
+
+
+
 	}
 
 	var fn_dataopenerror = (err) => {
@@ -240,7 +255,18 @@ export function open(data, rowid, hdata) {
 export function createnew(hdata) {
 	header_data = hdata
 
-	txt_title.html('Create New Row')
+	var caption = txt_caption.template;
+	caption = caption.replace('{{STATE_BEG}}', 'Create New ');
+	caption = caption.replace('{{STATE_END}}', '');
+	txt_caption.html(caption);
+
+	txt_title.html(header_data.<--__HEADERVIEWKEY__-->)
+	if (typeof hnd!=='undefined') { 
+		if (typeof hnd.setupTitle === 'function') {
+			hnd.setupTitle(txt_title, header_data, 'new');
+		}
+	}
+
 	form.createnew(async (data, options)=>{
 		data.<--__FK_TO_HEADER__--> = hdata.<--__HEADERPRIMARYKEY__-->
 		data.<!--__DETILNAME__-->_value = 0
@@ -362,7 +388,15 @@ function updatefilebox(record) {
 }
 
 function form_viewmodechanged(viewonly) {
+
+	console.log('View Mode changed');
+	var caption = txt_caption.template;
+
 	if (viewonly) {
+		caption = caption.replace('{{STATE_BEG}}', '');
+		caption = caption.replace('{{STATE_END}}', ' View');
+		txt_caption.html(caption);
+
 		btn_prev.linkbutton('enable')
 		btn_next.linkbutton('enable')
 		if (btn_addnew.allow) {
@@ -371,10 +405,19 @@ function form_viewmodechanged(viewonly) {
 			btn_addnew.linkbutton('disable')
 		}
 	} else {
+		var currcaption = txt_caption.html();
+		if (currcaption.substring(0,10)!='Create New') {
+			caption = caption.replace('{{STATE_BEG}}', '');
+			caption = caption.replace('{{STATE_END}}', ' Edit');
+			txt_caption.html(caption);
+		} 
+
 		btn_prev.linkbutton('disable')
 		btn_next.linkbutton('disable')
 		btn_addnew.linkbutton('disable')
 	}
+	
+
 
 	if (typeof hnd.form_viewmodechanged == 'function') {
 		hnd.form_viewmodechanged(viewonly);

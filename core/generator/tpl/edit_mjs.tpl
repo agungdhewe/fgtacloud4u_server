@@ -3,6 +3,8 @@ var this_page_options;
 
 /*--__SLIDESELECTLIB__--*//*--__HANDLERLIB__--*/
 
+const txt_caption = $('#pnl_edit-caption')
+
 
 const btn_edit = $('#pnl_edit-btn_edit')
 const btn_save = $('#pnl_edit-btn_save')
@@ -28,7 +30,7 @@ export async function init(opt) {
 	this_page_id = opt.id;
 	this_page_options = opt;
 
-
+	txt_caption.template = txt_caption.html();
 	var disableedit = false;
 
 	if (opt.settings.btn_edit_visible===false) {
@@ -144,6 +146,12 @@ export function getCurrentRowdata() {
 
 export function open(data, rowid, viewmode=true, fn_callback) {
 
+	var caption = txt_caption.template;
+	caption = caption.replace('{{STATE_BEG}}', '');
+	caption = caption.replace('{{STATE_END}}', ' View');
+	txt_caption.html(caption);
+
+
 	rowdata = {
 		data: data,
 		rowid: rowid
@@ -224,6 +232,13 @@ export function open(data, rowid, viewmode=true, fn_callback) {
 
 
 export function createnew() {
+
+	var caption = txt_caption.template;
+	caption = caption.replace('{{STATE_BEG}}', 'Create New ');
+	caption = caption.replace('{{STATE_END}}', '');
+	txt_caption.html(caption);
+
+
 	form.createnew(async (data, options)=>{
 		// console.log(data)
 		// console.log(options)
@@ -319,6 +334,18 @@ function updategridstate(record) {
 }
 
 function form_viewmodechanged(viewmode) {
+
+	var caption = txt_caption.template;
+	if (viewmode) {
+		caption = caption.replace('{{STATE_BEG}}', '');
+		caption = caption.replace('{{STATE_END}}', ' View');
+	} else {
+		caption = caption.replace('{{STATE_BEG}}', '');
+		caption = caption.replace('{{STATE_END}}', ' Edit');
+	}
+	txt_caption.html(caption);
+
+
 	var OnViewModeChangedEvent = new CustomEvent('OnViewModeChanged', {detail: {}})
 	$ui.triggerevent(OnViewModeChangedEvent, {
 		viewmode: viewmode

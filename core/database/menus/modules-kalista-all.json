@@ -4,8 +4,11 @@
 	"modules": [
 
 
+		"finact/master/coa",
 		"finact/master/jurnalsource",
+		"finact/master/jurnaltype",
 		{"program":"finact/acct/jurnal",  "variancename":"entry"},
+		{"program":"finact/acct/jurnal",  "variancename":"unposting"},
 
 		"fgta/riset/reporting",
 

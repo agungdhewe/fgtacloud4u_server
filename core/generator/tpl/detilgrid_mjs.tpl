@@ -94,16 +94,29 @@ export function OnSizeRecalculated(width, height) {
 export function createnew(data, options) {
 	// pada saat membuat data baru di header
 	grd_list.clear();
-	txt_title.html(data.<--__HEADERVIEWKEY__-->)
 	header_data = data;
+
+	txt_title.html(data.<--__HEADERVIEWKEY__-->)
+	if (typeof hnd!=='undefined') { 
+		if (typeof hnd.setupTitle === 'function') {
+			hnd.setupTitle(txt_title, header_data, 'new');
+		}
+	}
 }
+
 
 export function OpenDetil(data) {
 	// saat di klik di edit utama, pada detil information
 
 	grd_list.clear();
-	txt_title.html(data.<--__HEADERVIEWKEY__-->)
 	header_data = data;
+
+	txt_title.html(data.<--__HEADERVIEWKEY__-->)
+	if (typeof hnd!=='undefined') { 
+		if (typeof hnd.setupTitle === 'function') {
+			hnd.setupTitle(txt_title, header_data, 'open');
+		}
+	}
 
 	var fn_listloading = async (options) => {
 		options.api = `${global.modulefullname}/<!--__DETILNAME__-->-list`
@@ -230,6 +243,7 @@ function btn_removechecked_click() {
 						let result = await $ui.apicall(apiurl, args)
 					} catch (err) {
 						console.log(err)
+						$ui.ShowMessage('[ERROR]'+err.message);
 					}
 				}
 			})

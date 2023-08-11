@@ -222,7 +222,12 @@ h1 {
 	margin-bottom: 30px;
 }
 
-
+.fgta-page-subtitle {
+	margin-top: 0px; 
+	margin-bottom: 30px; 
+	font-weight: bold; 
+	font-size: 1.2em
+}
 
 
 /* CSS untuk keperluan crud: halaman list */

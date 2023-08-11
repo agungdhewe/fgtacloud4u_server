@@ -54,7 +54,7 @@ $MODULE = new class extends WebModule {
 			// parameter=parameter yang bisa diakses langsung dari javascript module
 			// dengan memanggil variable global.setup.<namavariable>
 			$this->setup = (object)array(
-				'local_curr' => __LOCAL_CURR,
+				'local_curr_id' => __LOCAL_CURR,
 				'variancename' => $variancename,
 				'variancedata' => $variancedata,
 				'print_to_new_window' => false,

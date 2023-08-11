@@ -59,6 +59,13 @@
 	letter-spacing: 1px;	
 }
 
+.fgta-page-subtitle {
+	margin-top: 0px; 
+	margin-bottom: 30px; 
+	font-weight: bold; 
+	font-size: 1.2em
+}
+
 
 
 @media only screen and (max-width: 768px) {

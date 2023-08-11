@@ -1,6 +1,6 @@
 <div id="<!--__PANELNAME__-->">
 	<div class="fgta-page-title">Daftar <!--__PAGETITLE__--></div>
-	<div id="<!--__PANELNAME__-->-title" style="margin-top: 0px; margin-bottom: 30px; font-weight: bold; font-size: 1.2em">XXXXXXX</div>
+	<div id="<!--__PANELNAME__-->-title" class="fgta-page-subtitle">XXXXXXX</div>
 
 	<!--// Untuk keperluan search di detil
 	<div id="<!--__PANELNAME__-->-pnl_head" style="display: flex; align-items: flex-end">

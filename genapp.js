@@ -56,8 +56,12 @@ global.dbtype = {
 
 
 global.section = {
-	Begin: (label, options) => { return {position:'begin', label: label, options:options} },
-	End: () => { return {position:'end' }}
+	Begin: (label, options) => { 
+		return {position:'begin', label: label, options:options} 
+	},
+	End: (label) => { 
+		return {position:'end', label: label===undefined ? '' : label }
+	}
 }
 
 

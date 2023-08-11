@@ -59,6 +59,31 @@ class WebModule extends \FGTA4\WebProg {
 
 
 
+	public function SectionBegin($sectionname, $cancollapse=false, $collapse=false, $additionalclass="") {
+		$cb = "";
+		if ($cancollapse) {
+			if ($collapse) {
+				$cb = "<div class=\"fgta-toggle-link\" onclick=\"section_togleview(this)\" style=\"cursor:pointer\">show</div>";
+			} else {
+				$cb = "<div class=\"fgta-toggle-link\" onclick=\"section_togleview(this)\" style=\"cursor:pointer\">hide</div>";
+			}
+		}
+		return "
+		<div class=\"fgta_section $additionalclass\">	 		
+		<div class=\"form_row $additionalclass\" style=\"border-bottom: 1px solid #ccc; display: flex; justify-content: space-between\">
+			<div style=\"width: 150px; background: linear-gradient(to right, rgba(204,204,204,1) 0%,rgba(204,204,204,0.67) 33%,rgba(204,204,204,0) 100%); padding-left: 5px\">
+				<div style=\"background-color: #ccc; width: 150px; font-weight: bold; padding: 4px; transform: skew(20deg,0deg)\"><div style=\"transform: skew(-20deg,0deg)\">{$sectionname}</div></div>
+			</div>
+			$cb
+		</div>
+		";
+	}
+
+	public function SectionEnd(?string $sectionname='') {
+		return "</div>";
+	}
+
+
 	public function Section($sectionname, $cancollapse=false, $collapse=false, $additionalclass="") {
 		$cb = "";
 		if ($cancollapse) {
@@ -74,9 +99,11 @@ class WebModule extends \FGTA4\WebProg {
 				<div style=\"background-color: #ccc; width: 150px; font-weight: bold; padding: 4px; transform: skew(20deg,0deg)\"><div style=\"transform: skew(-20deg,0deg)\">{$sectionname}</div></div>
 			</div>
 			$cb
-		</div>	 		
+		</div>
 		";
 	}
+
+
 
 	public function LongTask(string $panelname, string $buttontext) : string {
 		return "

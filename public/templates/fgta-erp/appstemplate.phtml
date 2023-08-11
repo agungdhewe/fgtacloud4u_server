@@ -363,6 +363,23 @@ $_UIBASE_VERSION = "4.8.2";
 				}
 			}
 		}
+
+		window.section_togleview = (el) => {
+			// console.log(el);
+			var next = el.parentNode.nextElementSibling;
+			if (next.classList.contains('fgta_section_collapsible')) {
+				if ((window.getComputedStyle(next).display === "none")) {
+					// hidden
+					next.style.display = "block";
+					el.innerHTML = 'hide';
+				} else {
+					// visible
+					next.style.display = "none";
+					el.innerHTML = 'show';
+				}
+			}
+		}
+
 	</script>
 
 

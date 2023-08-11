@@ -816,7 +816,7 @@ const btn_decline = $('#pnl_edit-btn_decline')
 			
 		
 		  
-		
+
 
 
 		 /*--__RECORDSTATUSDATAOPEN__--*/   /*--__RECORDSTATUSNEW__--*/

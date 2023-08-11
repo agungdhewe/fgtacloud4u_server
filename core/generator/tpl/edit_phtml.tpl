@@ -1,6 +1,6 @@
 <div id="pnl_edit">
 	<div class="fgta-page-title" style="display: flex; align-items: center ">
-		<div>Edit <!--__PAGETITLE__--></div>
+		<div id="pnl_edit-caption">{{STATE_BEG}}<!--__PAGETITLE__-->{{STATE_END}}</div>
 		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton fgta-button-edit" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
 	</div>
 
