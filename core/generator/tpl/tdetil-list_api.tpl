@@ -110,8 +110,14 @@ $API = new class extends /*{__BASENAME__}*/Base {
 				$options->sortData = [];
 			}			
 			if (!is_array($options->sortData)) {
-				$options->sortData = [];
+				if (is_object($options->sortData)) {
+					$options->sortData = (array)$options->sortData;
+				} else {
+					$options->sortData = [];
+				}
 			}
+
+
 			if (method_exists(get_class($hnd), 'sortListOrder')) {
 				// ** sortListOrder(array &$sortData) : void
 				//    jika ada keperluan mengurutkan data
