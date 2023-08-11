@@ -116,6 +116,9 @@ function btn_load_click() {
 
 		/*--__HANDLERCUSTOMSERACH__--*/
 		
+		if (typeof hnd.list_loading == 'function') {
+			hnd.list_loading(options);
+		}
 		// switch (this_page_options.variancename) {
 		// 	case 'commit' :
 		//		break;
@@ -124,7 +127,9 @@ function btn_load_click() {
 	}
 
 	var fn_listloaded = async (result, options) => {
-		// console.log(result)
+		if (typeof hnd.list_loaded == 'function') {
+			hnd.list_loaded(result, options);
+		}
 	}
 
 	grd_list.listload(fn_listloading, fn_listloaded)
