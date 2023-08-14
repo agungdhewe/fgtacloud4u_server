@@ -325,12 +325,17 @@ function updatebuttonstate(record) {
 }
 
 function updategridstate(record) {
+	var updategriddata = {}
+
 	// apabila ada keperluan untuk update state grid list di sini
 /*--__ACTIONUPDATEGRID__--*/
 
 	if (typeof hnd.form_updategridstate == 'function') {
-		hnd.form_updategridstate(record);
+		hnd.form_updategridstate(updategriddata, record);
 	}
+
+	$ui.getPages().ITEMS['pnl_list'].handler.updategrid(updategriddata, form.rowid);
+
 }
 
 function form_viewmodechanged(viewmode) {

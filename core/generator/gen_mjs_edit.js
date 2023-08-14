@@ -1353,10 +1353,6 @@ function get_action_updategrid(add_commiter, add_approval, genconfig) {
 	var gridupdatersyn = "";
 	if (add_commiter) {
 		gridupdatersyn += `
-
-
-	var updategriddata = {}
-
 	var col_commit = '${basetableentity}_iscommit';
 	updategriddata[col_commit] = record.${basetableentity}_iscommit;	
 	`;
@@ -1372,9 +1368,9 @@ function get_action_updategrid(add_commiter, add_approval, genconfig) {
 			`;
 		}
 
-		gridupdatersyn += `
-	$ui.getPages().ITEMS['pnl_list'].handler.updategrid(updategriddata, form.rowid);
-		`;
+	// 	gridupdatersyn += `
+	// $ui.getPages().ITEMS['pnl_list'].handler.updategrid(updategriddata, form.rowid);
+	// 	`;
 	}
 
 
