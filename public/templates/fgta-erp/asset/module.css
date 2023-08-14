@@ -516,6 +516,11 @@ h1 {
 
 }
 
+.fgtable-foot {
+	border-bottom: 1px solid #999;
+	font-weight: bold;
+}
+
 
 .fgpaging-link {
 	/* text-decoration: underline; */
@@ -576,7 +581,7 @@ h1 {
 	width: 200px; 
 	text-align: right; 
 	font-weight: bold; 
-	font-size: 1.3em; color: #000
+	color: #000
 }
 
 .detilgrid-text {

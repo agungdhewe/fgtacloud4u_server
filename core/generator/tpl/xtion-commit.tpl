@@ -38,7 +38,8 @@ use \FGTA4\StandartApproval;
  */
 $API = new class extends {__BASENAME__}Base {
 
-	public function execute($id, $param) {
+	public function execute($id, $options) {
+		$event = 'commit';
 		$tablename = '/*{__TABLENAME__}*/';
 		$primarykey = '/*{__PRIMARYID__}*/';
 		$userdata = $this->auth->session_get_user();
@@ -87,7 +88,7 @@ $API = new class extends {__BASENAME__}Base {
 				
 				$record = []; $row = $this->get_header_row($id);
 				foreach ($row as $key => $value) { $record[$key] = $value; }
-				$dataresponse = (object) array_merge($record, [
+				$dataresponse = array_merge($record, [
 					//  untuk lookup atau modify response ditaruh disini
 /*{__LOOKUPFIELD__}*/
 					'_createby' => \FGTA4\utils\SqlUtility::Lookup($record['_createby'], $this->db, $GLOBALS['MAIN_USERTABLE'], 'user_id', 'user_fullname'),
@@ -105,7 +106,7 @@ $API = new class extends {__BASENAME__}Base {
 				return (object)[
 					'success' => true,
 					'version' => $currentdata->header->{$this->main_field_version},
-					'dataresponse' => $dataresponse
+					'dataresponse' => (object) $dataresponse
 				];
 
 				

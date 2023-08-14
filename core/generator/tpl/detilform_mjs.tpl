@@ -351,9 +351,11 @@ async function form_datasaved(result, options) {
 
 	if (reload_header_modified) {
 		var currentRowdata =  $ui.getPages().ITEMS['pnl_edit'].handler.getCurrentRowdata();
-		$ui.getPages().ITEMS['pnl_edit'].handler.open(currentRowdata.data, currentRowdata.rowid, false, (err, data)=>{
-			$ui.getPages().ITEMS['pnl_list'].handler.updategrid(data, currentRowdata.rowid);
-		});	
+		if (currentRowdata!=null) {
+			$ui.getPages().ITEMS['pnl_edit'].handler.open(currentRowdata.data, currentRowdata.rowid, false, (err, data)=>{
+				$ui.getPages().ITEMS['pnl_list'].handler.updategrid(data, currentRowdata.rowid);
+			});	
+		}
 	}
 
 	/*--__FORMDATASAVEDHANDLER__--*/
@@ -373,9 +375,12 @@ async function form_deleted(result, options) {
 
 	if (reload_header_modified) {
 		var currentRowdata =  $ui.getPages().ITEMS['pnl_edit'].handler.getCurrentRowdata();
-		$ui.getPages().ITEMS['pnl_edit'].handler.open(currentRowdata.data, currentRowdata.rowid, false, (err, data)=>{
-			$ui.getPages().ITEMS['pnl_list'].handler.updategrid(data, currentRowdata.rowid);
-		});	
+		if (currentRowdata!=null) {
+			$ui.getPages().ITEMS['pnl_edit'].handler.open(currentRowdata.data, currentRowdata.rowid, false, (err, data)=>{
+				$ui.getPages().ITEMS['pnl_list'].handler.updategrid(data, currentRowdata.rowid);
+			});	
+		}
+
 	}
 
 	/*--__FORMDELETEDHANDLER__--*/

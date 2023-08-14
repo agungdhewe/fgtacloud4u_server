@@ -19,21 +19,41 @@ export async function doAction(args, fn_callback) {
 
 }
 
+
+
 async function action_start(args) {
 	try {
-		var result = await $ui.apicall(args.act_url, {
-			id: args.id,
-			param: args.param
-		});
+		if (args.xtion_version===undefined) {
+			/* deprecated */
+			var result = await $ui.apicall(args.act_url, {
+				id: args.id,
+				param: args.param
+			});
+	
+			if (result.message!=null) {
+				throw new Error(result.message);
+			}
+			return result;
+		} else  {
+			/* versi berikutnya, param diganti options agar seragam dengan api2 yang lain */
+			var result = await $ui.apicall(args.act_url, {
+				id: args.id,
+				options: args.options ?? {} 
+			});
+	
+			if (result.message!=null) {
+				throw new Error(result.message);
+			}
+			return result;
 
-		if (result.message!=null) {
-			throw new Error(result.message);
 		}
-		return result;
 	} catch (err) {
 		throw err;
 	}
 }
+
+
+
 
 
 async function action_apiexecute(args, fn_callback) {

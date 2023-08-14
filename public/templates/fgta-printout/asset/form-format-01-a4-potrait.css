@@ -179,6 +179,18 @@ tbody::after {
 
 .report-footer-content {
 	background-color: white;
+	display: flex;
+	column-gap: 20px;
+}
+
+.report-footer-sign {
+	width: 3cm; 
+	height: 2cm; 
+	margin-left: 5mm; 
+	margin-top: 5mm;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .report-footer-initial {

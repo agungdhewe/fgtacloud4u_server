@@ -61,5 +61,11 @@
 	} 
 	?>	
 
+	<?php
+	$custompagefooter = __DIR__.'/<!--__CUSTOMPAGEFOOTERINC__-->'; 
+	if (is_file($custompagefooter)) {
+		include $custompagefooter;
+	} 
+	?>	
 
 </div>

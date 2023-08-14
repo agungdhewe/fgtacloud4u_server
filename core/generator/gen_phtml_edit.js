@@ -303,12 +303,12 @@ module.exports = async (fsd, genconfig) => {
 				if (detil.form===true) {
 					detilrow += `\t\t\t\t<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; ${style}" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_edit${detilname}grid')">\r\n`;
 					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_title" class="detilgrid-text">${detiltitle}</div>\r\n`;
-					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_value" class="detilgrid-value">&nbsp;</div>\r\n`;
+					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_value" class="detilgrid-value ${detilname}_totalvalue">&nbsp;</div>\r\n`;
 					detilrow += `\t\t\t\t</div>\r\n`;
 				} else {
 					detilrow += `\t\t\t\t<div class="fgtable-head-drow" style="height: 25px; padding: 5px 5px 0px 5px; ; ${style}" onclick="$ui.getPages().ITEMS['pnl_edit'].handler.detil_open('pnl_edit${detilname}')">\r\n`;
 					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_title" class="detilgrid-text">${detiltitle}</div>\r\n`;
-					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_value" class="detilgrid-value">&nbsp;</div>\r\n`;
+					detilrow += `\t\t\t\t\t<div id="pnl_edit-txt_${detilname}_value" class="detilgrid-value ${detilname}_totalvalue">&nbsp;</div>\r\n`;
 					detilrow += `\t\t\t\t</div>\r\n`;
 				}
 			}

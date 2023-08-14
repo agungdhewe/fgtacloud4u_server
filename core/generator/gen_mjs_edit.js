@@ -531,7 +531,7 @@ const btn_uncommit = $('#pnl_edit-btn_uncommit')
 			commithandlerassignment = `
 
 	btn_commit.linkbutton({ onClick: async () => { 
-		var args = { action: 'commit', cancel: false, param: {}};
+		var args = { action: 'commit', cancel: false, options: {}};
 		if (typeof hnd.action_starting === 'function') {
 			await hnd.action_starting(args);
 		}
@@ -539,11 +539,11 @@ const btn_uncommit = $('#pnl_edit-btn_uncommit')
 			if (typeof args.cancelShowMessage === 'function') { args.cancelShowMessage(); }
 			return;
 		}
-		btn_action_click({ action: args.action, param: args.param }); 
+		btn_action_click({ action: args.action, options: args.options }); 
 	} });
 
 	btn_uncommit.linkbutton({ onClick: async () => { 
-		var args = { action: 'uncommit', cancel: false, param: {}};
+		var args = { action: 'uncommit', cancel: false, options: {}};
 		if (typeof hnd.action_starting === 'function') {
 			await hnd.action_starting(args);
 		}
@@ -551,7 +551,7 @@ const btn_uncommit = $('#pnl_edit-btn_uncommit')
 			if (typeof args.cancelShowMessage === 'function') { args.cancelShowMessage(); }
 			return;
 		}
-		btn_action_click({ action: args.action, param: args.param }); 
+		btn_action_click({ action: args.action, options: args.options }); 
 	} });
 
 			`;
@@ -564,7 +564,7 @@ const btn_decline = $('#pnl_edit-btn_decline')
 	approvehandlerassignment = `
 
 	btn_approve.linkbutton({ onClick: async () => { 
-		var args = { action: 'approve', cancel: false, param: {}};
+		var args = { action: 'approve', cancel: false, options: {}};
 		if (typeof hnd.action_starting === 'function') {
 			await hnd.action_starting(args);
 		}
@@ -572,11 +572,11 @@ const btn_decline = $('#pnl_edit-btn_decline')
 			if (typeof args.cancelShowMessage === 'function') { args.cancelShowMessage(); }
 			return;
 		}
-		btn_action_click({ action: args.action, param: args.param }); 
+		btn_action_click({ action: args.action, options: args.options }); 
 	} });
 
 	btn_decline.linkbutton({ onClick: async () => {
-		var args = { action: 'decline', cancel: false, param: {}};
+		var args = { action: 'decline', cancel: false, options: {}};
 		if (typeof hnd.action_starting === 'function') {
 			await hnd.action_starting(args);
 		}
@@ -596,7 +596,7 @@ const btn_decline = $('#pnl_edit-btn_decline')
 			'Decline': () => {
 				var txt = window.parent.document.getElementById(id);
 				var reason = txt.value;
-				btn_action_click({ action: args.action, param: args.param, reason: reason }); 
+				btn_action_click({ action: args.action, options: args.options, reason: reason }); 
 			},
 			'Cancel': () => {
 			} 
@@ -957,6 +957,7 @@ function get_action_function(add_commiter, add_approval, add_xtion, genconfig) {
 	if (add_commiter) {
 		optioncasecommiter = `
 		case 'commit' :
+			args.xtion_version = '1.1';
 			args.act_url = \`\${global.modulefullname}/${commiter_xtion}\`;
 			args.act_msg_quest = \`Apakah anda yakin akan <b>\${args.action}</b> \${docname} no \${args.id} ?\`;
 			args.act_msg_result = \`\${docname} no \${args.id} telah di \${args.action}.\`;
@@ -968,6 +969,7 @@ function get_action_function(add_commiter, add_approval, add_xtion, genconfig) {
 			break;
 
 		case 'uncommit' :
+			args.xtion_version = '1.1';
 			args.act_url = \`\${global.modulefullname}/${uncommiter_xtion}\`;
 			args.act_msg_quest = \`Apakah anda yakin akan <b>\${args.action}</b> \${docname} no \${args.id} ?\`;
 			args.act_msg_result = \`\${docname} no \${args.id} telah di \${args.action}.\`;
@@ -1002,6 +1004,7 @@ function get_action_function(add_commiter, add_approval, add_xtion, genconfig) {
 		`;
 		optioncaseapproval = `
 		case 'approve' :
+			args.xtion_version = '1.1';
 			args.act_url = \`\${global.modulefullname}/${approval_xtion}\`;
 			args.act_msg_quest = \`Apakah anda yakin akan <b>\${args.action}</b> \${docname} no \${args.id} ?\`;
 			args.act_msg_result = \`\${docname} no \${args.id} telah di \${args.action}.\`;
@@ -1021,6 +1024,7 @@ function get_action_function(add_commiter, add_approval, add_xtion, genconfig) {
 			break;
 
 		case 'decline' :
+			args.xtion_version = '1.1';
 			args.act_url = \`\${global.modulefullname}/${approval_xtion}\`;
 			args.act_msg_quest = '', //\`Apakah anda yakin akan <b>\${args.action}</b> \${docname} no \${args.id} ?\`;
 			args.act_msg_result = \`\${docname} no \${args.id} telah di \${args.action}.\`;

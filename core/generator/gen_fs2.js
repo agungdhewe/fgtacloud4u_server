@@ -126,19 +126,41 @@ async function PrepareFs(genconfig) {
 
 
 	if (genconfig.printing===true) {
-		fsdata.push({program:'gen_xprint_css', name: `${basename}.xprint.css`, overwrite: xprintOverwrite});
-		fsdata.push({program:'gen_xprint_mjs', name: `${basename}.xprint.mjs`, overwrite: xprintOverwrite});
-		fsdata.push({program:'gen_xprint_php', name: `${basename}.xprint.php`, overwrite: xprintOverwrite});
-		fsdata.push({program:'gen_xprint_phtml', name: `${basename}.xprint.phtml`, overwrite: xprintOverwrite});
+		fsdata.push({
+			program:'gen_xprint_css', name: `${basename}.xprint.css`, 
+			overwrite: xprintOverwrite, backup_on_overwrite:true
+		});
+		fsdata.push({
+			program:'gen_xprint_mjs', name: `${basename}.xprint.mjs`, 
+			overwrite: xprintOverwrite, backup_on_overwrite:true
+		});
+		fsdata.push({
+			program:'gen_xprint_php', name: `${basename}.xprint.php`, 
+			overwrite: xprintOverwrite, backup_on_overwrite:true
+		});
+		fsdata.push({
+			program:'gen_xprint_phtml', name: `${basename}.xprint.phtml`, 
+			overwrite: xprintOverwrite, backup_on_overwrite:true
+		});
 	}
 
 	var add_approval = genconfig.approval===true;
 	var add_commiter = add_approval===true ? true : (genconfig.committer===true);
 	if (add_commiter) {
-		fsdata.push({program:'gen_xtion_commit', name: path.join('apis', 'xtion-commit.php'), overwrite: commitOverwrite});
-		fsdata.push({program:'gen_xtion_uncommit', name: path.join('apis', 'xtion-uncommit.php'), overwrite: uncommitOverwrite});
+		fsdata.push({
+			program:'gen_xtion_commit', name: path.join('apis', 'xtion-commit.php'), 
+			overwrite: commitOverwrite, backup_on_overwrite:true
+		});
+		fsdata.push({
+			program:'gen_xtion_uncommit', name: path.join('apis', 'xtion-uncommit.php'), 
+			overwrite: uncommitOverwrite, backup_on_overwrite:true
+		});
+
 		if (add_approval) {
-			fsdata.push({program:'gen_xtion_approve', name: path.join('apis', 'xtion-approve.php'), overwrite: approvalOverwrite});
+			fsdata.push({
+				program:'gen_xtion_approve', name: path.join('apis', 'xtion-approve.php'), 
+				overwrite: approvalOverwrite, backup_on_overwrite:true
+			});
 		}
 	}
 
@@ -305,12 +327,21 @@ async function PrepareFile(programpath, fd, overwrite=true) {
 				
 				//------------------------------
 				// disable disini apabila mau testing, tidak bikin file backup
-				// if (fs.existsSync(fspath)) {
-				// 	console.log('File Exist')
-				// 	process.stdout.write(`Creating backup file `);
-				// 	fs.copyFileSync(fspath, path.join(fspath_dirname, `backup [${DATESERIAL}] ${fspath_filename}`))
-				// } 
-				// console.log('OK.')
+				if (fs.existsSync(fspath)) {
+					console.log('File Exist');
+					if (fd.backup_on_overwrite===true && overwrite===true) {
+						process.stdout.write(`Creating backup file `);
+						
+						// cek apakah direktori backup ada
+						var fspath_backupdir = path.join(fspath_dirname, 'backup');
+						if (!fs.existsSync(fspath_backupdir)) {
+							// direktori backup tidak ada, buat dulu direktori backup
+							fs.mkdirSync(fspath_backupdir)
+						}
+						fs.copyFileSync(fspath, path.join(fspath_backupdir, `backup [${DATESERIAL}] ${fspath_filename}`))
+					}
+				} 
+				//console.log('OK.')
 				//------------------------------
 
 				process.stdout.write(`Writing ${fd.name}... `);

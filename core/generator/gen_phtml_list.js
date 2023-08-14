@@ -83,6 +83,7 @@ module.exports = async (fsd, genconfig) => {
 		tplscript = tplscript.replace('<!--__CUSTOMSEARCHINC__-->', `${genconfig.basename}-list-customsearch.phtml`)
 		tplscript = tplscript.replace('<!--__CUSTOMHEADBUTTONINC__-->', `${genconfig.basename}-list-customheadbutton.phtml`)
 		tplscript = tplscript.replace('<!--__CUSTOMFOOTBUTTONINC__-->', `${genconfig.basename}-list-customfootbutton.phtml`)
+		tplscript = tplscript.replace('<!--__CUSTOMPAGEFOOTERINC__-->', `${genconfig.basename}-list-custompagefooter.phtml`)
 		
 		
 
