@@ -2,13 +2,13 @@
 
 	"title": "home",
 	"modules": [
-
 		"finact/master/coa",
 		"finact/master/jurnalsource",
 		"finact/master/jurnaltype",
 		{"program":"finact/acct/jurnal",  "variancename":"entry"},
 		{"program":"finact/acct/jurnal",  "variancename":"posting"},
-		{"program":"finact/acct/jurnal",  "variancename":"unposting"}
+		{"program":"finact/acct/jurnal",  "variancename":"unposting"},
+		"finact/acct/rptledgersummary"
 	]
 	
 }
