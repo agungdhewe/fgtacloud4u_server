@@ -2,6 +2,7 @@
 
 	"title": "home",
 	"modules": [
+		"finact/master/coagroup",
 		"finact/master/coa",
 		"finact/master/jurnalsource",
 		"finact/master/jurnaltype",
