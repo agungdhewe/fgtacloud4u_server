@@ -290,6 +290,8 @@ module.exports = async (fsd, genconfig) => {
 	tplscript = tplscript.replace('<!--__FORMCOMP__-->', formcomp_script)
 	tplscript = tplscript.replace('<!--__BASENAME__-->', genconfig.basename);
 
+	tplscript = tplscript.replace('<!--__CUSTOMBUTTONBAR__-->', `${genconfig.basename}-${fsd.detilname}form-custombuttonbar.phtml`)
+
 
 	fsd.script = tplscript
 }

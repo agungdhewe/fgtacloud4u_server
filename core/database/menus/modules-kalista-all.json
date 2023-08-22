@@ -8,6 +8,7 @@
 		{"program":"finact/acct/jurnal",  "variancename":"entry"},
 		{"program":"finact/acct/jurnal",  "variancename":"posting"},
 		{"program":"finact/acct/jurnal",  "variancename":"unposting"},
+		{"program":"finact/acct/jurnal",  "variancename":"link"},
 		"finact/acct/rptledgersummary"
 	]
 	
