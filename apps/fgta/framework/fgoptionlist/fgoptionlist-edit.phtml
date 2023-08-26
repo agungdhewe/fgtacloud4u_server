@@ -1,6 +1,6 @@
 <div id="pnl_edit">
 	<div class="fgta-page-title" style="display: flex; align-items: center ">
-		<div id="pnl_edit-caption">{{STATE_BEG}}Setting{{STATE_END}}</div>
+		<div id="pnl_edit-caption">{{STATE_BEG}}Option List{{STATE_END}}</div>
 		<a id="pnl_edit-btn_edit" href="javascript:void(0)" class="easyui-linkbutton fgta-button-edit" style="margin-left:10px;" data-options="plain:true,iconCls:'fgta-icon-edit'">edit</a>
 	</div>
 
@@ -10,31 +10,15 @@
 		<div class="form_row pnl_edit_row" >
 			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">ID</div>
 			<div class="form_input_col" style="border: 0px solid black">
-				<input id="pnl_edit-txt_setting_id" class="easyui-textbox" mapping="setting_id" uppercase="true" maxlength="30" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'ID Setting harus diisi' ">
+				<input id="pnl_edit-txt_optionlist_id" class="easyui-textbox" mapping="optionlist_id" uppercase="true" maxlength="10" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'ID harus diisi' ">
 				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
 			</div>
 		</div>
 
 		<div class="form_row pnl_edit_row" >
-			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Value</div>
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Option Name</div>
 			<div class="form_input_col" style="border: 0px solid black">
-				<input id="pnl_edit-txt_setting_value" class="easyui-textbox" mapping="setting_value"  maxlength="255" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Value harus diisi' ">
-				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
-			</div>
-		</div>
-
-		<div class="form_row pnl_edit_row" >
-			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Scope</div>
-			<div class="form_input_col" style="border: 0px solid black">
-				<input id="pnl_edit-txt_setting_scope" class="easyui-textbox" mapping="setting_scope"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
-				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
-			</div>
-		</div>
-
-		<div class="form_row pnl_edit_row" >
-			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Tag</div>
-			<div class="form_input_col" style="border: 0px solid black">
-				<input id="pnl_edit-txt_setting_tag" class="easyui-textbox" mapping="setting_tag"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<input id="pnl_edit-txt_optionlist_name" class="easyui-textbox" mapping="optionlist_name"  maxlength="30" style="width: 400px" data-options="multiline: false , required: true, invalidMessage: 'Nama Option harus diisi' ">
 				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
 			</div>
 		</div>
@@ -42,7 +26,31 @@
 		<div class="form_row pnl_edit_row" >
 			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Descr</div>
 			<div class="form_input_col" style="border: 0px solid black">
-				<input id="pnl_edit-txt_setting_descr" class="easyui-textbox" mapping="setting_descr"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<input id="pnl_edit-txt_optionlist_descr" class="easyui-textbox" mapping="optionlist_descr"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Tag</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_optionlist_tag" class="easyui-textbox" mapping="optionlist_tag"  maxlength="255" style="width: 400px" data-options="multiline: false  ">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Order</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_optionlist_order" class="easyui-numberbox" mapping="optionlist_order" style="width: 400px; text-align:right" data-options="precision: 0, decimalSeparator:'.', groupSeparator:','  , required: true, invalidMessage: 'Order harus diisi'">
+				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
+			</div>
+		</div>
+
+		<div class="form_row pnl_edit_row" >
+			<div class="form_label_col"  style="border: 0px solid black; vertical-align: top; margin-top: 7px;">Data</div>
+			<div class="form_input_col" style="border: 0px solid black">
+				<input id="pnl_edit-txt_optionlist_data" class="easyui-textbox" mapping="optionlist_data"  maxlength="2255" style="width: 400px" data-options="multiline: false  ">
 				<div style="margin-top: 3px; margin-bottom: 5px; font-size: 0.75em; font-style: italic; color:#54381d;"></div>
 			</div>
 		</div>
@@ -65,7 +73,7 @@
 		<div>
 			<!-- letakkan tombol-tombol xtion disini -->
 			<?php
-			$customheaderxtion = __DIR__.'/fgsetting-edit-customxtion.phtml'; 
+			$customheaderxtion = __DIR__.'/fgoptionlist-edit-customxtion.phtml'; 
 			if (is_file($customheaderxtion)) {
 				include $customheaderxtion;
 			} else { ?>

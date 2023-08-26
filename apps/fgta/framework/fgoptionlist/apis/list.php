@@ -16,29 +16,29 @@ if (is_file(__DIR__ .'/data-header-handler.php')) {
 use \FGTA4\exceptions\WebException;
 
 /**
- * fgta/framework/fgsetting/apis/list.php
+ * fgta/framework/fgoptionlist/apis/list.php
  *
  * ========
  * DataList
  * ========
- * Menampilkan data-data pada tabel header fgsetting (fgt_setting)
+ * Menampilkan data-data pada tabel header fgoptionlist (fgt_optionlist)
  * sesuai dengan parameter yang dikirimkan melalui variable $option->criteria
  *
  * Agung Nugroho <agung@fgta.net> http://www.fgta.net
  * Tangerang, 26 Maret 2021
  *
  * digenerate dengan FGTA4 generator
- * tanggal 24/08/2023
+ * tanggal 25/08/2023
  */
-$API = new class extends fgsettingBase {
+$API = new class extends fgoptionlistBase {
 
 	public function execute($options) {
 
 		$userdata = $this->auth->session_get_user();
 
-		$handlerclassname = "\\FGTA4\\apis\\fgsetting_headerHandler";
+		$handlerclassname = "\\FGTA4\\apis\\fgoptionlist_headerHandler";
 		if (class_exists($handlerclassname)) {
-			$hnd = new fgsetting_headerHandler($options);
+			$hnd = new fgoptionlist_headerHandler($options);
 			$hnd->caller = &$this;
 			$hnd->db = $this->db;
 			$hnd->auth = $this->auth;
@@ -61,7 +61,7 @@ $API = new class extends fgsettingBase {
 			}
 
 			$criteriaValues = [
-				"search" => " A.setting_id LIKE CONCAT('%', :search, '%') OR A.setting_value LIKE CONCAT('%', :search, '%') "
+				"search" => " A.optionlist_id LIKE CONCAT('%', :search, '%') OR A.optionlist_name LIKE CONCAT('%', :search, '%') OR A.optionlist_tag LIKE CONCAT('%', :search, '%') "
 			];
 
 			if (method_exists(get_class($hnd), 'buildListCriteriaValues')) {
@@ -92,11 +92,11 @@ $API = new class extends fgsettingBase {
 
 			/* Data Query Configuration */
 			$sqlFieldList = [
-				'setting_id' => 'A.`setting_id`', 'setting_value' => 'A.`setting_value`', 'setting_scope' => 'A.`setting_scope`', 'setting_tag' => 'A.`setting_tag`',
-				'setting_descr' => 'A.`setting_descr`', '_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`', '_modifyby' => 'A.`_modifyby`',
+				'optionlist_id' => 'A.`optionlist_id`', 'optionlist_name' => 'A.`optionlist_name`', 'optionlist_descr' => 'A.`optionlist_descr`', 'optionlist_tag' => 'A.`optionlist_tag`',
+				'optionlist_order' => 'A.`optionlist_order`', 'optionlist_data' => 'A.`optionlist_data`', '_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`',
 				'_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`', '_modifyby' => 'A.`_modifyby`', '_modifydate' => 'A.`_modifydate`'
 			];
-			$sqlFromTable = "fgt_setting A";
+			$sqlFromTable = "fgt_optionlist A";
 			$sqlWhere = $where->sql;
 			$sqlLimit = "LIMIT $maxrow OFFSET $offset";
 

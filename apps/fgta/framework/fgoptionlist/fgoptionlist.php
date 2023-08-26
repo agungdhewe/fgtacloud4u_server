@@ -1,31 +1,31 @@
 <?php namespace FGTA4\module; if (!defined('FGTA4')) { die('Forbiden'); } 
 
-if (is_file(__DIR__ .'/fgsetting.php-handler.php')) {
-	require_once __DIR__ .'/fgsetting.php-handler.php';
+if (is_file(__DIR__ .'/fgoptionlist.php-handler.php')) {
+	require_once __DIR__ .'/fgoptionlist.php-handler.php';
 }
 
 /**
- * fgta/framework/fgsetting/fgsetting.php
+ * fgta/framework/fgoptionlist/fgoptionlist.php
  *
  * ===================================================================
- * Entry point Program Module fgsetting
+ * Entry point Program Module fgoptionlist
  * ===================================================================
  * Program yang akan pertama kali diakses 
  * oleh semua request untuk menampilkan modul 
  * 
  * digenerate dengan FGTA4 generator versi 2 
  * Agung Nugroho <agung@fgta.net> http://www.fgta.net (Tangerang, 26 Maret 2021)
- * awal dibuat tanggal 11/12/2019
- * terakhir di generate tanggal 24/08/2023
+ * awal dibuat tanggal 24/08/2023
+ * terakhir di generate tanggal 25/08/2023
  */
 $MODULE = new class extends WebModule {
 
 	public function LoadPage() {
 		$userdata = $this->auth->session_get_user();
 
-		$handlerclassname = "\\FGTA4\\module\\fgsetting_pageHandler";
+		$handlerclassname = "\\FGTA4\\module\\fgoptionlist_pageHandler";
 		if (class_exists($handlerclassname)) {
-			$hnd = new fgsetting_pageHandler();
+			$hnd = new fgoptionlist_pageHandler();
 			$hnd->caller = &$this;
 			$hnd->auth = $this->auth;
 			$hnd->userdata = $userdata;

@@ -1,7 +1,8 @@
 var this_page_id;
 var this_page_options;
 
-/*--__HANDLERLIB__--*/
+import * as hnd from  './fgoptionlist-list-hnd.mjs'
+
 const tbl_list = $('#pnl_list-tbl_list')
 
 const txt_search = $('#pnl_list-txt_search')
@@ -58,10 +59,22 @@ export async function init(opt) {
 		}
 	})	
 	
-/*--__BUTTONSTATE__--*/
 
 
-/*--__HANDLERASSIGNMENT__--*/
+
+	grd_list.autoload = true;
+	if (typeof hnd.init==='function') {
+			hnd.init({
+				grd_list: grd_list,
+				opt: opt,
+			}, ()=>{
+				if (grd_list.autoload) {
+					btn_load_click();
+				}
+			})
+		} else {
+			btn_load_click();
+	}
 
 }
 
@@ -110,7 +123,9 @@ function btn_load_click() {
 			options.criteria['search'] = search
 		}
 
-		/*--__HANDLERCUSTOMSERACH__--*/
+		if (typeof hnd.customsearch === 'function') {
+			hnd.customsearch(options);
+		}
 		
 		if (typeof hnd.list_loading == 'function') {
 			hnd.list_loading(options);
@@ -165,7 +180,9 @@ function grd_list_cellclick(td, ev) {
 }
 
 function grd_list_cellrender(td) {
-	/*--__HANDLERCELLRENDER__--*/
+	if (typeof hnd.grd_list_cellrender === 'function') {
+		hnd.grd_list_cellrender({td:td, mapping:td.mapping, text:td.innerHTML});
+	}
 }
 
 function grd_list_rowrender(tr) {
@@ -174,7 +191,9 @@ function grd_list_rowrender(tr) {
 
 	$(tr).find('td').each((i, td) => {
 		var mapping = td.getAttribute('mapping')
-		/*--__HANDLERROWRENDER__--*/
+		if (typeof hnd.grd_list_rowrender === 'function') {
+			hnd.grd_list_rowrender({tr:tr, td:td, record:record, mapping:mapping, dataid:dataid, i:i});
+		}
 	})
 }
 

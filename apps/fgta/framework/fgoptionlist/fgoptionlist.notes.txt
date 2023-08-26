@@ -1,0 +1,10 @@
+Option List
+		
+Original Path : /Users/agung/Development/fgtacloud4u/server/apps/fgta/framework/fgoptionlist
+Creator Name  : undefined
+                undefined
+Created Date  : Thu Aug 24 2023 23:37:15 GMT+0700 (Western Indonesia Time)				 
+=========================================================================================
+
+<put your notes here>
+		

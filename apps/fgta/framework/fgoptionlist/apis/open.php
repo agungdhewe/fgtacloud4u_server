@@ -16,32 +16,32 @@ use \FGTA4\exceptions\WebException;
 
 
 /**
- * fgta/framework/fgsetting/apis/open.php
+ * fgta/framework/fgoptionlist/apis/open.php
  *
  * ====
  * Open
  * ====
  * Menampilkan satu baris data/record sesuai PrimaryKey,
- * dari tabel header fgsetting (fgt_setting)
+ * dari tabel header fgoptionlist (fgt_optionlist)
  *
  * Agung Nugroho <agung@fgta.net> http://www.fgta.net
  * Tangerang, 26 Maret 2021
  *
  * digenerate dengan FGTA4 generator
- * tanggal 24/08/2023
+ * tanggal 25/08/2023
  */
-$API = new class extends fgsettingBase {
+$API = new class extends fgoptionlistBase {
 	
 	public function execute($options) {
 		$event = 'on-open';
-		$tablename = 'fgt_setting';
-		$primarykey = 'setting_id';
+		$tablename = 'fgt_optionlist';
+		$primarykey = 'optionlist_id';
 		$userdata = $this->auth->session_get_user();
 
-		$handlerclassname = "\\FGTA4\\apis\\fgsetting_headerHandler";
+		$handlerclassname = "\\FGTA4\\apis\\fgoptionlist_headerHandler";
 		$hnd = null;
 		if (class_exists($handlerclassname)) {
-			$hnd = new fgsetting_headerHandler($options);
+			$hnd = new fgoptionlist_headerHandler($options);
 			$hnd->caller = &$this;
 			$hnd->db = $this->db;
 			$hnd->auth = $this->auth;
@@ -69,7 +69,7 @@ $API = new class extends fgsettingBase {
 			}
 
 			$criteriaValues = [
-				"setting_id" => " setting_id = :setting_id "
+				"optionlist_id" => " optionlist_id = :optionlist_id "
 			];
 			if (method_exists(get_class($hnd), 'buildOpenCriteriaValues')) {
 				// buildOpenCriteriaValues(object $options, array &$criteriaValues) : void
@@ -91,11 +91,11 @@ $API = new class extends fgsettingBase {
 
 
 			$sqlFieldList = [
-				'setting_id' => 'A.`setting_id`', 'setting_value' => 'A.`setting_value`', 'setting_scope' => 'A.`setting_scope`', 'setting_tag' => 'A.`setting_tag`',
-				'setting_descr' => 'A.`setting_descr`', '_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`', '_modifyby' => 'A.`_modifyby`',
+				'optionlist_id' => 'A.`optionlist_id`', 'optionlist_name' => 'A.`optionlist_name`', 'optionlist_descr' => 'A.`optionlist_descr`', 'optionlist_tag' => 'A.`optionlist_tag`',
+				'optionlist_order' => 'A.`optionlist_order`', 'optionlist_data' => 'A.`optionlist_data`', '_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`',
 				'_createby' => 'A.`_createby`', '_createdate' => 'A.`_createdate`', '_modifyby' => 'A.`_modifyby`', '_modifydate' => 'A.`_modifydate`'
 			];
-			$sqlFromTable = "fgt_setting A";
+			$sqlFromTable = "fgt_optionlist A";
 			$sqlWhere = $where->sql;
 
 			if (method_exists(get_class($hnd), 'SqlQueryOpenBuilder')) {

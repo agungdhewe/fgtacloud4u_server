@@ -1,7 +1,8 @@
 var this_page_id;
 var this_page_options;
 
-/*--__SLIDESELECTLIB__--*//*--__HANDLERLIB__--*/
+
+import * as hnd from  './fgoptionlist-edit-hnd.mjs'
 
 const txt_caption = $('#pnl_edit-caption')
 
@@ -9,18 +10,23 @@ const txt_caption = $('#pnl_edit-caption')
 const btn_edit = $('#pnl_edit-btn_edit')
 const btn_save = $('#pnl_edit-btn_save')
 const btn_delete = $('#pnl_edit-btn_delete')
-/*--__PRINTBUTTON__--*/
-/*--__COMMITBUTTON__--*/
-/*--__APPROVEBUTTON__--*/
-/*--__XTIONSBUTTONS__--*/
-/*--__UPLOADCONST__--*/
+
+
+
+
+
 
 const pnl_form = $('#pnl_edit-form')
 const obj = {
-/*--__FORMCOMP__--*/
+	txt_optionlist_id: $('#pnl_edit-txt_optionlist_id'),
+	txt_optionlist_name: $('#pnl_edit-txt_optionlist_name'),
+	txt_optionlist_descr: $('#pnl_edit-txt_optionlist_descr'),
+	txt_optionlist_tag: $('#pnl_edit-txt_optionlist_tag'),
+	txt_optionlist_order: $('#pnl_edit-txt_optionlist_order'),
+	txt_optionlist_data: $('#pnl_edit-txt_optionlist_data')
 }
 
-/*--__RECORDSTATUS__--*/
+
 
 
 let form;
@@ -35,9 +41,9 @@ export async function init(opt) {
 
 
 	form = new global.fgta4form(pnl_form, {
-		primary: obj./*--__FORMCOMPID__--*/,
-		autoid: /*--__AUTOID__--*/,
-		logview: '/*--__LOGVIEW__--*/',
+		primary: obj.txt_optionlist_id,
+		autoid: false,
+		logview: 'fgt_optionlist',
 		btn_edit: disableedit==true? $('<a>edit</a>') : btn_edit,
 		btn_save: disableedit==true? $('<a>save</a>') : btn_save,
 		btn_delete: disableedit==true? $('<a>delete</a>') : btn_delete,		
@@ -50,22 +56,22 @@ export async function init(opt) {
 		OnIdSetup : (options) => { form_idsetup(options) },
 		OnViewModeChanged : (viewonly) => { form_viewmodechanged(viewonly) },
 		OnRecordStatusCreated: () => {
-			/*--__STATUSCREATED__--*/			
+			undefined			
 		}		
 	});
 	form.getHeaderData = () => {
 		return getHeaderData();
 	}
 
-/*--__PRINTHANDLERASSIGNMENT__--*/
-/*--__COMMITHANDLERASSIGNMENT__--*/
-/*--__APPROVEHANDLERASSIGNMENT__--*/
-/*--__XTIONSHANDLERASSIGNMENT__--*/
-/*--__OBJHANDLERASSIGNMENT__--*/
+	// Generator: Print Handler not exist
+	// Generator: Commit Handler not exist
+	// Generator: Approval Handler not exist
+	// Generator: Xtion Handler not exist
+	// Generator: Object Handler not exist
 
-/*--__UPLOADEVENT__--*/
+	// Generator: Upload Handler not exist
 
-/*--__SLIDESELECS__--*/
+
 
 
 
@@ -117,8 +123,19 @@ export async function init(opt) {
 		}
 	})
 
-/*--__BUTTONSTATE__--*/
-/*--__HANDLERASSIGNMENT__--*/
+	//button state
+	if (typeof hnd.init==='function') {
+		hnd.init({
+			form: form,
+			obj: obj,
+			opt: opt,
+			btn_action_click: (actionargs) => {
+				if (typeof btn_action_click == 'function') {
+					btn_action_click(actionargs);
+				}
+			}
+		})
+	}
 
 }
 
@@ -156,7 +173,7 @@ export function open(data, rowid, viewmode=true, fn_callback) {
 		updatefilebox(record);
 
 		/*
-/*--__NULLRESULTLOADED__--*/
+
 		*/
 		for (var objid in obj) {
 			let o = obj[objid]
@@ -178,7 +195,7 @@ export function open(data, rowid, viewmode=true, fn_callback) {
 
 		form.SuspendEvent(true);
 		form
-			.fill(record)/*--__LOOKUPSETVALUE__--*/
+			.fill(record)
 			.setViewMode(viewmode)
 			.lock(false)
 			.rowid = rowid
@@ -188,7 +205,9 @@ export function open(data, rowid, viewmode=true, fn_callback) {
 		   apabila ada rutin mengubah form dan tidak mau dijalankan pada saat opening,
 		   cek dengan form.isEventSuspended()
 		*/   
-		/*--__FORMOPENEDHANDLER__--*/
+		if (typeof hnd.form_dataopened == 'function') {
+			hnd.form_dataopened(result, options);
+		}
 
 
 		/* commit form */
@@ -234,18 +253,26 @@ export function createnew() {
 		form.rowid = null
 
 		// set nilai-nilai default untuk form
-/*--__SETDEFAULTNOW__--*/
-/*--__SETDEFAULTCOMBO__--*/
-/*--__FORMNEWDATAHANDLER__--*/
-/*--__RECORDSTATUSNEW__--*/
-/*--__UPLOADCREATENEW__--*/
-/*--__ACTIONBUTTONINITSTATE__--*/
+		data.optionlist_order = 0
+
+
+		if (typeof hnd.form_newdata == 'function') {
+			// untuk mengambil nilai ui component,
+			// di dalam handler form_newdata, gunakan perintah:
+			// options.OnNewData = () => {
+			// 		...
+			// }		
+			hnd.form_newdata(data, options);
+		}
+
+
+
 
 		options.OnCanceled = () => {
 			$ui.getPages().show('pnl_list')
 		}
 
-/*--__CREATENEW__--*/
+
 
 	})
 }
@@ -288,7 +315,7 @@ export function detil_open(pnlname) {
 
 function updatefilebox(record) {
 	// apabila ada keperluan untuk menampilkan data dari object storage
-/*--__UPLOADOPENED__--*/
+
 
 	if (typeof hnd.form_updatefilebox == 'function') {
 		hnd.form_updatefilebox(record);
@@ -297,7 +324,7 @@ function updatefilebox(record) {
 
 function updaterecordstatus(record) {
 	// apabila ada keperluan untuk update status record di sini
-/*--__RECORDSTATUSDATAOPEN__--*/
+
 
 	if (typeof hnd.form_updaterecordstatus == 'function') {
 		hnd.form_updaterecordstatus(record);
@@ -306,7 +333,7 @@ function updaterecordstatus(record) {
 
 function updatebuttonstate(record) {
 	// apabila ada keperluan untuk update state action button di sini
-/*--__ACTIONBUTTONSTATE__--*/
+
 
 	if (typeof hnd.form_updatebuttonstate == 'function') {
 		hnd.form_updatebuttonstate(record);
@@ -317,7 +344,7 @@ function updategridstate(record) {
 	var updategriddata = {}
 
 	// apabila ada keperluan untuk update state grid list di sini
-/*--__ACTIONUPDATEGRID__--*/
+
 
 	if (typeof hnd.form_updategridstate == 'function') {
 		hnd.form_updategridstate(updategriddata, record);
@@ -347,7 +374,7 @@ function form_viewmodechanged(viewmode) {
 }
 
 function form_idsetup(options) {
-	var objid = obj./*--__FORMCOMPID__--*/
+	var objid = obj.txt_optionlist_id
 	switch (options.action) {
 		case 'fill' :
 			objid.textbox('disable') 
@@ -376,7 +403,7 @@ async function form_datasaving(data, options) {
 	//    options.cancel = true
 
 	// Modifikasi object data, apabila ingin menambahkan variabel yang akan dikirim ke server
-	// options.skipmappingresponse = [/*--__SKIPPEDFIELD__--*/];
+	// options.skipmappingresponse = [];
 	options.skipmappingresponse = [];
 	for (var objid in obj) {
 		var o = obj[objid]
@@ -387,7 +414,9 @@ async function form_datasaving(data, options) {
 		}
 	}
 
-	/*--__FORMDATASAVINGHANDLER__--*/
+	if (typeof hnd.form_datasaving == 'function') {
+		hnd.form_datasaving(data, options);
+	}
 
 }
 
@@ -423,7 +452,7 @@ async function form_datasaved(result, options) {
 	var data = {}
 	Object.assign(data, form.getData(), result.dataresponse)
 	/*
-/*--__UPDATESKIPPEDFIELD__--*/
+
 	*/
 
 	var pOpt = form.getDefaultPrompt(false)
@@ -445,23 +474,28 @@ async function form_datasaved(result, options) {
 		rowid: form.rowid
 	}
 
-	/*--__FORMDATASAVEDHANDLER__--*/
+	if (typeof hnd.form_datasaved == 'function') {
+		hnd.form_datasaved(result, rowdata, options);
+	}
 }
 
 
 
 async function form_deleting(data, options) {
-	/*--__FORMDELETINGHANDLER__--*/
+	if (typeof hnd.form_deleting == 'function') {
+		hnd.form_deleting(data, options);
+	}
 }
 
 async function form_deleted(result, options) {
 	$ui.getPages().show('pnl_list')
 	$ui.getPages().ITEMS['pnl_list'].handler.removerow(form.rowid)
 
-	/*--__FORMDELETEDHANDLER__--*/
+	if (typeof hnd.form_deleted == 'function') {
+		hnd.form_deleted(result, options);
+	}
 }
 
-/*--__PRINTFUNCTION__--*/
 
 
-/*--__ACTIONFUNCTION__--*/
+

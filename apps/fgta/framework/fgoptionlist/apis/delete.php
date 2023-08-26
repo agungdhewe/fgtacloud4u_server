@@ -16,31 +16,31 @@ use \FGTA4\exceptions\WebException;
 
 
 /**
- * fgta/framework/fgsetting/apis/delete.php
+ * fgta/framework/fgoptionlist/apis/delete.php
  *
  * ======
  * Delete
  * ======
  * Menghapus satu baris data/record berdasarkan PrimaryKey
- * pada tabel header fgsetting (fgt_setting)
+ * pada tabel header fgoptionlist (fgt_optionlist)
  *
  * Agung Nugroho <agung@fgta.net> http://www.fgta.net
  * Tangerang, 26 Maret 2021
  *
  * digenerate dengan FGTA4 generator
- * tanggal 24/08/2023
+ * tanggal 25/08/2023
  */
-$API = new class extends fgsettingBase {
+$API = new class extends fgoptionlistBase {
 	
 	public function execute($data, $options) {
-		$tablename = 'fgt_setting';
-		$primarykey = 'setting_id';
+		$tablename = 'fgt_optionlist';
+		$primarykey = 'optionlist_id';
 
 		$userdata = $this->auth->session_get_user();
-		$handlerclassname = "\\FGTA4\\apis\\fgsetting_headerHandler";
+		$handlerclassname = "\\FGTA4\\apis\\fgoptionlist_headerHandler";
 		$hnd = null;
 		if (class_exists($handlerclassname)) {
-			$hnd = new fgsetting_headerHandler($options);
+			$hnd = new fgoptionlist_headerHandler($options);
 			$hnd->caller = &$this;
 			$hnd->db = &$this->db;
 			$hnd->auth = $this->auth;

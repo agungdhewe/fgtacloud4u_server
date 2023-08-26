@@ -145,6 +145,10 @@ module.exports = async (fsd, genconfig) => {
 
 	/* tambah alias tablename */
 	// var fieldsselect = 'A.' + fields.join(', A.');
+	var update_sqlFieldRow = [];
+	var update_tempRows = [];
+	var update_tempRowSqlField = '';
+
 	var sqlFieldRow = [];
 	var tempRows = [];
 	var tempRowSqlField = '';
@@ -162,12 +166,21 @@ module.exports = async (fsd, genconfig) => {
 			if (irow==0 && fields.length>1) {
 			} else {
 				sqlFieldRow.push(tempRowSqlField);	
+				update_sqlFieldRow.push(update_tempRowSqlField);
 			}
 
 			tempRows = []
+			update_tempRows = [];
 		}
 		tempRows.push(`'${fieldname}' => 'A.\`${fieldname}\`'`);
 		tempRowSqlField = tempRows.join(', ');
+
+		if (!['_createby', '_createdate', '_modifyby', '_modifydate'].includes(fieldname)) {
+			update_tempRows.push(`'${fieldname}'`);
+			update_tempRowSqlField = update_tempRows.join(', ');
+		}
+
+
 		irow++;
 	}
 
@@ -179,12 +192,22 @@ module.exports = async (fsd, genconfig) => {
 	var sqlfieldlist = sqlFieldRowIndented.join(`,\r\n`);
 
 
+	var update_sqlFieldRowIndented = [];
+	for (var str of update_sqlFieldRow) {
+		update_sqlFieldRowIndented.push(`\t\t\t\t\t${str}`);
+	}
+	var sqlupdatefield = update_sqlFieldRowIndented.join(`,\r\n`);
+
+
+
 
 
 
 	var mjstpl = path.join(genconfig.GENLIBDIR, 'tpl', 'tdetil-save_api.tpl')
 	var tplscript = fs.readFileSync(mjstpl).toString()
+	tplscript = tplscript.replace('/*{__SQLUPDATEFIELD__}*/', sqlupdatefield)
 	tplscript = tplscript.replace('/*{__SQLFIELDLIST__}*/', sqlfieldlist)
+
 	tplscript = tplscript.replace('/*{__TOSQLDATE__}*/', tosqldate)
 	tplscript = tplscript.replace('/*{__TOUPPERCASE__}*/', uppercasefields)
 	tplscript = tplscript.replace('/*{__FIELDRETSEL__}*/', fieldresturnsel)

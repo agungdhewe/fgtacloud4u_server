@@ -16,23 +16,23 @@ use \FGTA4\exceptions\WebException;
 
 
 /**
- * fgta/framework/fgsetting/apis/xapi.base.php
+ * fgta/framework/fgoptionlist/apis/xapi.base.php
  *
- * fgsettingBase
+ * fgoptionlistBase
  * Kelas dasar untuk keperluan-keperluan api
- * kelas ini harus di-inherit untuk semua api pada modul fgsetting
+ * kelas ini harus di-inherit untuk semua api pada modul fgoptionlist
  *
  * Agung Nugroho <agung@fgta.net> http://www.fgta.net
  * Tangerang, 26 Maret 2021
  *
  * digenerate dengan FGTA4 generator
- * tanggal 24/08/2023
+ * tanggal 25/08/2023
  */
-class fgsettingBase extends WebAPI {
+class fgoptionlistBase extends WebAPI {
 
-	protected $main_tablename = "fgt_setting";
-	protected $main_primarykey = "setting_id";
-	protected $main_field_version = "setting_version";	
+	protected $main_tablename = "fgt_optionlist";
+	protected $main_primarykey = "optionlist_id";
+	protected $main_field_version = "optionlist_version";	
 	
 	
 
@@ -40,7 +40,7 @@ class fgsettingBase extends WebAPI {
 
 	function __construct() {
 
-		// $logfilepath = __LOCALDB_DIR . "/output//*fgsetting*/.txt";
+		// $logfilepath = __LOCALDB_DIR . "/output//*fgoptionlist*/.txt";
 		// debug::disable();
 		// debug::start($logfilepath, "w");
 

@@ -18,10 +18,6 @@ export async function init(opt) {
 	this_page_id = opt.id;
 	this_page_options = opt;
 
-	if (opt.settings.btn_new_visible===false) {
-		btn_new.hide();
-	} 
-
 	grd_list = new global.fgta4grid(tbl_list, {
 		OnRowFormatting: (tr) => { grd_list_rowformatting(tr) },
 		OnRowClick: (tr, ev) => { grd_list_rowclick(tr, ev) },
@@ -131,6 +127,9 @@ function btn_load_click() {
 			hnd.customsearch(options);
 		}
 		
+		if (typeof hnd.list_loading == 'function') {
+			hnd.list_loading(options);
+		}
 		// switch (this_page_options.variancename) {
 		// 	case 'commit' :
 		//		break;
@@ -139,7 +138,9 @@ function btn_load_click() {
 	}
 
 	var fn_listloaded = async (result, options) => {
-		// console.log(result)
+		if (typeof hnd.list_loaded == 'function') {
+			hnd.list_loaded(result, options);
+		}
 	}
 
 	grd_list.listload(fn_listloading, fn_listloaded)

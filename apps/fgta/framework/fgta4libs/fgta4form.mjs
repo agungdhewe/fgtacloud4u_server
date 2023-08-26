@@ -38,7 +38,9 @@ export function fgta4form(frm, opt) {
 	self.OnFormInit = typeof self.options.OnFormInit === 'function' ? self.options.OnFormInit : ()=>{}
 	self.OnRecordStatusCreated = typeof self.options.OnRecordStatusCreated === 'function' ? self.options.OnRecordStatusCreated : ()=>{}
 	self.OnAboutCreated = typeof self.options.OnAboutCreated === 'function' ? self.options.OnAboutCreated : ()=>{}
+	self.OnGettingData = typeof self.options.OnGettingData === 'function' ? self.options.OnGettingData : ()=>{}
 	
+
 	self.recordstatus = {
 		_createby: '',
 		_createby_username: '',
@@ -1100,6 +1102,9 @@ function getData(self) {
 	}
 
 	data.FILES = FILES;
+
+	self.OnGettingData(data);
+
 	return data
 }
 

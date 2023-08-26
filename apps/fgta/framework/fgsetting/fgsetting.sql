@@ -25,10 +25,10 @@ ALTER TABLE `fgt_setting` ADD COLUMN IF NOT EXISTS  `setting_tag` varchar(255)  
 ALTER TABLE `fgt_setting` ADD COLUMN IF NOT EXISTS  `setting_descr` varchar(255)   AFTER `setting_tag`;
 
 
-ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_value` varchar(255)   AFTER `setting_id`;
-ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_scope` varchar(255)   AFTER `setting_value`;
-ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_tag` varchar(255)   AFTER `setting_scope`;
-ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_descr` varchar(255)   AFTER `setting_tag`;
+ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_value` varchar(255)    AFTER `setting_id`;
+ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_scope` varchar(255)    AFTER `setting_value`;
+ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_tag` varchar(255)    AFTER `setting_scope`;
+ALTER TABLE `fgt_setting` MODIFY COLUMN IF EXISTS  `setting_descr` varchar(255)    AFTER `setting_tag`;
 
 
 

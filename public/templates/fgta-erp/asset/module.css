@@ -380,6 +380,25 @@ h1 {
 	display: inline-block;
 }
 
+@media screen and (min-width: 521px) {
+	.form_row_split {
+		display: flex;
+		flex-direction: row;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.form_row_split > div {
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	.form_row_split {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+}
 
 @media screen and (max-width: 520px) {
 

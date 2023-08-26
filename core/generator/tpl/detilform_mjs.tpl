@@ -47,7 +47,9 @@ export async function init(opt) {
 		OnDataDeleting: async (data, options) => { await form_deleting(data, options) },
 		OnDataDeleted: async (result, options) => { await form_deleted(result, options) },
 		OnIdSetup : (options) => { form_idsetup(options) },
-		OnViewModeChanged : (viewonly) => { form_viewmodechanged(viewonly) }
+		OnViewModeChanged : (viewonly) => { form_viewmodechanged(viewonly) },
+		OnGettingData: (data) => { form_gettingdata(data) },
+
 	});
 	form.getHeaderData = () => {
 		return header_data;
@@ -390,6 +392,15 @@ async function form_deleted(result, options) {
 function updatefilebox(record) {
 	// apabila ada keperluan untuk menampilkan data dari object storage
 /*--__UPLOADOPENED__--*/
+}
+
+
+function form_gettingdata(data) {
+	if (hnd!=null) {
+		if (typeof hnd.form_gettingdata == 'function') {
+			hnd.form_gettingdata(data);
+		}
+	}
 }
 
 function form_viewmodechanged(viewonly) {

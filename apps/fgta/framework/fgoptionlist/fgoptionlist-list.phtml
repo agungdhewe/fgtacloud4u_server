@@ -1,9 +1,9 @@
 <div id="pnl_list">
-	<div class="fgta-page-title">Daftar Setting</div>
+	<div class="fgta-page-title">Daftar Option List</div>
 
 	<div id="pnl_list-pnl_head" style="display: flex; align-items: flex-end">
 		<?php
-		$customheadbutton = __DIR__.'/fgsetting-list-customheadbutton.phtml'; 
+		$customheadbutton = __DIR__.'/fgoptionlist-list-customheadbutton.phtml'; 
 		if (is_file($customheadbutton)) {
 			include $customheadbutton;
 		} else { ?>
@@ -13,7 +13,7 @@
 		<?php } ?>
 
 		<?php
-		$customsearch = __DIR__.'/fgsetting-list-customsearch.phtml'; 
+		$customsearch = __DIR__.'/fgoptionlist-list-customsearch.phtml'; 
 		if (is_file($customsearch)) {
 			include $customsearch;
 		} else { ?>
@@ -34,24 +34,20 @@
 	<div style="margin-top: 10px">
 		<table id="pnl_list-tbl_list" paging="true" cellspacing="0" width="100%" class="deftable">
 			<?php
-			$customview = __DIR__.'/fgsetting-list-customview.phtml'; 
+			$customview = __DIR__.'/fgoptionlist-list-customview.phtml'; 
 			if (is_file($customview)) {
 				include $customview;
 			} else { ?>
 
 			<thead>
 				<tr>
-					<th mapping="setting_id">setting_id</th>
-					<th mapping="setting_value">setting_value</th>
-					<th mapping="setting_scope">setting_scope</th>
-					<th mapping="setting_tag">setting_tag</th>
+					<th mapping="optionlist_id">optionlist_id</th>
+					<th mapping="optionlist_name">optionlist_name</th>
 
 				</tr>
 				<tr style="background-color: #cccccc; height: 30px">
 					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">ID</td>
-					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Value</td>
-					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Scope</td>
-					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Tag</td>
+					<td class="fgtable-head" style="width: 100px; border-bottom: 1px solid #000000">Option Name</td>
 
 				</tr>
 			</thead>
@@ -63,14 +59,14 @@
 
 
 	<?php
-	$customfootbutton = __DIR__.'/fgsetting-list-customfootbutton.phtml'; 
+	$customfootbutton = __DIR__.'/fgoptionlist-list-customfootbutton.phtml'; 
 	if (is_file($customfootbutton)) {
 		include $customfootbutton;
 	} 
 	?>	
 
 	<?php
-	$custompagefooter = __DIR__.'/fgsetting-list-custompagefooter.phtml'; 
+	$custompagefooter = __DIR__.'/fgoptionlist-list-custompagefooter.phtml'; 
 	if (is_file($custompagefooter)) {
 		include $custompagefooter;
 	} 
