@@ -31,7 +31,7 @@ use \FGTA4\exceptions\WebException;
  * Tangerang, 26 Maret 2021
  *
  * digenerate dengan FGTA4 generator
- * tanggal 25/08/2023
+ * tanggal 31/08/2023
  */
 $API = new class extends fgoptionlistBase {
 	

@@ -4,7 +4,7 @@
 	"modules": [
 		"fgta/framework/fgoptionlist",
 		"fgta/framework/fgsetting",
-
+		"finact/master/periodemo",
 		"finact/master/coagroup",
 		"finact/master/coa",
 		"finact/master/jurnalsource",
@@ -14,7 +14,10 @@
 		{"program":"finact/acct/jurnal",  "variancename":"unposting"},
 		{"program":"finact/acct/jurnal",  "variancename":"link"},
 		{"program":"finact/acct/jurnal",  "variancename":"unlink"},
-		"finact/acct/rptledgersummary"
+		"finact/acct/rptledgertrial",
+		"finact/acct/rptledgersummary",
+		"finact/acct/rptledgerlapkeu",
+		"finact/acct/rptaging"
 	]
 	
 }

@@ -213,7 +213,7 @@ export async function openpage(self, api, args) {
 
 
 
-function rpt_export(self, tablename, filename, sheetname, params) {
+function rpt_export(self, tablename, filename, sheetname, wbprops) {
 	var iframe = self.iframe;
 	var obj = iframe.contentWindow.document.getElementById(tablename);
 
@@ -223,10 +223,20 @@ function rpt_export(self, tablename, filename, sheetname, params) {
 		td.innerHTML = td.innerHTML.replace(/,/g,''); //replaces , globally
 		td.innerHTML = td.innerHTML.replace(/>-</g,'><'); //replaces cells only containing - globally
 	}
+
+	// https://github.com/linways/table-to-excel
 	TableToExcel.convert(table, {
 		name: filename,
 		sheet: {
 		  name: sheetname==null ? 'Sheet1' : sheetname
-		}
+		},
+
+		// property add
+		subject: wbprops.subject ?? '',
+		title: wbprops.title ?? '',
+		creator: wbprops.creator ?? 'FGTA Table To Excel',
+		company: wbprops.company ?? 'Ferrine Aplikasi Nusantara',
+		description: wbprops.description ?? '',
+		keywords: wbprops.keywords ?? ''
 	});
 }

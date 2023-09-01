@@ -13,7 +13,7 @@ module.exports = {
 		primarykeys: ['optionlist_id'],
 		data: {
 			optionlist_id: { text: 'ID', type: dbtype.varchar(10), uppercase: true, null: false, options: { required: true, invalidMessage: 'ID harus diisi' } },
-			optionlist_name: { text: 'Option Name', type: dbtype.varchar(30), options: { required: true, invalidMessage: 'Nama Option harus diisi' } },
+			optionlist_name: { text: 'Option Name', type: dbtype.varchar(120), options: { required: true, invalidMessage: 'Nama Option harus diisi' } },
 			optionlist_descr: { text: 'Descr', type: dbtype.varchar(255), suppresslist: true },
 			optionlist_tag: { text: 'Tag', type: dbtype.varchar(255), suppresslist: true },
 			optionlist_order: { 
