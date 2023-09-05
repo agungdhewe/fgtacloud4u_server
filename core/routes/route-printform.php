@@ -17,6 +17,7 @@ use \FGTA4\WebAuth;
 class PrintformRoute extends Route {
 
 	public function ProcessRequest(object $reqinfo) : void {
+		$MODULE = null;
 
 		try {
 			//$this->PrepareRequestModule($reqinfo);
@@ -25,21 +26,119 @@ class PrintformRoute extends Route {
 			$modulefullname = $reqinfo->modulefullname;
 			$reqinfo->moduledir = implode('/', [__ROOT_DIR, 'apps', $modulefullname]);
 
-			$path_xprintform_php = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".php"]);
-			$path_xprintform_phtml = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".phtml"]);
-
-			if (!is_file($path_xprintform_php)) {
-				throw new \Exception("file '$path_xprintform_php' tidak ditemukan");
+			if (!array_key_exists('format', $_GET)) {
+				throw new \Exception('format belum didefinisikan di GET');
 			}
 
-			if (!is_file($path_xprintform_phtml)) {
-				throw new \Exception("file '$path_xprintform_phtml' tidak ditemukan");
+			if (!array_key_exists('renderto', $_GET)) {
+				throw new \Exception('renderto belum didefinisikan di GET');
 			}
 
-			require_once $path_xprintform_php;
-			echo "test test test";
+			$format = $_GET['format'];
+			$renderto = $_GET['renderto'];
+
+			$rn = pathinfo($renderto);
+			$renderfilename = $rn['filename'];
+			
+			
+			$this->path_template_phtml = __ROOT_DIR."/public/templates/fgta-printout/$renderfilename.phtml";
+			$this->path_template_css = __ROOT_DIR."/public/templates/fgta-printout/asset/$renderfilename.css";
+			$this->path_xprint_css = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".css"]);
+			$this->path_xprint_mjs = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".mjs"]);
+			$this->path_xprint_php = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".php"]);
+			$this->path_xprint_phtml = implode('/', [$reqinfo->moduledir, $reqinfo->params->scriptparam . ".phtml"]);
+
+
+
+			$reqinfo->modulecsspath = $this->path_xprint_php;
+			$reqinfo->moduleviewpath = $this->path_xprint_phtml;
+			$reqinfo->modulejspath = $this->path_xprint_mjs;
+			$reqinfo->modulejsurl = implode("/", ['./index.php/asset', $reqinfo->modulefullname, $reqinfo->params->scriptparam . ".mjs"]);
+			$reqinfo->modulecsspath = $this->path_xprint_css;
+			$reqinfo->modulecssurl = implode("/", ['./index.php/asset', $reqinfo->modulefullname, $reqinfo->params->scriptparam . ".css"]);
+			$reqinfo->variancename = array_key_exists('variancename', $_GET) ? $_GET['variancename'] : '';
+
+
+			// set dummy user
+			// $this->auth = new WebAuthDummy();
+
+			// *
+			if (array_key_exists('tokenid', $_COOKIE)) {
+				$tokenid = $_COOKIE['tokenid'];
+				WebSession::start($tokenid);
+				$this->auth = new WebAuth();
+				if (!$this->auth->is_login()) {
+					throw new \Exception('You are not authorized to open this page');
+				}
+			} else {
+				throw new \Exception('token not present!');
+			}
 			
 
+			// cek files
+			$filestocheck = [
+				$this->path_template_phtml, $this->path_template_css, 
+				$this->path_xprint_php, $this->path_xprint_phtml, $this->path_xprint_mjs, $this->path_xprint_css
+			];
+			
+			foreach ($filestocheck as $filepath) {
+				if (!is_file($filepath)) {
+					throw new \Exception("File '$filepath' tidak ditemukan");
+				}
+			}
+
+			require_once $this->path_xprint_php;
+			$MODULE->title = "Report Display";
+			$MODULE->reqinfo = $reqinfo;
+			$MODULE->auth = $this->auth;
+			$MODULE->urlparams = $reqinfo->params;
+			$MODULE->configuration = (object)[
+				'basetitle' => $MODULE->title
+			];
+
+
+			$this->MODULE = &$MODULE;
+			//if (property_exists($this->MODULE->urlparams, 'testpreview')) {
+			if (array_key_exists('testpreview', $_GET)) {	
+				if (!method_exists($this->MODULE, 'TestPreview')) {
+					throw new \Exception('fungsi TestPreview tidak tersedia di module!');
+				}
+				$this->MODULE->TestPreview();
+			} else {
+
+				$this->postdata = $this->getPostData();
+				$this->api_class = get_class($this->MODULE);
+				$this->api_method = new \ReflectionMethod($this->api_class, 'LoadPage');
+				$this->api_params = $this->api_method->getParameters();
+				$this->api_executingparameters = [];
+
+				// cek apakah methodnya lewat post
+				if ($_SERVER['REQUEST_METHOD']!='POST') {
+					//throw new \FGTA4\exceptions\WebException("hanya bisa diakses via POST!", 405);
+					// simulasi data lewat get 
+					$this->postdata->requestParam = new \stdClass;
+					foreach ($_GET as $n=>$v) {
+						$this->postdata->requestParam->{$n} = $v;
+					}
+				}
+
+	
+				foreach ($this->api_params as $param) {
+					$paramname = $param->getName();
+					
+					if (property_exists($this->postdata->requestParam, $paramname)) {
+						$this->api_executingparameters[$paramname] = $this->postdata->requestParam->$paramname;
+					} else {
+						$this->api_executingparameters[$paramname] = null;
+						throw new \FGTA4\exceptions\WebException(
+							"Eksekusi API membutuhkan POST parameter '$paramname' !"
+						);
+					}
+				}
+
+				$this->api_method->invokeArgs($this->MODULE, $this->api_executingparameters);
+			}
+			
 		} catch (\Exception $ex) {
 			throw $ex;
 		}
@@ -47,16 +146,65 @@ class PrintformRoute extends Route {
 	}
 
 	public function SendHeader() : void {
+		\header('Content-Type: text/html');
 	}
 
 	public function ShowResult() : void {
+		$content = $this->content;
+		$MODULE = $this->MODULE;
+		$MODULE->Render($content, $this->path_template_phtml);
 	}
 
 	public function ShowError(object $ex) : void {
-		echo $ex->getMessage();
+		$content = ob_get_contents();
+		ob_end_clean();
+
+		if (!property_exists($ex, 'errorstatusmessage')) {
+			$ex->errorstatusmessage = $ex->getMessage();
+			$ex->errorstatus = 500;
+		}
+
+		$err = new \FGTA4\ErrorPage($ex->errorstatusmessage, $ex->errorstatus);
+		$err->content = $content;
+		$err->Show($ex->getMessage());		
 	}
 
 
+	public function getPostData() : object {
+		try {
+
+			if ($_SERVER['REQUEST_METHOD']!='POST') {
+				return (object) [
+					'txid' => null,
+					'requestParam' => []
+				];
+			}
+
+			$content = 	file_get_contents('php://input');
+			$postdata = json_decode(stripslashes($content));
+			if ($postdata === null && json_last_error() !== JSON_ERROR_NONE) {
+				throw new \Exception('Format request body JSON salah', 9001);
+			}
+
+			// if (!array_key_exists('txid', $postdata)) {
+			if (!property_exists($postdata, 'txid')) {	
+				throw new \Exception('txid belum didefinisiakn di request body', 9002);
+			}
+
+			// if (!array_key_exists('requestParam', $postdata)) {
+			if (!property_exists($postdata, 'requestParam')) {		
+				throw new \Exception('requestParam belum didefinisikan di request body', 9003);
+			}
+
+
+			return (object) [
+				'txid' => $postdata->txid,
+				'requestParam' => $postdata->requestParam
+			];
+		} catch (\Exception $ex) {
+			throw $ex;
+		}
+	}
 
 }
 

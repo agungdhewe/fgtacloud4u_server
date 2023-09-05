@@ -1,0 +1,36 @@
+reference:
+
+https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium
+
+
+
+chrome --headless --print-to-pdf="d:\\{{path and file name}}.pdf" https://google.com
+
+
+
+di mac os, buat dulu alias buat perintah agar bisa panggil chrome langsung
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
+
+coba hasilnya
+yang mau di save pdf
+https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa
+
+chrome --headless -- --print-to-pdf="/Users/agung/Downloads/AP230800006.pdf" "https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa"
+-- dengan metodo ini sudah berhasil
+
+
+dengan profile (test dulu)
+AP230800006
+--profile-directory=Profile 1
+chrome --headless --profile-directory="Profile 1" --print-to-pdf="/Users/agung/Downloads/AP230800006.pdf" "https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa"
+chrome --headless --profile-directory="Profile 2" --print-to-pdf="/Users/agung/Downloads/AP230800006.pdf" "https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa"
+chrome --headless --user-data-dir="/Users/agung/Library/Application Support/Google/Chrome" --profile-directory="Profile 1" --print-to-pdf="/Users/agung/Downloads/AP230800006.pdf" "https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa"
+chrome --headless=new --user-data-dir="/Users/agung/Library/Application Support/Google/Chrome" --profile-directory="Profile 1" --print-to-pdf="/Users/agung/Downloads/AP230800006.pdf" "https://fgta4.localhost/tfimpor/index.php/printform/finact/acct/jurnal/jurnal.xprint?renderto=formtemplate-standard.phtml&format=format-01-a4-potrait&id=AP230800006&variancename=aaa"
+-- sampai dengan tanggal 2023-09-03 belum berhasil 
+-- cookie dari profile 1 tidak dimiliki oleh yg headless
+-- session dari existing login profile 1 tidak ikut di headless
+-- tokenid tidak diterima server
+
+
