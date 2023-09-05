@@ -214,6 +214,7 @@ $API = new class extends /*{__BASENAME__}*/Base {
 					$hnd->DataOpen($dataresponse);
 				}
 
+				$result->username = $userdata->username;
 				$result->dataresponse = (object) $dataresponse;
 				if (method_exists(get_class($hnd), 'DataSavedSuccess')) {
 					// DataSavedSuccess(object &$result) : void
