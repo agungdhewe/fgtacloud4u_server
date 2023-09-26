@@ -849,25 +849,33 @@ function btn_print_click() {
 		return;
 	}
 
-	var id = form.getCurrentId();
-	var variancename = this_page_options.variancename;
 	var module = window.global.modulefullname;
 	var renderto = 'formtemplate-standard.phtml';
 	var format = 'format-01-a4-potrait';
-	var reportmodule = \`\${module}/${basename}.xprint?renderto=\${renderto}&format=\${format}\`;
 
-	// var header_data = getHeaderData();
-	$ui.getPages().show('pnl_editpreview', ()=>{
-		console.log('Preview Showed');
-		$ui.getPages().ITEMS['pnl_editpreview'].handler.PreviewForm({
-			id: id, 
-			variancename: variancename,
-			reportmodule: reportmodule
+	var args = {
+		id: form.getCurrentId(),
+		variancename: this_page_options.variancename,
+		reportmodule: \`\${module}/${basename}.xprint?renderto=\${renderto}&format=\${format}\`,
+		handled: false
+	}
+
+	if (typeof hnd.form_printing == 'function') {
+		hnd.form_printing(args);
+	}
+
+
+	if (!args.handled) {
+		$ui.getPages().show('pnl_editpreview', ()=>{
+			// console.log('Preview Showed');
+			$ui.getPages().ITEMS['pnl_editpreview'].handler.PreviewForm({
+				id: args.id, 
+				variancename: args.variancename,
+				reportmodule: args.reportmodule
+			});
 		});
-	})
-
+	}
 }	
-
 
 `;
 }

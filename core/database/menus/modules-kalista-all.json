@@ -2,11 +2,22 @@
 
 	"title": "home",
 	"modules": [
+
+		{
+			"title": "Merchandise",
+			"modules" : [
+				"retail/merch/merchreg",
+				"retail/merch/merchorderout",
+				"retail/sales/merchorderin"
+			]
+		},	
 		{
 			"title": "Setup",
 			"modules" : [
 				"fgta/framework/fgoptionlist",
-				"fgta/framework/fgsetting"
+				"fgta/framework/fgsetting",
+				"ent/affiliation/partner",
+				"ent/organisation/unit"
 			]
 		},	
 		{
@@ -34,8 +45,7 @@
 				"retail/master/merchshipbudgetacc",
 				"retail/merch/merchship",
 				"retail/merch/merchrv",
-				"retail/merch/merchbillin",
-				"retail/merch/merchorderout"
+				"retail/merch/merchbillin"
 			]
 		}
 

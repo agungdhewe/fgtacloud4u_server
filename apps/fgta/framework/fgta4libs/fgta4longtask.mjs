@@ -99,8 +99,8 @@ function task_cookie_set(self, pid, data) {
 }
 
 function task_cookie_remove(self) {
-	Cookies.remove(self.cookiename);
-	Cookies.remove(self.cookiename+'-data');
+	Cookies.remove(self.cookiename, {path: window.urlparams.cookiepath});
+	Cookies.remove(self.cookiename+'-data', {path: window.urlparams.cookiepath});
 }
 
 
